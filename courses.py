@@ -13,14 +13,25 @@ ACAD = Namespace('http://acad.io/schema#')
 ACADDATA = Namespace('http://acad.io/data#')
 VIVO = Namespace('http://vivoweb.org/ontology/core#')
 
+# List to store course keys so we can create new triples when accessing the .csv file that does not have them
+key_number_name = []
+
+
 for index, row in df.iterrows():
     g.add((URIRef(ACADDATA + row['Key']), RDF.type, VIVO.Course))
+
+    key = row['Key']
+    number = int("0")
+    name = ""
+
     if not pd.isnull(row['Title']):
         g.add((URIRef(ACADDATA + row['Key']), FOAF.name, Literal(row['Title'], datatype=XSD.string)))
     if not pd.isnull(row['Course code']):
         g.add((URIRef(ACADDATA + row['Key']), ACAD.courseSubject, Literal(row['Course code'], datatype=XSD.string)))
+        name = row['Course code']
     if not pd.isnull(row['Course number']):
-        g.add((URIRef(ACADDATA + row['Key']), ACAD.courseNumber, Literal(row['Course number'], datatype=XSD.Integer)))
+        g.add((URIRef(ACADDATA + row['Key']), ACAD.courseNumber, Literal(row['Course number'], datatype=XSD.int)))
+        number = row['Course number']
     if not pd.isnull(row['Description']):
         g.add((URIRef(ACADDATA + row['Key']), VIVO.description, Literal(row['Description'], datatype=XSD.string)))
     if not pd.isnull(row['Website']):
@@ -32,11 +43,11 @@ for index, row in df.iterrows():
     if not pd.isnull(row['Program']):
         g.add((URIRef(ACADDATA + row['Key']), VIVO.Program, Literal(row['Program'], datatype=XSD.string)))
 
+    # Create new entry in the list with course key, number, and name
+    key_number_name.append([key, number, name])
 
 
-url2 = 'opendata/CU_SR_OPEN_DATA_CATALOG-37272173.csv'
-# df2 = pd.read_csv(url2, sep=",", quotechar='"')
-
+url2 = 'opendata/CU_SR_OPEN_DATA_CATALOG.csv'
 columns = []
 
 with open(url2) as csv_file:
@@ -50,20 +61,27 @@ with open(url2) as csv_file:
             line_count += 1
         else:
             if row[5] == 'LEC':
-                key = g.value(predicate=ACAD.courseNumber, object=Literal(474, datatype=XSD.Integer))
-                if key != None:
-                    print(key)
+                # If a course has a lecture component, get it's name and number
+                name = row[1]
+                number = row[2]
+                # Iterate the list previously made containing the course keys
+                # If the name and number matches anything in the list, grab the course key
+                # Create a new triple stating that the course has a lecture component.
+                for element in key_number_name:
+                    if element[1] == number and element[2] == name:
+                        key = element[0]
+                        g.add((URIRef(ACADDATA + key), ACAD.has_component, ACAD.Lecture))
+            # -------------------------------------------------------------------------------------------------------
+            # TODO: Complete code to add a new triple with [Course key, has_component, acad.tutorial] (as done above)
+            # -------------------------------------------------------------------------------------------------------
+            elif row[5] == 'TUT':
+                continue
+            # -------------------------------------------------------------------------------------------------------
+            # TODO: Complete code to add a new triple with [Course key, has_component, acad.lab] (as done above)
+            # -------------------------------------------------------------------------------------------------------
+            elif row[5] == 'LAB':
+                continue
 
-# print(columns)
-
-# for index, row in df2.iterrows():
-#     if not pd.isnull(row['Component Code']):
-#         if row['Component Code'] == 'LEC':
-#             key = g.value(predicate=URIRef("http://acad.io/schema/courseNumber"), object=Literal(474, datatype=XSD.Integer))
-#             print(key)
-
-# for s, p, o in g:
-#     print(s, p, type(o), "\n\n")
 
 # print(g.serialize(format='turtle').decode('UTF-8'))
 g.serialize('coursesData.ttl', format='turtle')
