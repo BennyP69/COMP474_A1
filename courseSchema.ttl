@@ -1,0 +1,48 @@
+@base <http://example.org/>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix acad: <http://acad.io/schema#> .
+@prefix acaddata: <http://acad.io/data#> .
+@prefix vivo: <http://vivoweb.org/ontology/core#> .
+
+# vivo:Course was used instead------------------------------------------------------------------------------------------
+# acad:Course
+#   a rdfs:Class ;
+#   rdfs:label "Course"@en .
+
+acad:courseKey
+    a rdf:Property ;
+    rdfs:domain vivo:Course ;
+    rdfs:range xsd:string ;
+    rdfs:label "Course Key"@en ;
+    rdfs:comment "A course key is an abstract property to uniquely identify the course."@en .
+
+# foaf:name was used instead--------------------------------------------------------------------------------------------
+#acad:courseName
+#    a rdf:Property ;
+#    rdfs:domain vivo:Course ;
+#    rdfs:range xsd:string ;
+#    rdfs:label "Course Name"@en .
+
+acad:courseSubject
+    a rdf:Property ;
+    rdfs:domain vivo:Course ;
+    rdfs:range xsd:string ;
+    rdfs:label "Course Subject"@en ;
+    rdfs:comment "A course subject is the first part of a course code and is often a series of letters, indicating the course's general subject/discipline."@en .
+
+acad:courseNumber
+    a rdf:Property ;
+    rdfs:domain vivo:Course ;
+    rdfs:range xsd:Integer ;
+    rdfs:label "Course Number"@en ;
+    rdfs:comment "A course number is the second part of a course code and is often three to four digits long. The number identifies the course level and distinguish different courses that are from the same department at the same level."@en .
+
+# vivo:description was used instead-------------------------------------------------------------------------------------
+acad:courseDescription
+    a rdf:Property ;
+    rdfs:domain vivo:Course ;
+    rdfs:range xsd:string ;
+    rdfs:label "Course Description"@en .
