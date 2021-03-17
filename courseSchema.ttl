@@ -1,4 +1,3 @@
-@base <http://example.org/>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -7,10 +6,12 @@
 @prefix acaddata: <http://acad.io/data#> .
 @prefix vivo: <http://vivoweb.org/ontology/core#> .
 
-# vivo:Course was used instead------------------------------------------------------------------------------------------
-# acad:Course
-#   a rdfs:Class ;
-#   rdfs:label "Course"@en .
+acad:University
+    a rdfs:Class ;
+    rdfs:subClassOf foaf:Organization ;
+    rdfs:label "University"@en ;
+    rdfs:comment "University class"@en .
+
 
 acad:courseKey
     a rdf:Property ;
@@ -18,13 +19,6 @@ acad:courseKey
     rdfs:range xsd:string ;
     rdfs:label "Course Key"@en ;
     rdfs:comment "A course key is an abstract property to uniquely identify the course."@en .
-
-# foaf:name was used instead--------------------------------------------------------------------------------------------
-#acad:courseName
-#    a rdf:Property ;
-#    rdfs:domain vivo:Course ;
-#    rdfs:range xsd:string ;
-#    rdfs:label "Course Name"@en .
 
 acad:courseSubject
     a rdf:Property ;
@@ -40,9 +34,60 @@ acad:courseNumber
     rdfs:label "Course Number"@en ;
     rdfs:comment "A course number is the second part of a course code and is often three to four digits long. The number identifies the course level and distinguish different courses that are from the same department at the same level."@en .
 
-# vivo:description was used instead-------------------------------------------------------------------------------------
-acad:courseDescription
+acad:Lecture
+    a rdfs:Class ;
+    rdfs:label "Lecture"@en ;
+    rdfs:comment "Lecture component of a Course"@en .
+
+
+acad:lectureNumber
+    a rdf:Property ;
+    rdfs:domain acad:Lecture ;
+    rdfs:range xsd:Integer ;
+    rdfs:label "Lecture Number"@en ;
+    rdfs:comment "Lecture number in a course"@en .
+
+acad:lectureName
+    a rdf:Property ;
+    rdfs:domain acad:Lecture ;
+    rdfs:range xsd:String ;
+    rdfs:label "Lecture Name"@en ;
+    rdfs:comment "Name of lecture in a course"@en .
+
+acad:Slides
+    a foaf:Document ;
+    rdfs:label "Lecture slides"@en ;
+    rdfs:comment "Lecture slides for a course lecture"@en .
+
+acad:Worksheet
+    a foaf:Document ;
+    rdfs:label "Worksheet"@en ;
+    rdfs:comment "Worksheet for a course"@en .
+
+acad:Reading
+    a foaf:Document ;
+    rdfs:label "Reading"@en ;
+    rdfs:comment "Reading assigned for a course lecture"@en .
+
+acad:otherLectureContent
+    a foaf:Document ;
+    rdfs:label "Other Content"@en ;
+    rdfs:comment "Reading assigned for a course lecture"@en .
+
+acad:lectureContent
+    a rdf:Property ;
+    rdfs:domain acad:Lecture ;
+    rdfs:range acad:Slides ;
+    rdfs:label "Lecture Name"@en ;
+    rdfs:comment "Name of lecture in a course"@en .
+
+
+# ---------------------------------------------------------------------------
+#   TODO: ADD LABS/TUTS TO "acad:has_component" (add two more rdfs:range)
+# ---------------------------------------------------------------------------
+acad:has_component
     a rdf:Property ;
     rdfs:domain vivo:Course ;
-    rdfs:range xsd:string ;
-    rdfs:label "Course Description"@en .
+    rdfs:range acad:Lecture ;
+    rdfs:label "Course has component"@en ;
+    rdfs:comment "A component belonging to a course. Can be Lecture/Lab/Tutorial."@en .
