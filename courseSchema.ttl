@@ -57,26 +57,12 @@ acad:lectureNumber
     rdfs:range xsd:int ;
     rdfs:label "Lecture Number"@en ;
     rdfs:comment "Lecture number in a course"@en .
-acad:lectureName
+acad:has_content
     a rdf:Property ;
     rdfs:domain acad:Lecture ;
-    rdfs:range xsd:String ;
-    rdfs:label "Lecture Name"@en ;
-    rdfs:comment "Name of lecture in a course"@en .
-acad:lectureContent
-    a rdf:Property ;
-    rdfs:domain acad:Lecture ;
-    rdfs:range acad:Slides ;
-    rdfs:range acad:Worksheet ;
-    rdfs:range acad:Reading ;
-    rdfs:range acad:otherLectureContent ;
+    rdfs:range acad:Slides, acad:Worksheet, acad:Reading, acad:otherLectureContent;
     rdfs:label "Lecture content"@en ;
     rdfs:comment "Content for a course lecture"@en .
-acad:lectureLink
-    a rdfs:seeAlso ;
-    rdfs:domain acad:Lecture ;
-    rdfs:label "Lecture Link"@en ;
-    rdfs:comment "Link to information for a course lecture"@en .
 
 acad:Slides
     a foaf:Document ;
