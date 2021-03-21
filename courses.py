@@ -53,6 +53,8 @@ columns = []
 with open(url2) as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
     line_count = 0
+    name = ""
+    number = ""
 
     for row in csv_reader:
         if line_count == 0:
@@ -75,12 +77,26 @@ with open(url2) as csv_file:
             # TODO: Complete code to add a new triple with [Course key, has_component, acad.tutorial] (as done above)
             # -------------------------------------------------------------------------------------------------------
             elif row[5] == 'TUT':
-                continue
+                # If a lecture has a tutorial component, get name and number
+                name = row[1]
+                number = row[2]
+                for element in key_number_name:
+                    if element[1] == number and element[2] == name:
+                        key = element[0]
+                        g.add((URIRef(ACADDATA + key), ACAD.has_component, ACAD.Tutorial))
+
+
             # -------------------------------------------------------------------------------------------------------
             # TODO: Complete code to add a new triple with [Course key, has_component, acad.lab] (as done above)
             # -------------------------------------------------------------------------------------------------------
             elif row[5] == 'LAB':
-                continue
+                # If a lecture has a laboratory component, get name and number
+                name = row[1]
+                number = row[2]
+                for element in key_number_name:
+                    if element[1] == number and element[2] == name:
+                        key = element[0]
+                        g.add((URIRef(ACADDATA + key), ACAD.has_component, ACAD.Lab))
 
 
 # print(g.serialize(format='turtle').decode('UTF-8'))

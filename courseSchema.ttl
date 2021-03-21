@@ -57,9 +57,10 @@ acad:lectureNumber
     rdfs:range xsd:int ;
     rdfs:label "Lecture Number"@en ;
     rdfs:comment "Lecture number in a course"@en .
+
 acad:has_content
     a rdf:Property ;
-    rdfs:domain acad:Lecture ;
+    rdfs:domain acad:Lecture, acad:Tutorial, acad:Lab ;
     rdfs:range acad:Slides, acad:Worksheet, acad:Reading, acad:otherLectureContent;
     rdfs:label "Lecture content"@en ;
     rdfs:comment "Content for a course lecture"@en .
@@ -85,13 +86,19 @@ acad:otherLectureContent
 # ---------------------------------------------------------------------------
 #                       L A B   D E F I N I T I O N S
 # ---------------------------------------------------------------------------
-# TODO
+acad:Tutorial
+    a rdfs: Class;
+    rdfs:label "Lecture Lab"@en ;
+    rdfs:comment "Laboratory associated with specific lecture."@en .
 
 
 # ---------------------------------------------------------------------------
 #                   T U T O R I A L   D E F I N I T I O N S
 # ---------------------------------------------------------------------------
-# TODO
+acad:Lab
+    a rdfs: Class ;
+    rdfs:label "Lecture Tutorial"@en ;
+    rdfs:comment "Tutorial associated with specific lecture."@en .
 
 
 # ---------------------------------------------------------------------------
