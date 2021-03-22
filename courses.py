@@ -1,5 +1,5 @@
 import pandas as pd  # for handling csv and csv contents
-from rdflib import Graph, Literal, RDF, URIRef, Namespace  # basic RDF handling
+from rdflib import Graph, Literal, RDF, URIRef, Namespace, Dataset  # basic RDF handling
 from rdflib.namespace import FOAF, RDFS, XSD  # most common namespaces
 import urllib.parse  # for parsing strings to URI's
 import csv
@@ -8,14 +8,26 @@ import csv
 url = 'opendata/CATALOG.csv'
 df = pd.read_csv(url, sep=",", quotechar='"')
 
-g = Graph()
+# Namespaces for our vocabulary items (schema information, existing vocabulary, etc.)
 ACAD = Namespace('http://acad.io/schema#')
 ACADDATA = Namespace('http://acad.io/data#')
 VIVO = Namespace('http://vivoweb.org/ontology/core#')
+DC = Namespace('http://purl.org/dc/terms/')
+
+# Initialize a dataset and bind namespaces
+dataset = Dataset()
+dataset.bind('ACAD', ACAD)
+dataset.bind('ACADDATA', ACADDATA)
+dataset.bind('VIVO', VIVO)
+dataset.bind('DC', DC)
+
+g = dataset.graph()
+
+# Load the externally defined schema into the default graph (context) of the dataset
+dataset.default_context.parse('courseSchema.ttl', format='turtle')
 
 # List to store course keys so we can create new triples when accessing the .csv file that does not have them
 key_number_name = []
-
 
 for index, row in df.iterrows():
     g.add((URIRef(ACADDATA + row['Key']), RDF.type, VIVO.Course))
@@ -33,7 +45,7 @@ for index, row in df.iterrows():
         g.add((URIRef(ACADDATA + row['Key']), ACAD.courseNumber, Literal(row['Course number'], datatype=XSD.int)))
         number = row['Course number']
     if not pd.isnull(row['Description']):
-        g.add((URIRef(ACADDATA + row['Key']), VIVO.description, Literal(row['Description'], datatype=XSD.string)))
+        g.add((URIRef(ACADDATA + row['Key']), DC.description, Literal(row['Description'], datatype=XSD.string)))
     if not pd.isnull(row['Website']):
         g.add((URIRef(ACADDATA + row['Key']), RDFS.seeAlso, Literal(row['Website'], datatype=XSD.string)))
     if not pd.isnull(row['Faculty']):
@@ -50,7 +62,7 @@ for index, row in df.iterrows():
 url2 = 'opendata/CU_SR_OPEN_DATA_CATALOG.csv'
 columns = []
 
-with open(url2) as csv_file:
+with open(url2, encoding='ISO-8859-1') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
     line_count = 0
     name = ""
@@ -99,5 +111,5 @@ with open(url2) as csv_file:
                         g.add((URIRef(ACADDATA + key), ACAD.has_component, ACAD.Lab))
 
 
-# print(g.serialize(format='turtle').decode('UTF-8'))
+print(g.serialize(format='turtle').decode('UTF-8'))
 g.serialize('coursesData.ttl', format='turtle')

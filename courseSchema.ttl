@@ -87,7 +87,7 @@ acad:otherLectureContent
 #                       L A B   D E F I N I T I O N S
 # ---------------------------------------------------------------------------
 acad:Tutorial
-    a rdfs: Class;
+    a rdfs:Class;
     rdfs:label "Lecture Lab"@en ;
     rdfs:comment "Laboratory associated with specific lecture."@en .
 
@@ -96,7 +96,7 @@ acad:Tutorial
 #                   T U T O R I A L   D E F I N I T I O N S
 # ---------------------------------------------------------------------------
 acad:Lab
-    a rdfs: Class ;
+    a rdfs:Class ;
     rdfs:label "Lecture Tutorial"@en ;
     rdfs:comment "Tutorial associated with specific lecture."@en .
 
