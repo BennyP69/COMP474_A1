@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5cd33d1d-bf75-4bf5-bea5-8218e6fa84bc" name="Default Changelist" comment="idk">
-      <change beforePath="$PROJECT_DIR$/.idea/COMP474_A1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/COMP474_A1.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="5cd33d1d-bf75-4bf5-bea5-8218e6fa84bc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/coursesData.ttl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courseSchema.ttl" beforeDir="false" afterPath="$PROJECT_DIR$/courseSchema.ttl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courses.py" beforeDir="false" afterPath="$PROJECT_DIR$/courses.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursesData.ttl" beforeDir="false" afterPath="$PROJECT_DIR$/coursesData.ttl" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,19 +129,27 @@
       <option name="project" value="LOCAL" />
       <updated>1616375027333</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="csv file encoding, dataset initialization and namespace binding">
+      <created>1616381601237</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1616381601237</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Converting courses data from csv file to rdf triples and adding them to graph g." />
     <MESSAGE value="idk" />
-    <option name="LAST_COMMIT_MESSAGE" value="idk" />
+    <MESSAGE value="csv file encoding, dataset initialization and namespace binding" />
+    <option name="LAST_COMMIT_MESSAGE" value="csv file encoding, dataset initialization and namespace binding" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="239" y="23" width="801" height="777" key="CommitChangelistDialog2" timestamp="1616381402267">
+    <state x="478" y="23" width="801" height="777" key="CommitChangelistDialog2" timestamp="1616381600883">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="239" y="23" width="801" height="777" key="CommitChangelistDialog2/0.0.1280.800@0.0.1280.800" timestamp="1616381402267" />
+    <state x="478" y="23" width="801" height="777" key="CommitChangelistDialog2/0.0.1280.800@0.0.1280.800" timestamp="1616381600883" />
     <state width="1280" height="213" key="GridCell.Tab.0.bottom" timestamp="1616381457336">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
@@ -170,10 +174,10 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="141" y="39" key="SettingsEditor/0.0.1280.800@0.0.1280.800" timestamp="1616379303918" />
-    <state x="240" y="140" key="Vcs.Push.Dialog.v2" timestamp="1615941026093">
+    <state x="240" y="140" key="Vcs.Push.Dialog.v2" timestamp="1616381693626">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="240" y="140" key="Vcs.Push.Dialog.v2/0.0.1280.800@0.0.1280.800" timestamp="1615941026093" />
+    <state x="240" y="140" key="Vcs.Push.Dialog.v2/0.0.1280.800@0.0.1280.800" timestamp="1616381693626" />
     <state x="399" y="141" key="VcsDiffUtil.ChangesDialog" timestamp="1616373129833">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
