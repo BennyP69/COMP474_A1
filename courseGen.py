@@ -36,6 +36,7 @@ for index, row in df.iterrows():
     number = int("0")
     name = ""
 
+    g.add((ACADDATA.Concordia_University, ACAD.offers, URIRef(ACADDATA + row['Key'])))
     if not pd.isnull(row['Title']):
         g.add((URIRef(ACADDATA + row['Key']), FOAF.name, Literal(row['Title'], datatype=XSD.string)))
     if not pd.isnull(row['Course code']):
@@ -84,31 +85,35 @@ with open(url2, encoding='ISO-8859-1') as csv_file:
                 for element in key_number_name:
                     if element[1] == number and element[2] == name:
                         key = element[0]
-                        g.add((URIRef(ACADDATA + key), ACAD.has_component, ACAD.Lecture))
+                        g.add((URIRef(ACADDATA + key), ACAD.courseHas, ACAD.Lecture))
             # -------------------------------------------------------------------------------------------------------
-            # TODO: Complete code to add a new triple with [Course key, has_component, acad.tutorial] (as done above)
+            # TODO: Complete code to add a new triple with [Course key, courseHas, acad.tutorial] (as done above)
             # -------------------------------------------------------------------------------------------------------
             elif row[5] == 'TUT':
-                # If a lecture has a tutorial component, get name and number
+                # If a course has a tutorial component, get name and number
                 name = row[1]
                 number = row[2]
                 for element in key_number_name:
                     if element[1] == number and element[2] == name:
                         key = element[0]
-                        g.add((URIRef(ACADDATA + key), ACAD.has_component, ACAD.Tutorial))
+                        g.add((URIRef(ACADDATA + key), ACAD.courseHas, ACAD.Tutorial))
 
 
             # -------------------------------------------------------------------------------------------------------
-            # TODO: Complete code to add a new triple with [Course key, has_component, acad.lab] (as done above)
+            # TODO: Complete code to add a new triple with [Course key, courseHas, acad.lab] (as done above)
             # -------------------------------------------------------------------------------------------------------
             elif row[5] == 'LAB':
-                # If a lecture has a laboratory component, get name and number
+                # If a course has a laboratory component, get name and number
                 name = row[1]
                 number = row[2]
                 for element in key_number_name:
                     if element[1] == number and element[2] == name:
                         key = element[0]
-                        g.add((URIRef(ACADDATA + key), ACAD.has_component, ACAD.Lab))
+                        g.add((URIRef(ACADDATA + key), ACAD.courseHas, ACAD.Lab))
+
+            # -------------------------------------------------------------------------------------------------------
+            # TODO: Complete code to add a new triple with [Course key, courseHas, acad.courseOutline] (as done above) for COMP474 & COMP346
+            # -------------------------------------------------------------------------------------------------------
 
             #Gotta code the "Topics" part + add course info for SOEN321 - GAB
             '''
@@ -127,4 +132,4 @@ with open(url2, encoding='ISO-8859-1') as csv_file:
             '''
 
 print(g.serialize(format='turtle').decode('UTF-8'))
-g.serialize('coursesData.ttl', format='turtle')
+# g.serialize('GraphData.ttl', format='turtle')

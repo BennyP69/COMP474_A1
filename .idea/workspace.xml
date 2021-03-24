@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5cd33d1d-bf75-4bf5-bea5-8218e6fa84bc" name="Default Changelist" comment="" />
+    <list default="true" id="5cd33d1d-bf75-4bf5-bea5-8218e6fa84bc" name="Default Changelist" comment="Added acad:offers to the university definitions, acad:courseOutline to the course definitions, changed acad:has_component to acad:courseHas and acad:has_content to acad:lectureHas, added acaddata.concordia triple and &quot;concordia offers course A&quot; triples into new GraphData.ttl file (we are not using coursesDate.ttl anymore).">
+      <change afterPath="$PROJECT_DIR$/.idea/csv-plugin.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GraphData.ttl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseGen.py" beforeDir="false" afterPath="$PROJECT_DIR$/courseGen.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/courseSchema.ttl" beforeDir="false" afterPath="$PROJECT_DIR$/courseSchema.ttl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coursesData.ttl" beforeDir="false" afterPath="$PROJECT_DIR$/coursesData.ttl" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,6 +38,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
   </component>
@@ -181,7 +189,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616468561281</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Added course COMP346 folder with outline, lectures, tutorials and assignments">
+      <created>1616468794788</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1616468794788</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -190,29 +205,30 @@
     <MESSAGE value="csv file encoding, dataset initialization and namespace binding" />
     <MESSAGE value="Updated coursesData turtle file with proper prefixes" />
     <MESSAGE value="Added course COMP346 folder with outline, lectures, tutorials and assignments" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added course COMP346 folder with outline, lectures, tutorials and assignments" />
+    <MESSAGE value="Added acad:offers to the university definitions, acad:courseOutline to the course definitions, changed acad:has_component to acad:courseHas and acad:has_content to acad:lectureHas, added acaddata.concordia triple and &quot;concordia offers course A&quot; triples into new GraphData.ttl file (we are not using coursesDate.ttl anymore)." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added acad:offers to the university definitions, acad:courseOutline to the course definitions, changed acad:has_component to acad:courseHas and acad:has_content to acad:lectureHas, added acaddata.concordia triple and &quot;concordia offers course A&quot; triples into new GraphData.ttl file (we are not using coursesDate.ttl anymore)." />
   </component>
   <component name="WindowStateProjectService">
-    <state x="282" y="23" width="801" height="777" key="CommitChangelistDialog2" timestamp="1616468652813">
+    <state x="282" y="23" width="801" height="777" key="CommitChangelistDialog2" timestamp="1616555037442">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="282" y="23" width="801" height="777" key="CommitChangelistDialog2/0.0.1280.800@0.0.1280.800" timestamp="1616468652813" />
-    <state width="738" height="280" key="GridCell.Tab.0.bottom" timestamp="1616468063789">
+    <state x="282" y="23" width="801" height="777" key="CommitChangelistDialog2/0.0.1280.800@0.0.1280.800" timestamp="1616555037442" />
+    <state width="1280" height="119" key="GridCell.Tab.0.bottom" timestamp="1616555037539">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="738" height="280" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1616468063789" />
-    <state width="738" height="280" key="GridCell.Tab.0.center" timestamp="1616468063787">
+    <state width="1280" height="119" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1616555037539" />
+    <state width="1280" height="119" key="GridCell.Tab.0.center" timestamp="1616555037537">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="738" height="280" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1616468063787" />
-    <state width="738" height="280" key="GridCell.Tab.0.left" timestamp="1616468063785">
+    <state width="1280" height="119" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1616555037537" />
+    <state width="1280" height="119" key="GridCell.Tab.0.left" timestamp="1616555037531">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="738" height="280" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1616468063785" />
-    <state width="738" height="280" key="GridCell.Tab.0.right" timestamp="1616468063788">
+    <state width="1280" height="119" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1616555037531" />
+    <state width="1280" height="119" key="GridCell.Tab.0.right" timestamp="1616555037538">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="738" height="280" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1616468063788" />
+    <state width="1280" height="119" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1616555037538" />
     <state x="351" y="123" width="596" height="554" key="MultipleFileMergeDialog" timestamp="1616468396019">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
@@ -221,10 +237,10 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="141" y="39" key="SettingsEditor/0.0.1280.800@0.0.1280.800" timestamp="1616379303918" />
-    <state x="240" y="140" key="Vcs.Push.Dialog.v2" timestamp="1616468675806">
+    <state x="240" y="140" key="Vcs.Push.Dialog.v2" timestamp="1616468804216">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="240" y="140" key="Vcs.Push.Dialog.v2/0.0.1280.800@0.0.1280.800" timestamp="1616468675806" />
+    <state x="240" y="140" key="Vcs.Push.Dialog.v2/0.0.1280.800@0.0.1280.800" timestamp="1616468804216" />
     <state x="399" y="141" key="VcsDiffUtil.ChangesDialog" timestamp="1616373129833">
       <screen x="0" y="0" width="1280" height="800" />
     </state>

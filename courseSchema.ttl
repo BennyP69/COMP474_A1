@@ -10,7 +10,6 @@
 @prefix vivo: <http://vivoweb.org/ontology/core#> .
 
 
-
 # ---------------------------------------------------------------------------
 #                 U N I V E R S I T Y   D E F I N I T I O N S
 # ---------------------------------------------------------------------------
@@ -20,6 +19,12 @@ acad:University
     rdfs:label "University"@en ;
     rdfs:comment "University class"@en .
 
+acad:offers
+    a rdf:Property ;
+    rdfs:domain acad:University ;
+    rdfs:range vivo:Course ;
+    rdfs:label "Univeristy A offers course B"@en ;
+    rdfs:comment "A univeristy offers a selection of courses."@en .
 
 # ---------------------------------------------------------------------------
 #                   C O U R S E   D E F I N I T I O N S
@@ -42,6 +47,10 @@ acad:courseNumber
     rdfs:range xsd:int ;
     rdfs:label "Course Number"@en ;
     rdfs:comment "A course number is the second part of a course code and is often three to four digits long. The number identifies the course level and distinguish different courses that are from the same department at the same level."@en .
+acad:courseOutline
+    a rdf:Class ;
+    rdfs:label "Course Outline"@en ;
+    rdfs:comment "A course outline is a document that summarizes the topics covered in a particular course."@en .
 
 
 # ---------------------------------------------------------------------------
@@ -58,11 +67,11 @@ acad:lectureNumber
     rdfs:label "Lecture Number"@en ;
     rdfs:comment "Lecture number in a course"@en .
 
-acad:has_content
+acad:lectureHas
     a rdf:Property ;
     rdfs:domain acad:Lecture, acad:Tutorial, acad:Lab ;
     rdfs:range acad:Slides, acad:Worksheet, acad:Reading, acad:otherLectureContent;
-    rdfs:label "Lecture content"@en ;
+    rdfs:label "Lecture has content"@en ;
     rdfs:comment "Content for a course lecture"@en .
 
 acad:Slides
@@ -110,9 +119,9 @@ acad:Lab
 # ---------------------------------------------------------------------------
 #   TODO: ADD LABS/TUTS TO "acad:has_component" (add two more rdfs:range)
 # ---------------------------------------------------------------------------
-acad:has_component
+acad:courseHas
     a rdf:Property ;
     rdfs:domain vivo:Course ;
-    rdfs:range acad:Lecture ;
-    rdfs:label "Has component"@en ;
-    rdfs:comment "A component belonging to a course. Can be Lecture/Lab/Tutorial."@en .
+    rdfs:range acad:courseOutline, acad:Lecture, acad:Tutorial, acad:Lab ;
+    rdfs:label "Course has component"@en ;
+    rdfs:comment "A component belonging to a course. Can be Outline/Lecture/Lab/Tutorial."@en .
