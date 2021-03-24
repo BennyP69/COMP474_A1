@@ -36,6 +36,7 @@ for index, row in df.iterrows():
     number = int("0")
     name = ""
 
+    g.add((ACADDATA.Concordia_University, ACAD.offers, URIRef(ACADDATA + row['Key'])))
     if not pd.isnull(row['Title']):
         g.add((URIRef(ACADDATA + row['Key']), FOAF.name, Literal(row['Title'], datatype=XSD.string)))
     if not pd.isnull(row['Course code']):
@@ -57,7 +58,6 @@ for index, row in df.iterrows():
 
     # Create new entry in the list with course key, number, and name
     key_number_name.append([key, number, name])
-
 
 url2 = 'opendata/CU_SR_OPEN_DATA_CATALOG.csv'
 columns = []
@@ -84,47 +84,81 @@ with open(url2, encoding='ISO-8859-1') as csv_file:
                 for element in key_number_name:
                     if element[1] == number and element[2] == name:
                         key = element[0]
-                        g.add((URIRef(ACADDATA + key), ACAD.has_component, ACAD.Lecture))
+                        g.add((URIRef(ACADDATA + key), ACAD.courseHas, ACAD.Lecture))
+
             # -------------------------------------------------------------------------------------------------------
-            # TODO: Complete code to add a new triple with [Course key, has_component, acad.tutorial] (as done above)
+            # TODO: Complete code to add a new triple with [Course key, courseHas, acad.tutorial] (as done above)
             # -------------------------------------------------------------------------------------------------------
             elif row[5] == 'TUT':
-                # If a lecture has a tutorial component, get name and number
+                # If a course has a tutorial component, get name and number
                 name = row[1]
                 number = row[2]
                 for element in key_number_name:
                     if element[1] == number and element[2] == name:
                         key = element[0]
-                        g.add((URIRef(ACADDATA + key), ACAD.has_component, ACAD.Tutorial))
-
+                        g.add((URIRef(ACADDATA + key), ACAD.courseHas, ACAD.Tutorial))
 
             # -------------------------------------------------------------------------------------------------------
-            # TODO: Complete code to add a new triple with [Course key, has_component, acad.lab] (as done above)
+            # TODO: Complete code to add a new triple with [Course key, courseHas, acad.lab] (as done above)
             # -------------------------------------------------------------------------------------------------------
             elif row[5] == 'LAB':
-                # If a lecture has a laboratory component, get name and number
+                # If a course has a laboratory component, get name and number
                 name = row[1]
                 number = row[2]
                 for element in key_number_name:
                     if element[1] == number and element[2] == name:
                         key = element[0]
-                        g.add((URIRef(ACADDATA + key), ACAD.has_component, ACAD.Lab))
+                        g.add((URIRef(ACADDATA + key), ACAD.courseHas, ACAD.Lab))
 
-            #Gotta code the "Topics" part + add course info for SOEN321 - GAB
-            '''
-            #temp example code for extracting text from PDF
+            # -------------------------------------------------------------------------------------------------------
+            # TODO: Complete code to add a new triple with [Course key, courseHas, acad.lab] (as done above)
+            # -------------------------------------------------------------------------------------------------------
+            elif row[5] == 'STU':
+                # If a course has a studio component, get name and number
+                name = row[1]
+                number = row[2]
+                for element in key_number_name:
+                    if element[1] == number and element[2] == name:
+                        key = element[0]
+                        g.add((URIRef(ACADDATA + key), ACAD.courseHas, ACAD.Studio))
 
-            import PyPDF2
-            pdfFileObj = open('blah.pdf', 'rb') #PDF name
+            # -------------------------------------------------------------------------------------------------------
+            # TODO: Complete code to add a new triple with [Course key, courseHas, acad.courseOutline] (as done above) for COMP474 & COMP346
+            # -------------------------------------------------------------------------------------------------------
+            # Don't all courses have an outline?
 
-            pdfReader = PyPDF2.PdfFileReader(pdfFileObj)
 
-            print(pdfReader.numPages)
-            pageObj = pdfReader.getPage(0)
+            # -------------------------------------------------------------------------------------------------------
+            # TODO: Link new Topic triple with respective course [Course key, courseHas, acad.lab]
+            # -------------------------------------------------------------------------------------------------------
+            if row[1] == "COMP" and row[2] == "346":
+                # Add Topic triples
+                all_topics = open("346topics.txt").readlines()
+                for topic in all_topics:
+                    topic = topic.replace("\n", "")
+                    topic_arg = topic.split("\" ")
+                    label = topic_arg[0].replace("\"", "")
+                    uri = topic_arg[1]
 
-            print(pageObj.extractText())
-            pdfFileObj.close()
-            '''
+                    g.add((URIRef(uri), RDF.type, URIRef("http://www.example.org/topic/")))
+                    g.add((URIRef(uri), RDFS.label, Literal(label.title())))
+                    # MUST FIND A WAY TO LINK THE TOPICS TO THE COURSE IN THE GRAPH
+                g.add((URIRef(ACADDATA + key), ACAD.courseHas, ACAD.Topic))
+            
+            if row[1] == "COMP" and row[2] == "474":
+                # Add Topic triples
+                all_topics = open("474topics.txt").readlines()
+                for topic in all_topics:
+                    topic = topic.replace("\n", "")
+                    topic_arg = topic.split("\" ")
+                    label = topic_arg[0].replace("\"", "")
+                    uri = topic_arg[1]
+
+                    g.add((URIRef(uri), RDF.type, URIRef("http://www.example.org/topic/")))
+                    g.add((URIRef(uri), RDFS.label, Literal(label.title())))
+                    # MUST FIND A WAY TO LINK THE TOPICS TO THE COURSE IN THE GRAPH
+                g.add((URIRef(ACADDATA + key), ACAD.courseHas, ACAD.Topic))
+
 
 print(g.serialize(format='turtle').decode('UTF-8'))
-g.serialize('coursesData.ttl', format='turtle')
+# g.serialize('GraphData.ttl', format='turtle')
