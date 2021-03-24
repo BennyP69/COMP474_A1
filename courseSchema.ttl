@@ -48,7 +48,7 @@ acad:courseNumber
     rdfs:label "Course Number"@en ;
     rdfs:comment "A course number is the second part of a course code and is often three to four digits long. The number identifies the course level and distinguish different courses that are from the same department at the same level."@en .
 acad:courseOutline
-    a rdf:Class ;
+    a foaf:Document ;
     rdfs:label "Course Outline"@en ;
     rdfs:comment "A course outline is a document that summarizes the topics covered in a particular course."@en .
 
