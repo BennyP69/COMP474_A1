@@ -190,18 +190,19 @@ with open(url2, encoding='ISO-8859-1') as csv_file:
                     uri = topic_arg[1]
 
                     # Adding triples for each topic of COMP 346
-                    g.add((URIRef(uri), RDF.type, URIRef(ACAD.Topic)))
-                    g.add((URIRef(uri), RDFS.label, Literal(label.title())))
+                    g.add((URIRef(ACADDATA + label.title()), RDF.type, ACAD.topic))
+                    g.add(((URIRef(ACADDATA + label.title())), RDFS.seeAlso, URIRef(uri)))
+                    g.add((URIRef(ACADDATA + label.title()), RDFS.label, Literal(label.title())))
                     # Triple linking course to topic
                     g.add((URIRef(ACADDATA + key), ACAD.coversTopic, URIRef(uri)))
 
                     # Triple linking topic to lecture
                     if count == 1:
-                        g.add((URIRef(ACADDATA + "COMP346-LEC" + str(count)), ACAD.hasContent, URIRef(uri)))
-                        g.add((URIRef(ACADDATA + "COMP346-LEC" + str(count + 1)), ACAD.hasContent, URIRef(uri)))
+                        g.add((URIRef(ACADDATA + "COMP346-LEC" + str(count)), ACAD.coversTopic, URIRef(uri)))
+                        g.add((URIRef(ACADDATA + "COMP346-LEC" + str(count + 1)), ACAD.coversTopic, URIRef(uri)))
                         count = count + 1
                     else:
-                        g.add((URIRef(ACADDATA + "COMP346-LEC" + str(count)), ACAD.hasContent, URIRef(uri)))
+                        g.add((URIRef(ACADDATA + "COMP346-LEC" + str(count)), ACAD.coversTopic, URIRef(uri)))
 
                     count = count + 1
 
@@ -262,8 +263,9 @@ with open(url2, encoding='ISO-8859-1') as csv_file:
                     uri = topic_arg[1]
                     
                     # Adding triples for each topic of COMP 474
-                    g.add((URIRef(uri), RDF.type, URIRef(ACAD.Topic)))
-                    g.add((URIRef(uri), RDFS.label, Literal(label.title())))
+                    g.add((URIRef(ACADDATA + label.title()), RDF.type, ACAD.topic))
+                    g.add(((URIRef(ACADDATA + label.title())), RDFS.seeAlso, URIRef(uri)))
+                    g.add((URIRef(ACADDATA + label.title()), RDFS.label, Literal(label.title())))
                     # Triple linking course to topic
                     g.add((URIRef(ACADDATA + key), ACAD.coversTopic, URIRef(uri)))
 
@@ -288,7 +290,7 @@ with open(url2, encoding='ISO-8859-1') as csv_file:
                     elif label == "Text_Mining":
                         count = 9
                     # Linking the topic to the proper lecture
-                    g.add((URIRef(ACADDATA + "COMP474-LEC" + str(count)), ACAD.hasContent, URIRef(uri)))
+                    g.add((URIRef(ACADDATA + "COMP474-LEC" + str(count)), ACAD.coversTopic, URIRef(uri)))
 
 
 # print(g.serialize(format='turtle').decode('UTF-8')) # For testing
