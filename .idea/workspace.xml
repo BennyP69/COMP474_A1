@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="5cd33d1d-bf75-4bf5-bea5-8218e6fa84bc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/474topics.txt" beforeDir="false" afterPath="$PROJECT_DIR$/474topics.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/COURSES/COMP474/LEC/slides02.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GraphData.ttl" beforeDir="false" afterPath="$PROJECT_DIR$/GraphData.ttl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/courseGen.py" beforeDir="false" afterPath="$PROJECT_DIR$/courseGen.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -175,26 +172,26 @@
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
     <state x="1060" y="460" key="FileChooserDialogImpl/0.0.2560.1410/2560.360.1920.1050@0.0.2560.1410" timestamp="1616711068764" />
-    <state width="2517" height="403" key="GridCell.Tab.0.bottom" timestamp="1616715462054">
+    <state width="2517" height="403" key="GridCell.Tab.0.bottom" timestamp="1616716001939">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
     <state width="1280" height="213" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1616381457336" />
-    <state width="2517" height="403" key="GridCell.Tab.0.bottom/0.0.2560.1410/2560.360.1920.1050@0.0.2560.1410" timestamp="1616715462054" />
-    <state width="2517" height="403" key="GridCell.Tab.0.center" timestamp="1616715462054">
+    <state width="2517" height="403" key="GridCell.Tab.0.bottom/0.0.2560.1410/2560.360.1920.1050@0.0.2560.1410" timestamp="1616716001939" />
+    <state width="2517" height="403" key="GridCell.Tab.0.center" timestamp="1616716001939">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
     <state width="1280" height="213" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1616381457334" />
-    <state width="2517" height="403" key="GridCell.Tab.0.center/0.0.2560.1410/2560.360.1920.1050@0.0.2560.1410" timestamp="1616715462054" />
-    <state width="2517" height="403" key="GridCell.Tab.0.left" timestamp="1616715462054">
+    <state width="2517" height="403" key="GridCell.Tab.0.center/0.0.2560.1410/2560.360.1920.1050@0.0.2560.1410" timestamp="1616716001939" />
+    <state width="2517" height="403" key="GridCell.Tab.0.left" timestamp="1616716001939">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
     <state width="1280" height="213" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1616381457332" />
-    <state width="2517" height="403" key="GridCell.Tab.0.left/0.0.2560.1410/2560.360.1920.1050@0.0.2560.1410" timestamp="1616715462054" />
-    <state width="2517" height="403" key="GridCell.Tab.0.right" timestamp="1616715462054">
+    <state width="2517" height="403" key="GridCell.Tab.0.left/0.0.2560.1410/2560.360.1920.1050@0.0.2560.1410" timestamp="1616716001939" />
+    <state width="2517" height="403" key="GridCell.Tab.0.right" timestamp="1616716001939">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
     <state width="1280" height="213" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1616381457335" />
-    <state width="2517" height="403" key="GridCell.Tab.0.right/0.0.2560.1410/2560.360.1920.1050@0.0.2560.1410" timestamp="1616715462054" />
+    <state width="2517" height="403" key="GridCell.Tab.0.right/0.0.2560.1410/2560.360.1920.1050@0.0.2560.1410" timestamp="1616716001939" />
     <state x="351" y="123" width="596" height="554" key="MultipleFileMergeDialog" timestamp="1616375216306">
       <screen x="0" y="0" width="1280" height="800" />
     </state>

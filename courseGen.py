@@ -278,7 +278,6 @@ with open(url2, encoding='ISO-8859-1') as csv_file:
                     g.add((URIRef(ACADDATA + label), RDFS.seeAlso, URIRef(uri)))
                     g.add((URIRef(ACADDATA + label), RDFS.label, Literal(label)))
                     # Triple linking course to topic
-                    # print(ACADDATA + label, "\n")
                     g.add((URIRef(ACADDATA + key), ACAD.coversTopic, URIRef(ACADDATA + label)))
 
                     # Triple linking topic to lecture
