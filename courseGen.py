@@ -3,6 +3,8 @@ from rdflib import Graph, Literal, RDF, URIRef, Namespace, Dataset  # basic RDF 
 from rdflib.namespace import FOAF, RDFS, XSD  # most common namespaces
 import urllib.parse  # for parsing strings to URI's
 import csv
+import os.path
+from os import path
 
 
 url = 'opendata/CATALOG.csv'
@@ -86,9 +88,6 @@ with open(url2, encoding='ISO-8859-1') as csv_file:
                         key = element[0]
                         g.add((URIRef(ACADDATA + key), ACAD.courseHas, ACAD.Lecture))
 
-            # -------------------------------------------------------------------------------------------------------
-            # TODO: Complete code to add a new triple with [Course key, courseHas, acad.tutorial] (as done above)
-            # -------------------------------------------------------------------------------------------------------
             elif row[5] == 'TUT':
                 # If a course has a tutorial component, get name and number
                 name = row[1]
@@ -98,9 +97,6 @@ with open(url2, encoding='ISO-8859-1') as csv_file:
                         key = element[0]
                         g.add((URIRef(ACADDATA + key), ACAD.courseHas, ACAD.Tutorial))
 
-            # -------------------------------------------------------------------------------------------------------
-            # TODO: Complete code to add a new triple with [Course key, courseHas, acad.lab] (as done above)
-            # -------------------------------------------------------------------------------------------------------
             elif row[5] == 'LAB':
                 # If a course has a laboratory component, get name and number
                 name = row[1]
@@ -110,9 +106,6 @@ with open(url2, encoding='ISO-8859-1') as csv_file:
                         key = element[0]
                         g.add((URIRef(ACADDATA + key), ACAD.courseHas, ACAD.Lab))
 
-            # -------------------------------------------------------------------------------------------------------
-            # TODO: Complete code to add a new triple with [Course key, courseHas, acad.lab] (as done above)
-            # -------------------------------------------------------------------------------------------------------
             elif row[5] == 'STU':
                 # If a course has a studio component, get name and number
                 name = row[1]
@@ -122,43 +115,181 @@ with open(url2, encoding='ISO-8859-1') as csv_file:
                         key = element[0]
                         g.add((URIRef(ACADDATA + key), ACAD.courseHas, ACAD.Studio))
 
-            # -------------------------------------------------------------------------------------------------------
-            # TODO: Complete code to add a new triple with [Course key, courseHas, acad.courseOutline] (as done above) for COMP474 & COMP346
-            # -------------------------------------------------------------------------------------------------------
-            # Don't all courses have an outline?
-
-
-            # -------------------------------------------------------------------------------------------------------
-            # TODO: Link new Topic triple with respective course [Course key, courseHas, acad.lab]
-            # -------------------------------------------------------------------------------------------------------
+            # -----------------------------------------------------
+            #                   C O M P  3 4 6
+            # -----------------------------------------------------
             if row[1] == "COMP" and row[2] == "346":
-                # Add Topic triples
+                # -----------------------------------------------------
+                #           ADD OUTLINE TRIPLES
+                # Check if outline file exists
+                course_outline_uri = "COURSES/COMP346/Outline/comp346_F20_course_outline.pdf"
+                if path.exists(course_outline_uri):
+                    # If it does, make outline triple
+                    g.add((URIRef(course_outline_uri), RDF.type, ACAD.courseOutline))
+                    # And link outline to course
+                    g.add((URIRef(ACADDATA + key), ACAD.courseHas, URIRef(course_outline_uri)))
+
+                # -----------------------------------------------------
+                #           ADD LECTURE TRIPLES
+                lec_num = 1
+                lectures_path = "COURSES/COMP346/LEC/"
+                for filename in os.listdir(lectures_path):
+                    if filename.endswith(".pdf"):
+                        # Add triple defining each lecture of a course.
+                        g.add((URIRef(ACADDATA + "COMP346-LEC" + str(lec_num)), RDF.type, ACAD.Lecture))
+
+                        # Add triple for lecture number
+                        g.add((URIRef(ACADDATA + "COMP346-LEC" + str(lec_num)), ACAD.lectureNumber,
+                               Literal(lec_num, datatype=XSD.int)))
+
+                        # Add triple defining lecture slides
+                        g.add((URIRef(lectures_path + filename), RDF.type, ACAD.slides))
+
+                        # Add triple linking slide to lecture
+                        g.add((URIRef(ACADDATA + "COMP346-LEC" + str(lec_num)), ACAD.hasContent,
+                               URIRef(lectures_path + filename)))
+
+                        # Triple linking lecture to course
+                        g.add((URIRef(ACADDATA + key), ACAD.courseHas, URIRef(ACADDATA + "COMP346-LEC" + str(lec_num))))
+
+                        lec_num = lec_num + 1
+                # -----------------------------------------------------
+                #           ADD TUT TRIPLES
+                tut_num = 1
+                tuts_path = "COURSES/COMP346/TUT/"
+                for filename1 in os.listdir(tuts_path):
+                    if filename1.endswith(".pdf"):
+                        # Triple defining tut
+                        g.add((URIRef(ACADDATA + "COMP346-TUT" + str(tut_num)), RDF.type, ACAD.Tutorial))
+
+                        # Triple defining tut number
+                        g.add((URIRef(ACADDATA + "COMP346-TUT" + str(tut_num)), ACAD.lectureNumber,
+                               Literal(tut_num, datatype=XSD.int)))
+
+                        # Triple defining tut slides
+                        g.add((URIRef(tuts_path + filename1), RDF.type, ACAD.slides))
+
+                        # Triple linking slide to tut
+                        g.add((URIRef(ACADDATA + "COMP346-TUT" + str(tut_num)), ACAD.hasContent,
+                               URIRef(tuts_path + filename1)))
+
+                        # Triple linking tut to lecture
+                        g.add((URIRef(ACADDATA + "COMP346-LEC" + str(tut_num)), ACAD.lectureEvent,
+                               URIRef(ACADDATA + "COMP346-TUT" + str(tut_num))))
+
+                        tut_num = tut_num + 1
+
+                # -----------------------------------------------------
+                #           ADD TOPIC TRIPLES
                 all_topics = open("346topics.txt").readlines()
+                count = 1
                 for topic in all_topics:
                     topic = topic.replace("\n", "")
                     topic_arg = topic.split("\" ")
                     label = topic_arg[0].replace("\"", "")
                     uri = topic_arg[1]
 
-                    g.add((URIRef(uri), RDF.type, URIRef("http://www.example.org/topic/")))
+                    # Adding triples for each topic of COMP 346
+                    g.add((URIRef(uri), RDF.type, URIRef(ACAD.Topic)))
                     g.add((URIRef(uri), RDFS.label, Literal(label.title())))
-                    # MUST FIND A WAY TO LINK THE TOPICS TO THE COURSE IN THE GRAPH
-                g.add((URIRef(ACADDATA + key), ACAD.courseHas, ACAD.Topic))
-            
+                    # Triple linking course to topic
+                    g.add((URIRef(ACADDATA + key), ACAD.coversTopic, URIRef(uri)))
+
+                    # Triple linking topic to lecture
+                    if count == 1:
+                        g.add((URIRef(ACADDATA + "COMP346-LEC" + str(count)), ACAD.hasContent, URIRef(uri)))
+                        g.add((URIRef(ACADDATA + "COMP346-LEC" + str(count + 1)), ACAD.hasContent, URIRef(uri)))
+                        count = count + 1
+                    else:
+                        g.add((URIRef(ACADDATA + "COMP346-LEC" + str(count)), ACAD.hasContent, URIRef(uri)))
+
+                    count = count + 1
+
+            # -----------------------------------------------------
+            #                   C O M P  4 7 4
+            # -----------------------------------------------------
             if row[1] == "COMP" and row[2] == "474":
-                # Add Topic triples
+
+                #           ADD OUTLINE TRIPLES
+                # Check if outline file exists
+                course_outline_uri = "COURSES/COMP474/Outline/course_outline_comp474_6741_w2021.pdf"
+                if path.exists(course_outline_uri):
+                    # If it does, make outline triple
+                    g.add((URIRef(course_outline_uri), RDF.type, ACAD.courseOutline))
+                    # And link outline to course
+                    g.add((URIRef(ACADDATA + key), ACAD.courseHas, URIRef(course_outline_uri)))
+
+                #           ADD LECTURE TRIPLES
+                lec_num = 1
+                lectures_path = "COURSES/COMP474/LEC/"
+                for filename in os.listdir(lectures_path):
+                    if filename.endswith(".pdf"):
+                        # Add triple defining each lecture of a course.
+                        g.add((URIRef(ACADDATA + "COMP474-LEC" + str(lec_num)), RDF.type, ACAD.Lecture))
+
+                        # Add triple for lecture number
+                        g.add((URIRef(ACADDATA + "COMP474-LEC" + str(lec_num)), ACAD.lectureNumber,
+                                Literal(lec_num, datatype=XSD.int)))
+
+                        # Add triple defining lecture slides
+                        g.add((URIRef(lectures_path + filename), RDF.type, ACAD.slides))
+
+                        # Add triple linking slide to lecture
+                        g.add((URIRef(ACADDATA + "COMP474-LEC" + str(lec_num)), ACAD.hasContent,
+                                URIRef(lectures_path + filename)))
+                        lec_num = lec_num + 1
+
+                #           ADD WORKSHEET TRIPLES
+                worksheet_num = 1
+                worksheet_path = "COURSES/COMP474/Worksheets/"
+                for filename2 in os.listdir(worksheet_path):
+                    if filename2.endswith(".pdf"):
+                        # Triple defining each worksheet
+                        g.add((URIRef(worksheet_path + filename2), RDF.type, ACAD.Worksheet))
+
+                        # Triple linking worksheet to lecture
+                        g.add((URIRef(ACADDATA + "COMP474-LEC" + str(worksheet_num)), ACAD.hasContent,
+                               URIRef(worksheet_path + filename2)))
+
+                        worksheet_num = worksheet_num + 1
+
+                #           ADD TOPIC TRIPLES
                 all_topics = open("474topics.txt").readlines()
                 for topic in all_topics:
                     topic = topic.replace("\n", "")
                     topic_arg = topic.split("\" ")
                     label = topic_arg[0].replace("\"", "")
                     uri = topic_arg[1]
-
-                    g.add((URIRef(uri), RDF.type, URIRef("http://www.example.org/topic/")))
+                    
+                    # Adding triples for each topic of COMP 474
+                    g.add((URIRef(uri), RDF.type, URIRef(ACAD.Topic)))
                     g.add((URIRef(uri), RDFS.label, Literal(label.title())))
-                    # MUST FIND A WAY TO LINK THE TOPICS TO THE COURSE IN THE GRAPH
-                g.add((URIRef(ACADDATA + key), ACAD.courseHas, ACAD.Topic))
+                    # Triple linking course to topic
+                    g.add((URIRef(ACADDATA + key), ACAD.coversTopic, URIRef(uri)))
+
+                    # Triple linking topic to lecture
+                    # Picking the proper lecture corresponding to the correct topic in 474topics.txt
+                    if label == "Intelligent_Systems":
+                        count = 1
+                    elif label == "Knowledge_Graph":
+                        count = 2
+                    elif label == "Vocabularies" or label == "Ontologies":
+                        count = 3
+                    elif label == "Knowledge_Base_Queries" or label == "SPARQL":
+                        count = 4
+                    elif label == "Linked_Open_Data" or label == "Knowledge_Base":
+                        count = 5
+                    elif label == "Personalization_&_Recommender_Systems":
+                        count = 6
+                    elif label == "Machine_Learning":
+                        count = 7
+                    elif label == "Intelligent_Agents":
+                        count = 8
+                    elif label == "Text_Mining":
+                        count = 9
+                    # Linking the topic to the proper lecture
+                    g.add((URIRef(ACADDATA + "COMP474-LEC" + str(count)), ACAD.hasContent, URIRef(uri)))
 
 
-print(g.serialize(format='turtle').decode('UTF-8'))
-# g.serialize('GraphData.ttl', format='turtle')
+# print(g.serialize(format='turtle').decode('UTF-8')) # For testing
+g.serialize('GraphData.ttl', format='turtle')

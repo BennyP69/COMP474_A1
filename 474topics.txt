@@ -1,16 +1,18 @@
-"Intelligent Systems" http://dbpedia.org/resource/Intelligent_Systems
-"Knowledge Graph" http://dbpedia.org/resource/Knowledge_Graph
-"Resource Description Framework (RDF)" http://dbpedia.org/resource/Resource_Description_Framework
+"Intelligent_Systems" http://dbpedia.org/resource/Intelligent_Systems
+"Knowledge_Graph" http://dbpedia.org/resource/Knowledge_Graph
+"Resource_Description_Framework_(RDF)" http://dbpedia.org/resource/Resource_Description_Framework
 "Vocabularies" http://dbpedia.org/resource/Vocabulary
 "Ontologies" http://dbpedia.org/resource/Ontology
 "RDFS" http://dbpedia.org/resource/RDF_Schema
-"Web Ontology Language (OWL)" http://dbpedia.org/resource/Web_Ontology_Language
-"Knowledge Base Queries" http://dbpedia.org/resource/Query_optimization
+"Web_Ontology_Language_(OWL)" http://dbpedia.org/resource/Web_Ontology_Language
+"Knowledge_Base_Queries" http://dbpedia.org/resource/Query_optimization
 "SPARQL" http://dbpedia.org/resource/SPARQL
-"Linked Open Data" http://dbpedia.org/resource/Linked_data
-"Personalization & Recommender Systems" http://dbpedia.org/resource/Knowledge-based_systems
-"Machine Learning" http://dbpedia.org/resource/Machine_learning
-"Natural Language Processing" http://dbpedia.org/resource/Natural-language_processing
-"Text Mining" http://dbpedia.org/resource/Text_mining
-"Artificial Neural Networks" http://dbpedia.org/resource/Artificial_neural_network
-"Deep Learning" http://dbpedia.org/resource/Deep_learning
+"Linked_Open_Data" http://dbpedia.org/resource/Linked_data
+"Personalization_&_Recommender_Systems" http://dbpedia.org/resource/Knowledge-based_systems
+"Machine_Learning" http://dbpedia.org/resource/Machine_learning
+"Natural_Language_Processing" http://dbpedia.org/resource/Natural-language_processing
+"Text_Mining" http://dbpedia.org/resource/Text_mining
+"Artificial_Neural_Networks" http://dbpedia.org/resource/Artificial_neural_network
+"Deep_Learning" http://dbpedia.org/resource/Deep_learning
+"Intelligent_Agents" https://dbpedia.org/resource/Intelligent_agent
+"Knowledge_Base" https://dbpedia.org/resource/Knowledge_base

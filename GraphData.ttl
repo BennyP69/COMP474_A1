@@ -5,14 +5,67 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix vivo: <http://vivoweb.org/ontology/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
 
-acaddata:Concordia_University
-    a acad:University ;
-    rdfs:label "Concordia University"@en ;
-    rdfs:comment "Concordia University is a public comprehensive research university located in Montreal, Quebec, Canada."@en ;
-    rdfs:seeAlso <https://dbpedia.org/resource/Concordia_University> ;
-    owl:sameAs <https://dbpedia.org/resource/Concordia_University> .
+acaddata:COMP474-LEC1 a acad:Lecture ;
+    acad:hasContent <COURSES/COMP474/LEC/slides01.pdf>,
+        <COURSES/COMP474/Worksheets/worksheet01.pdf>,
+        <http://dbpedia.org/resource/Intelligent_Systems> ;
+    acad:lectureNumber "1"^^xsd:int .
+
+acaddata:COMP474-LEC2 a acad:Lecture ;
+    acad:hasContent <COURSES/COMP474/LEC/slides02.pdf>,
+        <COURSES/COMP474/Worksheets/worksheet02.pdf>,
+        <http://dbpedia.org/resource/Knowledge_Graph>,
+        <http://dbpedia.org/resource/Resource_Description_Framework> ;
+    acad:lectureNumber "2"^^xsd:int .
+
+acaddata:COMP474-LEC3 a acad:Lecture ;
+    acad:hasContent <COURSES/COMP474/LEC/slides03.pdf>,
+        <COURSES/COMP474/Worksheets/worksheet03.pdf>,
+        <http://dbpedia.org/resource/Ontology>,
+        <http://dbpedia.org/resource/RDF_Schema>,
+        <http://dbpedia.org/resource/Vocabulary>,
+        <http://dbpedia.org/resource/Web_Ontology_Language> ;
+    acad:lectureNumber "3"^^xsd:int .
+
+acaddata:COMP474-LEC4 a acad:Lecture ;
+    acad:hasContent <COURSES/COMP474/LEC/slides04.pdf>,
+        <COURSES/COMP474/Worksheets/worksheet04.pdf>,
+        <http://dbpedia.org/resource/Query_optimization>,
+        <http://dbpedia.org/resource/SPARQL> ;
+    acad:lectureNumber "4"^^xsd:int .
+
+acaddata:COMP474-LEC5 a acad:Lecture ;
+    acad:hasContent <COURSES/COMP474/LEC/slides05.pdf>,
+        <COURSES/COMP474/Worksheets/worksheet05.pdf>,
+        <http://dbpedia.org/resource/Linked_data>,
+        <https://dbpedia.org/resource/Knowledge_base> ;
+    acad:lectureNumber "5"^^xsd:int .
+
+acaddata:COMP474-LEC6 a acad:Lecture ;
+    acad:hasContent <COURSES/COMP474/LEC/slides06.pdf>,
+        <COURSES/COMP474/Worksheets/worksheet06.pdf>,
+        <http://dbpedia.org/resource/Knowledge-based_systems> ;
+    acad:lectureNumber "6"^^xsd:int .
+
+acaddata:COMP474-LEC7 a acad:Lecture ;
+    acad:hasContent <COURSES/COMP474/LEC/slides07.pdf>,
+        <COURSES/COMP474/Worksheets/worksheet07.pdf>,
+        <http://dbpedia.org/resource/Machine_learning>,
+        <http://dbpedia.org/resource/Natural-language_processing> ;
+    acad:lectureNumber "7"^^xsd:int .
+
+acaddata:COMP474-LEC8 a acad:Lecture ;
+    acad:hasContent <COURSES/COMP474/LEC/slides08.pdf>,
+        <https://dbpedia.org/resource/Intelligent_agent> ;
+    acad:lectureNumber "8"^^xsd:int .
+
+acaddata:COMP474-LEC9 a acad:Lecture ;
+    acad:hasContent <COURSES/COMP474/LEC/slides09.pdf>,
+        <http://dbpedia.org/resource/Artificial_neural_network>,
+        <http://dbpedia.org/resource/Deep_learning>,
+        <http://dbpedia.org/resource/Text_mining> ;
+    acad:lectureNumber "9"^^xsd:int .
 
 acaddata:Concordia_University acad:offers acaddata:FAS_0173,
         acaddata:FAS_0174,
@@ -1729,6 +1782,203 @@ acaddata:Concordia_University acad:offers acaddata:FAS_0173,
         acaddata:OTHER_7,
         acaddata:OTHER_8,
         acaddata:OTHER_9 .
+
+<COURSES/COMP346/LEC/Lecture01-Introduction.pdf> a acad:slides .
+
+<COURSES/COMP346/LEC/Lecture02-OS_Sturcture.pdf> a acad:slides .
+
+<COURSES/COMP346/LEC/Lecture03-Processes.pdf> a acad:slides .
+
+<COURSES/COMP346/LEC/Lecture04-Threads.pdf> a acad:slides .
+
+<COURSES/COMP346/LEC/Lecture05-CPU_Scheduling.pdf> a acad:slides .
+
+<COURSES/COMP346/LEC/Lecture06-Synchronization_Tools.pdf> a acad:slides .
+
+<COURSES/COMP346/LEC/Lecture07-Synchronization_Examples.pdf> a acad:slides .
+
+<COURSES/COMP346/LEC/Lecture08-Deadlocks.pdf> a acad:slides .
+
+<COURSES/COMP346/LEC/Lecture09-Main_Memory.pdf> a acad:slides .
+
+<COURSES/COMP346/LEC/Lecture10-Vitrual_Memory.pdf> a acad:slides .
+
+<COURSES/COMP346/LEC/Lecture11-Mass_Storage_Systems.pdf> a acad:slides .
+
+<COURSES/COMP346/LEC/Lecture12-IO_Systems.pdf> a acad:slides .
+
+<COURSES/COMP346/LEC/Lecture13-File_System.pdf> a acad:slides .
+
+<COURSES/COMP346/Outline/comp346_F20_course_outline.pdf> a acad:courseOutline .
+
+<COURSES/COMP346/TUT/01-Tutorial_Processes_and_Threads.pdf> a acad:slides .
+
+<COURSES/COMP346/TUT/02-Tutorial_Data_Manipulations_and_Synchronization.pdf> a acad:slides .
+
+<COURSES/COMP346/TUT/03-Tutorial_Synchronization.pdf> a acad:slides .
+
+<COURSES/COMP346/TUT/04-Tutorial_Semaphores.pdf> a acad:slides .
+
+<COURSES/COMP346/TUT/05-Tutorial_Monitors.pdf> a acad:slides .
+
+<COURSES/COMP346/TUT/06-Tutorial_MainMemory.pdf> a acad:slides .
+
+<COURSES/COMP346/TUT/07-Tutorial_VirualMemory.pdf> a acad:slides .
+
+<COURSES/COMP346/TUT/08-Tutorial_Scheduling.pdf> a acad:slides .
+
+<COURSES/COMP346/TUT/09-Tutorial_Deadlock.pdf> a acad:slides .
+
+<COURSES/COMP346/TUT/10-Tutorial_File_Management.pdf> a acad:slides .
+
+<COURSES/COMP474/LEC/slides01.pdf> a acad:slides .
+
+<COURSES/COMP474/LEC/slides02.pdf> a acad:slides .
+
+<COURSES/COMP474/LEC/slides03.pdf> a acad:slides .
+
+<COURSES/COMP474/LEC/slides04.pdf> a acad:slides .
+
+<COURSES/COMP474/LEC/slides05.pdf> a acad:slides .
+
+<COURSES/COMP474/LEC/slides06.pdf> a acad:slides .
+
+<COURSES/COMP474/LEC/slides07.pdf> a acad:slides .
+
+<COURSES/COMP474/LEC/slides08.pdf> a acad:slides .
+
+<COURSES/COMP474/LEC/slides09.pdf> a acad:slides .
+
+<COURSES/COMP474/Outline/course_outline_comp474_6741_w2021.pdf> a acad:courseOutline .
+
+<COURSES/COMP474/Worksheets/worksheet01.pdf> a acad:Worksheet .
+
+<COURSES/COMP474/Worksheets/worksheet02.pdf> a acad:Worksheet .
+
+<COURSES/COMP474/Worksheets/worksheet03.pdf> a acad:Worksheet .
+
+<COURSES/COMP474/Worksheets/worksheet04.pdf> a acad:Worksheet .
+
+<COURSES/COMP474/Worksheets/worksheet05.pdf> a acad:Worksheet .
+
+<COURSES/COMP474/Worksheets/worksheet06.pdf> a acad:Worksheet .
+
+<COURSES/COMP474/Worksheets/worksheet07.pdf> a acad:Worksheet .
+
+acaddata:COMP346-LEC1 a acad:Lecture ;
+    acad:hasContent <COURSES/COMP346/LEC/Lecture01-Introduction.pdf>,
+        <http://dbpedia.org/resource/Operating_system> ;
+    acad:lectureEvent acaddata:COMP346-TUT1 ;
+    acad:lectureNumber "1"^^xsd:int .
+
+acaddata:COMP346-LEC10 a acad:Lecture ;
+    acad:hasContent <COURSES/COMP346/LEC/Lecture10-Vitrual_Memory.pdf>,
+        <http://dbpedia.org/resource/Virtual_memory> ;
+    acad:lectureEvent acaddata:COMP346-TUT10 ;
+    acad:lectureNumber "10"^^xsd:int .
+
+acaddata:COMP346-LEC11 a acad:Lecture ;
+    acad:hasContent <COURSES/COMP346/LEC/Lecture11-Mass_Storage_Systems.pdf>,
+        <http://dbpedia.org/resource/Mass_storage> ;
+    acad:lectureNumber "11"^^xsd:int .
+
+acaddata:COMP346-LEC12 a acad:Lecture ;
+    acad:hasContent <COURSES/COMP346/LEC/Lecture12-IO_Systems.pdf>,
+        <http://dbpedia.org/resource/Input/output> ;
+    acad:lectureNumber "12"^^xsd:int .
+
+acaddata:COMP346-LEC13 a acad:Lecture ;
+    acad:hasContent <COURSES/COMP346/LEC/Lecture13-File_System.pdf>,
+        <http://dbpedia.org/resource/File_system> ;
+    acad:lectureNumber "13"^^xsd:int .
+
+acaddata:COMP346-LEC2 a acad:Lecture ;
+    acad:hasContent <COURSES/COMP346/LEC/Lecture02-OS_Sturcture.pdf>,
+        <http://dbpedia.org/resource/Operating_system> ;
+    acad:lectureEvent acaddata:COMP346-TUT2 ;
+    acad:lectureNumber "2"^^xsd:int .
+
+acaddata:COMP346-LEC3 a acad:Lecture ;
+    acad:hasContent <COURSES/COMP346/LEC/Lecture03-Processes.pdf>,
+        <http://dbpedia.org/resource/Process_(computing)> ;
+    acad:lectureEvent acaddata:COMP346-TUT3 ;
+    acad:lectureNumber "3"^^xsd:int .
+
+acaddata:COMP346-LEC4 a acad:Lecture ;
+    acad:hasContent <COURSES/COMP346/LEC/Lecture04-Threads.pdf>,
+        <http://dbpedia.org/resource/Simultaneous_multithreading> ;
+    acad:lectureEvent acaddata:COMP346-TUT4 ;
+    acad:lectureNumber "4"^^xsd:int .
+
+acaddata:COMP346-LEC5 a acad:Lecture ;
+    acad:hasContent <COURSES/COMP346/LEC/Lecture05-CPU_Scheduling.pdf>,
+        <http://dbpedia.org/resource/Multiprocessor_scheduling> ;
+    acad:lectureEvent acaddata:COMP346-TUT5 ;
+    acad:lectureNumber "5"^^xsd:int .
+
+acaddata:COMP346-LEC6 a acad:Lecture ;
+    acad:hasContent <COURSES/COMP346/LEC/Lecture06-Synchronization_Tools.pdf>,
+        <http://dbpedia.org/resource/Synchronization> ;
+    acad:lectureEvent acaddata:COMP346-TUT6 ;
+    acad:lectureNumber "6"^^xsd:int .
+
+acaddata:COMP346-LEC7 a acad:Lecture ;
+    acad:hasContent <COURSES/COMP346/LEC/Lecture07-Synchronization_Examples.pdf>,
+        <http://dbpedia.org/resource/Computer_multitasking> ;
+    acad:lectureEvent acaddata:COMP346-TUT7 ;
+    acad:lectureNumber "7"^^xsd:int .
+
+acaddata:COMP346-LEC8 a acad:Lecture ;
+    acad:hasContent <COURSES/COMP346/LEC/Lecture08-Deadlocks.pdf>,
+        <http://dbpedia.org/resource/Deadlock> ;
+    acad:lectureEvent acaddata:COMP346-TUT8 ;
+    acad:lectureNumber "8"^^xsd:int .
+
+acaddata:COMP346-LEC9 a acad:Lecture ;
+    acad:hasContent <COURSES/COMP346/LEC/Lecture09-Main_Memory.pdf>,
+        <http://dbpedia.org/resource/Random-access_memory> ;
+    acad:lectureEvent acaddata:COMP346-TUT9 ;
+    acad:lectureNumber "9"^^xsd:int .
+
+acaddata:COMP346-TUT1 a acad:Tutorial ;
+    acad:hasContent <COURSES/COMP346/TUT/01-Tutorial_Processes_and_Threads.pdf> ;
+    acad:lectureNumber "1"^^xsd:int .
+
+acaddata:COMP346-TUT10 a acad:Tutorial ;
+    acad:hasContent <COURSES/COMP346/TUT/10-Tutorial_File_Management.pdf> ;
+    acad:lectureNumber "10"^^xsd:int .
+
+acaddata:COMP346-TUT2 a acad:Tutorial ;
+    acad:hasContent <COURSES/COMP346/TUT/02-Tutorial_Data_Manipulations_and_Synchronization.pdf> ;
+    acad:lectureNumber "2"^^xsd:int .
+
+acaddata:COMP346-TUT3 a acad:Tutorial ;
+    acad:hasContent <COURSES/COMP346/TUT/03-Tutorial_Synchronization.pdf> ;
+    acad:lectureNumber "3"^^xsd:int .
+
+acaddata:COMP346-TUT4 a acad:Tutorial ;
+    acad:hasContent <COURSES/COMP346/TUT/04-Tutorial_Semaphores.pdf> ;
+    acad:lectureNumber "4"^^xsd:int .
+
+acaddata:COMP346-TUT5 a acad:Tutorial ;
+    acad:hasContent <COURSES/COMP346/TUT/05-Tutorial_Monitors.pdf> ;
+    acad:lectureNumber "5"^^xsd:int .
+
+acaddata:COMP346-TUT6 a acad:Tutorial ;
+    acad:hasContent <COURSES/COMP346/TUT/06-Tutorial_MainMemory.pdf> ;
+    acad:lectureNumber "6"^^xsd:int .
+
+acaddata:COMP346-TUT7 a acad:Tutorial ;
+    acad:hasContent <COURSES/COMP346/TUT/07-Tutorial_VirualMemory.pdf> ;
+    acad:lectureNumber "7"^^xsd:int .
+
+acaddata:COMP346-TUT8 a acad:Tutorial ;
+    acad:hasContent <COURSES/COMP346/TUT/08-Tutorial_Scheduling.pdf> ;
+    acad:lectureNumber "8"^^xsd:int .
+
+acaddata:COMP346-TUT9 a acad:Tutorial ;
+    acad:hasContent <COURSES/COMP346/TUT/09-Tutorial_Deadlock.pdf> ;
+    acad:lectureNumber "9"^^xsd:int .
 
 acaddata:FAS_0173 a vivo:Course ;
     acad:courseHas acad:Lecture ;
@@ -9284,7 +9534,8 @@ acaddata:FFA_1 a vivo:Course ;
     foaf:name "Workshops for Fine Arts students"^^xsd:string .
 
 acaddata:FFA_134 a vivo:Course ;
-    acad:courseHas acad:Tutorial ;
+    acad:courseHas acad:Studio,
+        acad:Tutorial ;
     acad:courseNumber "341"^^xsd:int ;
     acad:courseSubject "JPER"^^xsd:string ;
     DC:description "Public performance"^^xsd:string ;
@@ -9294,7 +9545,8 @@ acaddata:FFA_134 a vivo:Course ;
     foaf:name "Jazz Vocal Repertoire I"^^xsd:string .
 
 acaddata:FFA_139 a vivo:Course ;
-    acad:courseHas acad:Tutorial ;
+    acad:courseHas acad:Studio,
+        acad:Tutorial ;
     acad:courseNumber "441"^^xsd:int ;
     acad:courseSubject "JPER"^^xsd:string ;
     DC:description "Public performance"^^xsd:string ;
@@ -9313,6 +9565,7 @@ acaddata:FFA_142 a vivo:Course ;
     foaf:name "Choir I"^^xsd:string .
 
 acaddata:FFA_144 a vivo:Course ;
+    acad:courseHas acad:Studio ;
     acad:courseNumber "321"^^xsd:int ;
     acad:courseSubject "MPER"^^xsd:string ;
     DC:description "Public performance"^^xsd:string ;
@@ -9322,6 +9575,7 @@ acaddata:FFA_144 a vivo:Course ;
     foaf:name "Chamber Ensemble I"^^xsd:string .
 
 acaddata:FFA_145 a vivo:Course ;
+    acad:courseHas acad:Studio ;
     acad:courseNumber "322"^^xsd:int ;
     acad:courseSubject "MPER"^^xsd:string ;
     DC:description "Public performance"^^xsd:string ;
@@ -9340,6 +9594,7 @@ acaddata:FFA_148 a vivo:Course ;
     foaf:name "Choir II"^^xsd:string .
 
 acaddata:FFA_151 a vivo:Course ;
+    acad:courseHas acad:Studio ;
     acad:courseNumber "421"^^xsd:int ;
     acad:courseSubject "MPER"^^xsd:string ;
     DC:description "Public performance"^^xsd:string ;
@@ -9358,6 +9613,7 @@ acaddata:FFA_152 a vivo:Course ;
     foaf:name "Chamber Ensemble IV"^^xsd:string .
 
 acaddata:FFA_174 a vivo:Course ;
+    acad:courseHas acad:Studio ;
     acad:courseNumber "280"^^xsd:int ;
     acad:courseSubject "ARTX"^^xsd:string ;
     DC:description "Studio course"^^xsd:string ;
@@ -9367,6 +9623,7 @@ acaddata:FFA_174 a vivo:Course ;
     foaf:name "Integrated Studio in Contemporary Art Practices I"^^xsd:string .
 
 acaddata:FFA_175 a vivo:Course ;
+    acad:courseHas acad:Studio ;
     acad:courseNumber "380"^^xsd:int ;
     acad:courseSubject "ARTX"^^xsd:string ;
     DC:description "Studio course"^^xsd:string ;
@@ -9376,6 +9633,7 @@ acaddata:FFA_175 a vivo:Course ;
     foaf:name "Intermediate Integrated Studio in Contemporary Art Practices"^^xsd:string .
 
 acaddata:FFA_176 a vivo:Course ;
+    acad:courseHas acad:Studio ;
     acad:courseNumber "398"^^xsd:int ;
     acad:courseSubject "ARTX"^^xsd:string ;
     DC:description "Studio course"^^xsd:string ;
@@ -9395,6 +9653,7 @@ acaddata:FFA_177 a vivo:Course ;
     foaf:name "Special Topics in Contemporary Studio Arts Practice"^^xsd:string .
 
 acaddata:FFA_178 a vivo:Course ;
+    acad:courseHas acad:Studio ;
     acad:courseNumber "480"^^xsd:int ;
     acad:courseSubject "ARTX"^^xsd:string ;
     DC:description "Studio course"^^xsd:string ;
@@ -9604,6 +9863,7 @@ acaddata:FFA_476 a vivo:Course ;
     foaf:name "Fine Arts in Colombia"^^xsd:string .
 
 acaddata:FFA_477 a vivo:Course ;
+    acad:courseHas acad:Studio ;
     acad:courseNumber "200"^^xsd:int ;
     acad:courseSubject "DRAW"^^xsd:string ;
     DC:description "International"^^xsd:string ;
@@ -9613,7 +9873,8 @@ acaddata:FFA_477 a vivo:Course ;
     foaf:name "Drawing In Italy"^^xsd:string .
 
 acaddata:FFA_478 a vivo:Course ;
-    acad:courseHas acad:Lab ;
+    acad:courseHas acad:Lab,
+        acad:Studio ;
     acad:courseNumber "209"^^xsd:int ;
     acad:courseSubject "PERC"^^xsd:string ;
     DC:description "Studio course"^^xsd:string ;
@@ -9623,7 +9884,8 @@ acaddata:FFA_478 a vivo:Course ;
     foaf:name "The Engaged Theatre Artist"^^xsd:string .
 
 acaddata:FFA_479 a vivo:Course ;
-    acad:courseHas acad:Lab ;
+    acad:courseHas acad:Lab,
+        acad:Studio ;
     acad:courseNumber "210"^^xsd:int ;
     acad:courseSubject "PERC"^^xsd:string ;
     DC:description "Studio course"^^xsd:string ;
@@ -10434,11 +10696,37 @@ acaddata:GCS_13 a vivo:Course ;
     foaf:name "Building Service Systems"^^xsd:string .
 
 acaddata:GCS_130 a vivo:Course ;
-    acad:courseHas acad:Lab,
+    acad:courseHas <COURSES/COMP346/Outline/comp346_F20_course_outline.pdf>,
+        acaddata:COMP346-LEC1,
+        acaddata:COMP346-LEC10,
+        acaddata:COMP346-LEC11,
+        acaddata:COMP346-LEC12,
+        acaddata:COMP346-LEC13,
+        acaddata:COMP346-LEC2,
+        acaddata:COMP346-LEC3,
+        acaddata:COMP346-LEC4,
+        acaddata:COMP346-LEC5,
+        acaddata:COMP346-LEC6,
+        acaddata:COMP346-LEC7,
+        acaddata:COMP346-LEC8,
+        acaddata:COMP346-LEC9,
+        acad:Lab,
         acad:Lecture,
         acad:Tutorial ;
     acad:courseNumber "346"^^xsd:int ;
     acad:courseSubject "COMP"^^xsd:string ;
+    acad:coversTopic <http://dbpedia.org/resource/Computer_multitasking>,
+        <http://dbpedia.org/resource/Deadlock>,
+        <http://dbpedia.org/resource/File_system>,
+        <http://dbpedia.org/resource/Input/output>,
+        <http://dbpedia.org/resource/Mass_storage>,
+        <http://dbpedia.org/resource/Multiprocessor_scheduling>,
+        <http://dbpedia.org/resource/Operating_system>,
+        <http://dbpedia.org/resource/Process_(computing)>,
+        <http://dbpedia.org/resource/Random-access_memory>,
+        <http://dbpedia.org/resource/Simultaneous_multithreading>,
+        <http://dbpedia.org/resource/Synchronization>,
+        <http://dbpedia.org/resource/Virtual_memory> ;
     DC:description "Laboratory: 24 hours total"^^xsd:string ;
     vivo:AcademicDepartment "Computer Science and Software Engineering (CSSE)"^^xsd:string ;
     vivo:Program "Software Engineering, Computer Science"^^xsd:string ;
@@ -10589,10 +10877,29 @@ acaddata:GCS_142 a vivo:Course ;
     foaf:name "Pattern Recognition"^^xsd:string .
 
 acaddata:GCS_143 a vivo:Course ;
-    acad:courseHas acad:Lab,
+    acad:courseHas <COURSES/COMP474/Outline/course_outline_comp474_6741_w2021.pdf>,
+        acad:Lab,
         acad:Lecture ;
     acad:courseNumber "474"^^xsd:int ;
     acad:courseSubject "COMP"^^xsd:string ;
+    acad:coversTopic <http://dbpedia.org/resource/Artificial_neural_network>,
+        <http://dbpedia.org/resource/Deep_learning>,
+        <http://dbpedia.org/resource/Intelligent_Systems>,
+        <http://dbpedia.org/resource/Knowledge-based_systems>,
+        <http://dbpedia.org/resource/Knowledge_Graph>,
+        <http://dbpedia.org/resource/Linked_data>,
+        <http://dbpedia.org/resource/Machine_learning>,
+        <http://dbpedia.org/resource/Natural-language_processing>,
+        <http://dbpedia.org/resource/Ontology>,
+        <http://dbpedia.org/resource/Query_optimization>,
+        <http://dbpedia.org/resource/RDF_Schema>,
+        <http://dbpedia.org/resource/Resource_Description_Framework>,
+        <http://dbpedia.org/resource/SPARQL>,
+        <http://dbpedia.org/resource/Text_mining>,
+        <http://dbpedia.org/resource/Vocabulary>,
+        <http://dbpedia.org/resource/Web_Ontology_Language>,
+        <https://dbpedia.org/resource/Intelligent_agent>,
+        <https://dbpedia.org/resource/Knowledge_base> ;
     DC:description "Laboratory: 24 hours total, project"^^xsd:string ;
     vivo:AcademicDepartment "Computer Science and Software Engineering (CSSE)"^^xsd:string ;
     vivo:Program "Software Engineering, Computer Science"^^xsd:string ;
@@ -17879,4 +18186,94 @@ acaddata:OTHER_9 a vivo:Course ;
     vivo:departmentOrSchool "Other"^^xsd:string ;
     rdfs:seeAlso "http://d3center.ca/2017/08/13/innovation-projects-jobs/"^^xsd:string ;
     foaf:name "D3 Innovation Projects"^^xsd:string .
+
+<http://dbpedia.org/resource/Artificial_neural_network> a acad:Topic ;
+    rdfs:label "Artificial_Neural_Networks" .
+
+<http://dbpedia.org/resource/Computer_multitasking> a acad:Topic ;
+    rdfs:label "Syncronization_Examples" .
+
+<http://dbpedia.org/resource/Deadlock> a acad:Topic ;
+    rdfs:label "Deadlocks" .
+
+<http://dbpedia.org/resource/Deep_learning> a acad:Topic ;
+    rdfs:label "Deep_Learning" .
+
+<http://dbpedia.org/resource/File_system> a acad:Topic ;
+    rdfs:label "File_System" .
+
+<http://dbpedia.org/resource/Input/output> a acad:Topic ;
+    rdfs:label "Io_Systems" .
+
+<http://dbpedia.org/resource/Intelligent_Systems> a acad:Topic ;
+    rdfs:label "Intelligent_Systems" .
+
+<http://dbpedia.org/resource/Knowledge-based_systems> a acad:Topic ;
+    rdfs:label "Personalization_&_Recommender_Systems" .
+
+<http://dbpedia.org/resource/Knowledge_Graph> a acad:Topic ;
+    rdfs:label "Knowledge_Graph" .
+
+<http://dbpedia.org/resource/Linked_data> a acad:Topic ;
+    rdfs:label "Linked_Open_Data" .
+
+<http://dbpedia.org/resource/Machine_learning> a acad:Topic ;
+    rdfs:label "Machine_Learning" .
+
+<http://dbpedia.org/resource/Mass_storage> a acad:Topic ;
+    rdfs:label "Mass_Storage_Systems" .
+
+<http://dbpedia.org/resource/Multiprocessor_scheduling> a acad:Topic ;
+    rdfs:label "Cpu_Scheduling" .
+
+<http://dbpedia.org/resource/Natural-language_processing> a acad:Topic ;
+    rdfs:label "Natural_Language_Processing" .
+
+<http://dbpedia.org/resource/Ontology> a acad:Topic ;
+    rdfs:label "Ontologies" .
+
+<http://dbpedia.org/resource/Process_(computing)> a acad:Topic ;
+    rdfs:label "Processes" .
+
+<http://dbpedia.org/resource/Query_optimization> a acad:Topic ;
+    rdfs:label "Knowledge_Base_Queries" .
+
+<http://dbpedia.org/resource/RDF_Schema> a acad:Topic ;
+    rdfs:label "Rdfs" .
+
+<http://dbpedia.org/resource/Random-access_memory> a acad:Topic ;
+    rdfs:label "Main_Memory" .
+
+<http://dbpedia.org/resource/Resource_Description_Framework> a acad:Topic ;
+    rdfs:label "Resource_Description_Framework_(Rdf)" .
+
+<http://dbpedia.org/resource/SPARQL> a acad:Topic ;
+    rdfs:label "Sparql" .
+
+<http://dbpedia.org/resource/Simultaneous_multithreading> a acad:Topic ;
+    rdfs:label "Threads" .
+
+<http://dbpedia.org/resource/Synchronization> a acad:Topic ;
+    rdfs:label "Syncronization_Tools" .
+
+<http://dbpedia.org/resource/Text_mining> a acad:Topic ;
+    rdfs:label "Text_Mining" .
+
+<http://dbpedia.org/resource/Virtual_memory> a acad:Topic ;
+    rdfs:label "Virtual_Memory" .
+
+<http://dbpedia.org/resource/Vocabulary> a acad:Topic ;
+    rdfs:label "Vocabularies" .
+
+<http://dbpedia.org/resource/Web_Ontology_Language> a acad:Topic ;
+    rdfs:label "Web_Ontology_Language_(Owl)" .
+
+<https://dbpedia.org/resource/Intelligent_agent> a acad:Topic ;
+    rdfs:label "Intelligent_Agents" .
+
+<https://dbpedia.org/resource/Knowledge_base> a acad:Topic ;
+    rdfs:label "Knowledge_Base" .
+
+<http://dbpedia.org/resource/Operating_system> a acad:Topic ;
+    rdfs:label "Os_Structure" .
 

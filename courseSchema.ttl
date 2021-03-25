@@ -26,6 +26,7 @@ acad:offers
     rdfs:label "Univeristy A offers course B"@en ;
     rdfs:comment "A univeristy offers a selection of courses."@en .
 
+
 # ---------------------------------------------------------------------------
 #                   C O U R S E   D E F I N I T I O N S
 # ---------------------------------------------------------------------------
@@ -51,7 +52,18 @@ acad:courseOutline
     a foaf:Document ;
     rdfs:label "Course Outline"@en ;
     rdfs:comment "A course outline is a document that summarizes the topics covered in a particular course."@en .
-
+acad:courseHas
+    a rdf:Property ;
+    rdfs:domain vivo:Course ;
+    rdfs:range acad:courseOutline, acad:Lecture, acad:Tutorial, acad:Lab ;
+    rdfs:label "Course has component"@en ;
+    rdfs:comment "A component belonging to a course. Can be Outline/Lecture/Lab/Tutorial/Studio."@en .
+acad:coversTopic
+    a rdf:Property ;
+    rdfs:domain vivo:Course, acad:Lecture ;
+    rdfs:range acad:Topic;
+    rdfs:label "Topic covered in a course or lecture."@en ;
+    rdfs:comment "Topic covered in a course or lecture"@en .
 
 # ---------------------------------------------------------------------------
 #                   L E C T U R E   D E F I N I T I O N S
@@ -66,14 +78,19 @@ acad:lectureNumber
     rdfs:range xsd:int ;
     rdfs:label "Lecture Number"@en ;
     rdfs:comment "Lecture number in a course"@en .
-
-acad:lectureHas
+acad:lectureEvent
     a rdf:Property ;
-    rdfs:domain acad:Lecture, acad:Tutorial, acad:Lab ;
-    rdfs:range acad:Slides, acad:Worksheet, acad:Reading, acad:otherLectureContent;
+    rdfs:domain acad:Lecture ;
+    rdfs:range acad:Tutorial, acad:Lab, acad:Studio;
+    rdfs:label "Lecture has event"@en ;
+    rdfs:comment "Event of a course lecture"@en .
+
+acad:hasContent
+    a rdf:Property ;
+    rdfs:domain acad:Lecture ;
+    rdfs:range acad:Slides, acad:Worksheet, acad:Reading, acad:otherLectureContent, acad:Topic;
     rdfs:label "Lecture has content"@en ;
     rdfs:comment "Content for a course lecture"@en .
-
 acad:Slides
     a foaf:Document ;
     rdfs:label "Lecture slides"@en ;
@@ -97,6 +114,7 @@ acad:otherLectureContent
 # ---------------------------------------------------------------------------
 acad:Lab
     a rdfs:Class;
+    rdfs:subClassOf acad:Lecture ;
     rdfs:label "Lecture Lab"@en ;
     rdfs:comment "Laboratory associated with specific lecture."@en .
 
@@ -106,6 +124,7 @@ acad:Lab
 # ---------------------------------------------------------------------------
 acad:Tutorial
     a rdfs:Class ;
+    rdfs:subClassOf acad:Lecture ;
     rdfs:label "Lecture Tutorial"@en ;
     rdfs:comment "Tutorial associated with specific lecture."@en .
 
@@ -115,6 +134,7 @@ acad:Tutorial
 # ---------------------------------------------------------------------------
 acad:Studio
     a rdfs:Class ;
+    rdfs:subClassOf acad:Lecture ;
     rdfs:label "Lecture Studio"@en ;
     rdfs:comment "Studio associated with specific lecture."@en .
 
@@ -126,13 +146,3 @@ acad:Topic
 	a rdfs:Class;
     rdfs:label "Lecture Topic"@en ;
     rdfs:comment "Topic discussed in a given course."@en .
-
-# ---------------------------------------------------------------------------
-#   TODO: ADD LABS/TUTS TO "acad:has_component" (add two more rdfs:range)
-# ---------------------------------------------------------------------------
-acad:courseHas
-    a rdf:Property ;
-    rdfs:domain vivo:Course ;
-    rdfs:range acad:courseOutline, acad:Lecture, acad:Tutorial, acad:Lab ;
-    rdfs:label "Course has component"@en ;
-    rdfs:comment "A component belonging to a course. Can be Outline/Lecture/Lab/Tutorial/Studio."@en .
