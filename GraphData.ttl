@@ -6,67 +6,61 @@
 @prefix vivo: <http://vivoweb.org/ontology/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-acaddata:Artificial_Neural_Networks a acad:topic ;
-    rdfs:label "Artificial_Neural_Networks" ;
-    rdfs:seeAlso <http://dbpedia.org/resource/Artificial_neural_network> .
-
 acaddata:COMP474-LEC1 a acad:Lecture ;
-    acad:coversTopic <http://dbpedia.org/resource/Intelligent_Systems> ;
+    acad:coversTopic acaddata:Intelligent_Systems ;
     acad:hasContent <COURSES/COMP474/LEC/slides01.pdf>,
         <COURSES/COMP474/Worksheets/worksheet01.pdf> ;
     acad:lectureNumber "1"^^xsd:int .
 
 acaddata:COMP474-LEC2 a acad:Lecture ;
-    acad:coversTopic <http://dbpedia.org/resource/Knowledge_Graph>,
-        <http://dbpedia.org/resource/Resource_Description_Framework> ;
-    acad:hasContent <COURSES/COMP474/LEC/slides03.pdf>,
+    acad:coversTopic acaddata:Knowledge_Graph ;
+    acad:hasContent <COURSES/COMP474/LEC/slides02.pdf>,
         <COURSES/COMP474/Worksheets/worksheet02.pdf> ;
     acad:lectureNumber "2"^^xsd:int .
 
 acaddata:COMP474-LEC3 a acad:Lecture ;
-    acad:coversTopic <http://dbpedia.org/resource/Ontology>,
-        <http://dbpedia.org/resource/RDF_Schema>,
-        <http://dbpedia.org/resource/Vocabulary>,
-        <http://dbpedia.org/resource/Web_Ontology_Language> ;
-    acad:hasContent <COURSES/COMP474/LEC/slides04.pdf>,
+    acad:coversTopic acaddata:Ontologies,
+        acaddata:Vocabularies ;
+    acad:hasContent <COURSES/COMP474/LEC/slides03.pdf>,
         <COURSES/COMP474/Worksheets/worksheet03.pdf> ;
     acad:lectureNumber "3"^^xsd:int .
 
 acaddata:COMP474-LEC4 a acad:Lecture ;
-    acad:coversTopic <http://dbpedia.org/resource/Query_optimization>,
-        <http://dbpedia.org/resource/SPARQL> ;
-    acad:hasContent <COURSES/COMP474/LEC/slides05.pdf>,
+    acad:coversTopic acaddata:Knowledge_Base_Queries,
+        acaddata:SPARQL,
+        acaddata:Web_Ontology_Language ;
+    acad:hasContent <COURSES/COMP474/LEC/slides04.pdf>,
         <COURSES/COMP474/Worksheets/worksheet04.pdf> ;
     acad:lectureNumber "4"^^xsd:int .
 
 acaddata:COMP474-LEC5 a acad:Lecture ;
-    acad:coversTopic <http://dbpedia.org/resource/Linked_data>,
-        <https://dbpedia.org/resource/Knowledge_base> ;
-    acad:hasContent <COURSES/COMP474/LEC/slides06.pdf>,
+    acad:coversTopic acaddata:Knowledge_Base,
+        acaddata:Linked_Open_Data ;
+    acad:hasContent <COURSES/COMP474/LEC/slides05.pdf>,
         <COURSES/COMP474/Worksheets/worksheet05.pdf> ;
     acad:lectureNumber "5"^^xsd:int .
 
 acaddata:COMP474-LEC6 a acad:Lecture ;
-    acad:coversTopic <http://dbpedia.org/resource/Knowledge-based_systems> ;
-    acad:hasContent <COURSES/COMP474/LEC/slides07.pdf>,
+    acad:coversTopic acaddata:Personalization_And_Recommender_Systems ;
+    acad:hasContent <COURSES/COMP474/LEC/slides06.pdf>,
         <COURSES/COMP474/Worksheets/worksheet06.pdf> ;
     acad:lectureNumber "6"^^xsd:int .
 
 acaddata:COMP474-LEC7 a acad:Lecture ;
-    acad:coversTopic <http://dbpedia.org/resource/Machine_learning>,
-        <http://dbpedia.org/resource/Natural-language_processing> ;
-    acad:hasContent <COURSES/COMP474/LEC/slides08.pdf>,
+    acad:coversTopic acaddata:Machine_Learning ;
+    acad:hasContent <COURSES/COMP474/LEC/slides07.pdf>,
         <COURSES/COMP474/Worksheets/worksheet07.pdf> ;
     acad:lectureNumber "7"^^xsd:int .
 
 acaddata:COMP474-LEC8 a acad:Lecture ;
-    acad:coversTopic <https://dbpedia.org/resource/Intelligent_agent> ;
-    acad:hasContent <COURSES/COMP474/LEC/slides09.pdf> ;
+    acad:coversTopic acaddata:Intelligent_Agents ;
+    acad:hasContent <COURSES/COMP474/LEC/slides08.pdf> ;
     acad:lectureNumber "8"^^xsd:int .
 
-acaddata:COMP474-LEC9 acad:coversTopic <http://dbpedia.org/resource/Artificial_neural_network>,
-        <http://dbpedia.org/resource/Deep_learning>,
-        <http://dbpedia.org/resource/Text_mining> .
+acaddata:COMP474-LEC9 a acad:Lecture ;
+    acad:coversTopic acaddata:Text_Mining ;
+    acad:hasContent <COURSES/COMP474/LEC/slides09.pdf> ;
+    acad:lectureNumber "9"^^xsd:int .
 
 acaddata:Concordia_University acad:offers acaddata:FAS_0173,
         acaddata:FAS_0174,
@@ -1784,122 +1778,6 @@ acaddata:Concordia_University acad:offers acaddata:FAS_0173,
         acaddata:OTHER_8,
         acaddata:OTHER_9 .
 
-acaddata:Cpu_Scheduling a acad:topic ;
-    rdfs:label "Cpu_Scheduling" ;
-    rdfs:seeAlso <http://dbpedia.org/resource/Multiprocessor_scheduling> .
-
-acaddata:Deadlocks a acad:topic ;
-    rdfs:label "Deadlocks" ;
-    rdfs:seeAlso <http://dbpedia.org/resource/Deadlock> .
-
-acaddata:Deep_Learning a acad:topic ;
-    rdfs:label "Deep_Learning" ;
-    rdfs:seeAlso <http://dbpedia.org/resource/Deep_learning> .
-
-acaddata:File_System a acad:topic ;
-    rdfs:label "File_System" ;
-    rdfs:seeAlso <http://dbpedia.org/resource/File_system> .
-
-acaddata:Intelligent_Agents a acad:topic ;
-    rdfs:label "Intelligent_Agents" ;
-    rdfs:seeAlso <https://dbpedia.org/resource/Intelligent_agent> .
-
-acaddata:Intelligent_Systems a acad:topic ;
-    rdfs:label "Intelligent_Systems" ;
-    rdfs:seeAlso <http://dbpedia.org/resource/Intelligent_Systems> .
-
-acaddata:Io_Systems a acad:topic ;
-    rdfs:label "Io_Systems" ;
-    rdfs:seeAlso <http://dbpedia.org/resource/Input/output> .
-
-acaddata:Knowledge_Base a acad:topic ;
-    rdfs:label "Knowledge_Base" ;
-    rdfs:seeAlso <https://dbpedia.org/resource/Knowledge_base> .
-
-acaddata:Knowledge_Base_Queries a acad:topic ;
-    rdfs:label "Knowledge_Base_Queries" ;
-    rdfs:seeAlso <http://dbpedia.org/resource/Query_optimization> .
-
-acaddata:Knowledge_Graph a acad:topic ;
-    rdfs:label "Knowledge_Graph" ;
-    rdfs:seeAlso <http://dbpedia.org/resource/Knowledge_Graph> .
-
-acaddata:Linked_Open_Data a acad:topic ;
-    rdfs:label "Linked_Open_Data" ;
-    rdfs:seeAlso <http://dbpedia.org/resource/Linked_data> .
-
-acaddata:Machine_Learning a acad:topic ;
-    rdfs:label "Machine_Learning" ;
-    rdfs:seeAlso <http://dbpedia.org/resource/Machine_learning> .
-
-acaddata:Main_Memory a acad:topic ;
-    rdfs:label "Main_Memory" ;
-    rdfs:seeAlso <http://dbpedia.org/resource/Random-access_memory> .
-
-acaddata:Mass_Storage_Systems a acad:topic ;
-    rdfs:label "Mass_Storage_Systems" ;
-    rdfs:seeAlso <http://dbpedia.org/resource/Mass_storage> .
-
-acaddata:Natural_Language_Processing a acad:topic ;
-    rdfs:label "Natural_Language_Processing" ;
-    rdfs:seeAlso <http://dbpedia.org/resource/Natural-language_processing> .
-
-acaddata:Ontologies a acad:topic ;
-    rdfs:label "Ontologies" ;
-    rdfs:seeAlso <http://dbpedia.org/resource/Ontology> .
-
-acaddata:Os_Structure a acad:topic ;
-    rdfs:label "Os_Structure" ;
-    rdfs:seeAlso <http://dbpedia.org/resource/Operating_system> .
-
-<http://acad.io/data#Personalization_&_Recommender_Systems> a acad:topic ;
-    rdfs:label "Personalization_&_Recommender_Systems" ;
-    rdfs:seeAlso <http://dbpedia.org/resource/Knowledge-based_systems> .
-
-acaddata:Processes a acad:topic ;
-    rdfs:label "Processes" ;
-    rdfs:seeAlso <http://dbpedia.org/resource/Process_(computing)> .
-
-acaddata:Rdfs a acad:topic ;
-    rdfs:label "Rdfs" ;
-    rdfs:seeAlso <http://dbpedia.org/resource/RDF_Schema> .
-
-<http://acad.io/data#Resource_Description_Framework_(Rdf)> a acad:topic ;
-    rdfs:label "Resource_Description_Framework_(Rdf)" ;
-    rdfs:seeAlso <http://dbpedia.org/resource/Resource_Description_Framework> .
-
-acaddata:Sparql a acad:topic ;
-    rdfs:label "Sparql" ;
-    rdfs:seeAlso <http://dbpedia.org/resource/SPARQL> .
-
-acaddata:Syncronization_Examples a acad:topic ;
-    rdfs:label "Syncronization_Examples" ;
-    rdfs:seeAlso <http://dbpedia.org/resource/Computer_multitasking> .
-
-acaddata:Syncronization_Tools a acad:topic ;
-    rdfs:label "Syncronization_Tools" ;
-    rdfs:seeAlso <http://dbpedia.org/resource/Synchronization> .
-
-acaddata:Text_Mining a acad:topic ;
-    rdfs:label "Text_Mining" ;
-    rdfs:seeAlso <http://dbpedia.org/resource/Text_mining> .
-
-acaddata:Threads a acad:topic ;
-    rdfs:label "Threads" ;
-    rdfs:seeAlso <http://dbpedia.org/resource/Simultaneous_multithreading> .
-
-acaddata:Virtual_Memory a acad:topic ;
-    rdfs:label "Virtual_Memory" ;
-    rdfs:seeAlso <http://dbpedia.org/resource/Virtual_memory> .
-
-acaddata:Vocabularies a acad:topic ;
-    rdfs:label "Vocabularies" ;
-    rdfs:seeAlso <http://dbpedia.org/resource/Vocabulary> .
-
-<http://acad.io/data#Web_Ontology_Language_(Owl)> a acad:topic ;
-    rdfs:label "Web_Ontology_Language_(Owl)" ;
-    rdfs:seeAlso <http://dbpedia.org/resource/Web_Ontology_Language> .
-
 <COURSES/COMP346/LEC/Lecture01-Introduction.pdf> a acad:slides .
 
 <COURSES/COMP346/LEC/Lecture02-OS_Sturcture.pdf> a acad:slides .
@@ -1950,6 +1828,8 @@ acaddata:Vocabularies a acad:topic ;
 
 <COURSES/COMP474/LEC/slides01.pdf> a acad:slides .
 
+<COURSES/COMP474/LEC/slides02.pdf> a acad:slides .
+
 <COURSES/COMP474/LEC/slides03.pdf> a acad:slides .
 
 <COURSES/COMP474/LEC/slides04.pdf> a acad:slides .
@@ -1980,77 +1860,81 @@ acaddata:Vocabularies a acad:topic ;
 
 <COURSES/COMP474/Worksheets/worksheet07.pdf> a acad:Worksheet .
 
+acaddata:Artificial_Neural_Networks a acad:topic ;
+    rdfs:label "Artificial_Neural_Networks" ;
+    rdfs:seeAlso <http://dbpedia.org/resource/Artificial_neural_network> .
+
 acaddata:COMP346-LEC1 a acad:Lecture ;
-    acad:coversTopic <http://dbpedia.org/resource/Operating_system> ;
+    acad:coversTopic acaddata:OS_Structure ;
     acad:hasContent <COURSES/COMP346/LEC/Lecture01-Introduction.pdf> ;
     acad:lectureEvent acaddata:COMP346-TUT1 ;
     acad:lectureNumber "1"^^xsd:int .
 
 acaddata:COMP346-LEC10 a acad:Lecture ;
-    acad:coversTopic <http://dbpedia.org/resource/Virtual_memory> ;
+    acad:coversTopic acaddata:Virtual_Memory ;
     acad:hasContent <COURSES/COMP346/LEC/Lecture10-Vitrual_Memory.pdf> ;
     acad:lectureEvent acaddata:COMP346-TUT10 ;
     acad:lectureNumber "10"^^xsd:int .
 
 acaddata:COMP346-LEC11 a acad:Lecture ;
-    acad:coversTopic <http://dbpedia.org/resource/Mass_storage> ;
+    acad:coversTopic acaddata:Mass_Storage_Systems ;
     acad:hasContent <COURSES/COMP346/LEC/Lecture11-Mass_Storage_Systems.pdf> ;
     acad:lectureNumber "11"^^xsd:int .
 
 acaddata:COMP346-LEC12 a acad:Lecture ;
-    acad:coversTopic <http://dbpedia.org/resource/Input/output> ;
+    acad:coversTopic acaddata:IO_Systems ;
     acad:hasContent <COURSES/COMP346/LEC/Lecture12-IO_Systems.pdf> ;
     acad:lectureNumber "12"^^xsd:int .
 
 acaddata:COMP346-LEC13 a acad:Lecture ;
-    acad:coversTopic <http://dbpedia.org/resource/File_system> ;
+    acad:coversTopic acaddata:File_System ;
     acad:hasContent <COURSES/COMP346/LEC/Lecture13-File_System.pdf> ;
     acad:lectureNumber "13"^^xsd:int .
 
 acaddata:COMP346-LEC2 a acad:Lecture ;
-    acad:coversTopic <http://dbpedia.org/resource/Operating_system> ;
+    acad:coversTopic acaddata:OS_Structure ;
     acad:hasContent <COURSES/COMP346/LEC/Lecture02-OS_Sturcture.pdf> ;
     acad:lectureEvent acaddata:COMP346-TUT2 ;
     acad:lectureNumber "2"^^xsd:int .
 
 acaddata:COMP346-LEC3 a acad:Lecture ;
-    acad:coversTopic <http://dbpedia.org/resource/Process_(computing)> ;
+    acad:coversTopic acaddata:Processes ;
     acad:hasContent <COURSES/COMP346/LEC/Lecture03-Processes.pdf> ;
     acad:lectureEvent acaddata:COMP346-TUT3 ;
     acad:lectureNumber "3"^^xsd:int .
 
 acaddata:COMP346-LEC4 a acad:Lecture ;
-    acad:coversTopic <http://dbpedia.org/resource/Simultaneous_multithreading> ;
+    acad:coversTopic acaddata:Threads ;
     acad:hasContent <COURSES/COMP346/LEC/Lecture04-Threads.pdf> ;
     acad:lectureEvent acaddata:COMP346-TUT4 ;
     acad:lectureNumber "4"^^xsd:int .
 
 acaddata:COMP346-LEC5 a acad:Lecture ;
-    acad:coversTopic <http://dbpedia.org/resource/Multiprocessor_scheduling> ;
+    acad:coversTopic acaddata:CPU_Scheduling ;
     acad:hasContent <COURSES/COMP346/LEC/Lecture05-CPU_Scheduling.pdf> ;
     acad:lectureEvent acaddata:COMP346-TUT5 ;
     acad:lectureNumber "5"^^xsd:int .
 
 acaddata:COMP346-LEC6 a acad:Lecture ;
-    acad:coversTopic <http://dbpedia.org/resource/Synchronization> ;
+    acad:coversTopic acaddata:Syncronization_Tools ;
     acad:hasContent <COURSES/COMP346/LEC/Lecture06-Synchronization_Tools.pdf> ;
     acad:lectureEvent acaddata:COMP346-TUT6 ;
     acad:lectureNumber "6"^^xsd:int .
 
 acaddata:COMP346-LEC7 a acad:Lecture ;
-    acad:coversTopic <http://dbpedia.org/resource/Computer_multitasking> ;
+    acad:coversTopic acaddata:Syncronization_Examples ;
     acad:hasContent <COURSES/COMP346/LEC/Lecture07-Synchronization_Examples.pdf> ;
     acad:lectureEvent acaddata:COMP346-TUT7 ;
     acad:lectureNumber "7"^^xsd:int .
 
 acaddata:COMP346-LEC8 a acad:Lecture ;
-    acad:coversTopic <http://dbpedia.org/resource/Deadlock> ;
+    acad:coversTopic acaddata:Deadlocks ;
     acad:hasContent <COURSES/COMP346/LEC/Lecture08-Deadlocks.pdf> ;
     acad:lectureEvent acaddata:COMP346-TUT8 ;
     acad:lectureNumber "8"^^xsd:int .
 
 acaddata:COMP346-LEC9 a acad:Lecture ;
-    acad:coversTopic <http://dbpedia.org/resource/Random-access_memory> ;
+    acad:coversTopic acaddata:Main_Memory ;
     acad:hasContent <COURSES/COMP346/LEC/Lecture09-Main_Memory.pdf> ;
     acad:lectureEvent acaddata:COMP346-TUT9 ;
     acad:lectureNumber "9"^^xsd:int .
@@ -2094,6 +1978,10 @@ acaddata:COMP346-TUT8 a acad:Tutorial ;
 acaddata:COMP346-TUT9 a acad:Tutorial ;
     acad:hasContent <COURSES/COMP346/TUT/09-Tutorial_Deadlock.pdf> ;
     acad:lectureNumber "9"^^xsd:int .
+
+acaddata:Deep_Learning a acad:topic ;
+    rdfs:label "Deep_Learning" ;
+    rdfs:seeAlso <http://dbpedia.org/resource/Deep_learning> .
 
 acaddata:FAS_0173 a vivo:Course ;
     acad:courseHas acad:Lecture ;
@@ -10830,18 +10718,18 @@ acaddata:GCS_130 a vivo:Course ;
         acad:Tutorial ;
     acad:courseNumber "346"^^xsd:int ;
     acad:courseSubject "COMP"^^xsd:string ;
-    acad:coversTopic <http://dbpedia.org/resource/Computer_multitasking>,
-        <http://dbpedia.org/resource/Deadlock>,
-        <http://dbpedia.org/resource/File_system>,
-        <http://dbpedia.org/resource/Input/output>,
-        <http://dbpedia.org/resource/Mass_storage>,
-        <http://dbpedia.org/resource/Multiprocessor_scheduling>,
-        <http://dbpedia.org/resource/Operating_system>,
-        <http://dbpedia.org/resource/Process_(computing)>,
-        <http://dbpedia.org/resource/Random-access_memory>,
-        <http://dbpedia.org/resource/Simultaneous_multithreading>,
-        <http://dbpedia.org/resource/Synchronization>,
-        <http://dbpedia.org/resource/Virtual_memory> ;
+    acad:coversTopic acaddata:CPU_Scheduling,
+        acaddata:Deadlocks,
+        acaddata:File_System,
+        acaddata:IO_Systems,
+        acaddata:Main_Memory,
+        acaddata:Mass_Storage_Systems,
+        acaddata:OS_Structure,
+        acaddata:Processes,
+        acaddata:Syncronization_Examples,
+        acaddata:Syncronization_Tools,
+        acaddata:Threads,
+        acaddata:Virtual_Memory ;
     DC:description "Laboratory: 24 hours total"^^xsd:string ;
     vivo:AcademicDepartment "Computer Science and Software Engineering (CSSE)"^^xsd:string ;
     vivo:Program "Software Engineering, Computer Science"^^xsd:string ;
@@ -10997,24 +10885,24 @@ acaddata:GCS_143 a vivo:Course ;
         acad:Lecture ;
     acad:courseNumber "474"^^xsd:int ;
     acad:courseSubject "COMP"^^xsd:string ;
-    acad:coversTopic <http://dbpedia.org/resource/Artificial_neural_network>,
-        <http://dbpedia.org/resource/Deep_learning>,
-        <http://dbpedia.org/resource/Intelligent_Systems>,
-        <http://dbpedia.org/resource/Knowledge-based_systems>,
-        <http://dbpedia.org/resource/Knowledge_Graph>,
-        <http://dbpedia.org/resource/Linked_data>,
-        <http://dbpedia.org/resource/Machine_learning>,
-        <http://dbpedia.org/resource/Natural-language_processing>,
-        <http://dbpedia.org/resource/Ontology>,
-        <http://dbpedia.org/resource/Query_optimization>,
-        <http://dbpedia.org/resource/RDF_Schema>,
-        <http://dbpedia.org/resource/Resource_Description_Framework>,
-        <http://dbpedia.org/resource/SPARQL>,
-        <http://dbpedia.org/resource/Text_mining>,
-        <http://dbpedia.org/resource/Vocabulary>,
-        <http://dbpedia.org/resource/Web_Ontology_Language>,
-        <https://dbpedia.org/resource/Intelligent_agent>,
-        <https://dbpedia.org/resource/Knowledge_base> ;
+    acad:coversTopic acaddata:Artificial_Neural_Networks,
+        acaddata:Deep_Learning,
+        acaddata:Intelligent_Agents,
+        acaddata:Intelligent_Systems,
+        acaddata:Knowledge_Base,
+        acaddata:Knowledge_Base_Queries,
+        acaddata:Knowledge_Graph,
+        acaddata:Linked_Open_Data,
+        acaddata:Machine_Learning,
+        acaddata:Natural_Language_Processing,
+        acaddata:Ontologies,
+        acaddata:Personalization_And_Recommender_Systems,
+        acaddata:RDFS,
+        acaddata:Resource_Description_Framework,
+        acaddata:SPARQL,
+        acaddata:Text_Mining,
+        acaddata:Vocabularies,
+        acaddata:Web_Ontology_Language ;
     DC:description "Laboratory: 24 hours total, project"^^xsd:string ;
     vivo:AcademicDepartment "Computer Science and Software Engineering (CSSE)"^^xsd:string ;
     vivo:Program "Software Engineering, Computer Science"^^xsd:string ;
@@ -17998,6 +17886,10 @@ acaddata:JMSB_99 a vivo:Course ;
     vivo:departmentOrSchool "JMSB"^^xsd:string ;
     foaf:name "COMM SCOM"^^xsd:string .
 
+acaddata:Natural_Language_Processing a acad:topic ;
+    rdfs:label "Natural_Language_Processing" ;
+    rdfs:seeAlso <http://dbpedia.org/resource/Natural-language_processing> .
+
 acaddata:OTHER_1 a vivo:Course ;
     acad:courseNumber "205"^^xsd:int ;
     acad:courseSubject "ESL"^^xsd:string ;
@@ -18301,4 +18193,112 @@ acaddata:OTHER_9 a vivo:Course ;
     vivo:departmentOrSchool "Other"^^xsd:string ;
     rdfs:seeAlso "http://d3center.ca/2017/08/13/innovation-projects-jobs/"^^xsd:string ;
     foaf:name "D3 Innovation Projects"^^xsd:string .
+
+acaddata:RDFS a acad:topic ;
+    rdfs:label "RDFS" ;
+    rdfs:seeAlso <http://dbpedia.org/resource/RDF_Schema> .
+
+acaddata:Resource_Description_Framework a acad:topic ;
+    rdfs:label "Resource_Description_Framework" ;
+    rdfs:seeAlso <http://dbpedia.org/resource/Resource_Description_Framework> .
+
+acaddata:CPU_Scheduling a acad:topic ;
+    rdfs:label "CPU_Scheduling" ;
+    rdfs:seeAlso <http://dbpedia.org/resource/Multiprocessor_scheduling> .
+
+acaddata:Deadlocks a acad:topic ;
+    rdfs:label "Deadlocks" ;
+    rdfs:seeAlso <http://dbpedia.org/resource/Deadlock> .
+
+acaddata:File_System a acad:topic ;
+    rdfs:label "File_System" ;
+    rdfs:seeAlso <http://dbpedia.org/resource/File_system> .
+
+acaddata:IO_Systems a acad:topic ;
+    rdfs:label "IO_Systems" ;
+    rdfs:seeAlso <http://dbpedia.org/resource/Input/output> .
+
+acaddata:Intelligent_Agents a acad:topic ;
+    rdfs:label "Intelligent_Agents" ;
+    rdfs:seeAlso <https://dbpedia.org/resource/Intelligent_agent> .
+
+acaddata:Intelligent_Systems a acad:topic ;
+    rdfs:label "Intelligent_Systems" ;
+    rdfs:seeAlso <http://dbpedia.org/resource/Intelligent_Systems> .
+
+acaddata:Knowledge_Base a acad:topic ;
+    rdfs:label "Knowledge_Base" ;
+    rdfs:seeAlso <https://dbpedia.org/resource/Knowledge_base> .
+
+acaddata:Knowledge_Base_Queries a acad:topic ;
+    rdfs:label "Knowledge_Base_Queries" ;
+    rdfs:seeAlso <http://dbpedia.org/resource/Query_optimization> .
+
+acaddata:Knowledge_Graph a acad:topic ;
+    rdfs:label "Knowledge_Graph" ;
+    rdfs:seeAlso <http://dbpedia.org/resource/Knowledge_Graph> .
+
+acaddata:Linked_Open_Data a acad:topic ;
+    rdfs:label "Linked_Open_Data" ;
+    rdfs:seeAlso <http://dbpedia.org/resource/Linked_data> .
+
+acaddata:Machine_Learning a acad:topic ;
+    rdfs:label "Machine_Learning" ;
+    rdfs:seeAlso <http://dbpedia.org/resource/Machine_learning> .
+
+acaddata:Main_Memory a acad:topic ;
+    rdfs:label "Main_Memory" ;
+    rdfs:seeAlso <http://dbpedia.org/resource/Random-access_memory> .
+
+acaddata:Mass_Storage_Systems a acad:topic ;
+    rdfs:label "Mass_Storage_Systems" ;
+    rdfs:seeAlso <http://dbpedia.org/resource/Mass_storage> .
+
+acaddata:Ontologies a acad:topic ;
+    rdfs:label "Ontologies" ;
+    rdfs:seeAlso <http://dbpedia.org/resource/Ontology> .
+
+acaddata:Personalization_And_Recommender_Systems a acad:topic ;
+    rdfs:label "Personalization_And_Recommender_Systems" ;
+    rdfs:seeAlso <http://dbpedia.org/resource/Knowledge-based_systems> .
+
+acaddata:Processes a acad:topic ;
+    rdfs:label "Processes" ;
+    rdfs:seeAlso <http://dbpedia.org/resource/Process_(computing)> .
+
+acaddata:SPARQL a acad:topic ;
+    rdfs:label "SPARQL" ;
+    rdfs:seeAlso <http://dbpedia.org/resource/SPARQL> .
+
+acaddata:Syncronization_Examples a acad:topic ;
+    rdfs:label "Syncronization_Examples" ;
+    rdfs:seeAlso <http://dbpedia.org/resource/Computer_multitasking> .
+
+acaddata:Syncronization_Tools a acad:topic ;
+    rdfs:label "Syncronization_Tools" ;
+    rdfs:seeAlso <http://dbpedia.org/resource/Synchronization> .
+
+acaddata:Text_Mining a acad:topic ;
+    rdfs:label "Text_Mining" ;
+    rdfs:seeAlso <http://dbpedia.org/resource/Text_mining> .
+
+acaddata:Threads a acad:topic ;
+    rdfs:label "Threads" ;
+    rdfs:seeAlso <http://dbpedia.org/resource/Simultaneous_multithreading> .
+
+acaddata:Virtual_Memory a acad:topic ;
+    rdfs:label "Virtual_Memory" ;
+    rdfs:seeAlso <http://dbpedia.org/resource/Virtual_memory> .
+
+acaddata:Vocabularies a acad:topic ;
+    rdfs:label "Vocabularies" ;
+    rdfs:seeAlso <http://dbpedia.org/resource/Vocabulary> .
+
+acaddata:Web_Ontology_Language a acad:topic ;
+    rdfs:label "Web_Ontology_Language" ;
+    rdfs:seeAlso <http://dbpedia.org/resource/Web_Ontology_Language> .
+
+acaddata:OS_Structure a acad:topic ;
+    rdfs:label "OS_Structure" ;
+    rdfs:seeAlso <http://dbpedia.org/resource/Operating_system> .
 
