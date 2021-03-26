@@ -128,7 +128,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1615937772474</updated>
-      <workItem from="1616718854271" duration="1410000" />
+      <workItem from="1616718854271" duration="2309000" />
+      <workItem from="1616781358739" duration="567000" />
     </task>
     <task id="LOCAL-00001" summary="Converting courses data from csv file to rdf triples and adding them to graph g.">
       <created>1615940778713</created>
@@ -179,26 +180,26 @@
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
     <state x="1060" y="460" key="FileChooserDialogImpl/0.0.2560.1410/2560.360.1920.1050@0.0.2560.1410" timestamp="1616711068764" />
-    <state width="2517" height="403" key="GridCell.Tab.0.bottom" timestamp="1616716001939">
+    <state width="2517" height="403" key="GridCell.Tab.0.bottom" timestamp="1616781861073">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
     <state width="1280" height="213" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1616381457336" />
-    <state width="2517" height="403" key="GridCell.Tab.0.bottom/0.0.2560.1410/2560.360.1920.1050@0.0.2560.1410" timestamp="1616716001939" />
-    <state width="2517" height="403" key="GridCell.Tab.0.center" timestamp="1616716001939">
+    <state width="2517" height="403" key="GridCell.Tab.0.bottom/0.0.2560.1410/2560.360.1920.1050@0.0.2560.1410" timestamp="1616781861072" />
+    <state width="2517" height="403" key="GridCell.Tab.0.center" timestamp="1616781861072">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
     <state width="1280" height="213" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1616381457334" />
-    <state width="2517" height="403" key="GridCell.Tab.0.center/0.0.2560.1410/2560.360.1920.1050@0.0.2560.1410" timestamp="1616716001939" />
-    <state width="2517" height="403" key="GridCell.Tab.0.left" timestamp="1616716001939">
+    <state width="2517" height="403" key="GridCell.Tab.0.center/0.0.2560.1410/2560.360.1920.1050@0.0.2560.1410" timestamp="1616781861072" />
+    <state width="2517" height="403" key="GridCell.Tab.0.left" timestamp="1616781861072">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
     <state width="1280" height="213" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1616381457332" />
-    <state width="2517" height="403" key="GridCell.Tab.0.left/0.0.2560.1410/2560.360.1920.1050@0.0.2560.1410" timestamp="1616716001939" />
-    <state width="2517" height="403" key="GridCell.Tab.0.right" timestamp="1616716001939">
+    <state width="2517" height="403" key="GridCell.Tab.0.left/0.0.2560.1410/2560.360.1920.1050@0.0.2560.1410" timestamp="1616781861072" />
+    <state width="2517" height="403" key="GridCell.Tab.0.right" timestamp="1616781861072">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
     <state width="1280" height="213" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1616381457335" />
-    <state width="2517" height="403" key="GridCell.Tab.0.right/0.0.2560.1410/2560.360.1920.1050@0.0.2560.1410" timestamp="1616716001939" />
+    <state width="2517" height="403" key="GridCell.Tab.0.right/0.0.2560.1410/2560.360.1920.1050@0.0.2560.1410" timestamp="1616781861072" />
     <state x="351" y="123" width="596" height="554" key="MultipleFileMergeDialog" timestamp="1616375216306">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
@@ -234,6 +235,6 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/COMP474_A1$courses.coverage" NAME="courseGen Coverage Results" MODIFIED="1616715462049" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/COMP474_A1$courseGen.coverage" NAME="courseGen Coverage Results" MODIFIED="1616720609142" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/COMP474_A1$courseGen.coverage" NAME="courseGen Coverage Results" MODIFIED="1616781861058" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

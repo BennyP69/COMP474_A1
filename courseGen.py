@@ -15,6 +15,7 @@ ACAD = Namespace('http://acad.io/schema#')
 ACADDATA = Namespace('http://acad.io/data#')
 VIVO = Namespace('http://vivoweb.org/ontology/core#')
 DC = Namespace('http://purl.org/dc/terms/')
+OWL = Namespace('http://www.w3.org/2002/07/owl#')
 
 # Initialize a dataset and bind namespaces
 dataset = Dataset()
@@ -22,6 +23,7 @@ dataset.bind('ACAD', ACAD)
 dataset.bind('ACADDATA', ACADDATA)
 dataset.bind('VIVO', VIVO)
 dataset.bind('DC', DC)
+dataset.bind('OWL', OWL)
 
 g = dataset.graph()
 
@@ -63,6 +65,17 @@ for index, row in df.iterrows():
 
 url2 = 'opendata/CU_SR_OPEN_DATA_CATALOG.csv'
 columns = []
+
+# ADD CONCORDIA
+g.add((URIRef(ACADDATA + "Concordia_University"), RDF.type, ACAD.University))
+g.add((URIRef(ACADDATA + "Concordia_University"), RDFS.label, Literal("Concordia University")))
+g.add((URIRef(ACADDATA + "Concordia_University"), RDFS.comment,
+      Literal("Concordia University is a public comprehensive research university located in Montreal, Quebec, Canada.")))
+g.add((URIRef(ACADDATA + "Concordia_University"), RDFS.seeAlso,
+      URIRef("https://dbpedia.org/resource/Concordia_University")))
+g.add((URIRef(ACADDATA + "Concordia_University"), OWL.sameAs,
+      URIRef("https://dbpedia.org/resource/Concordia_University")))
+
 
 with open(url2, encoding='ISO-8859-1') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
