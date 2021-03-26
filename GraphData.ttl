@@ -1728,71 +1728,71 @@ acaddata:Concordia_University a acad:University ;
     rdfs:seeAlso <https://dbpedia.org/resource/Concordia_University> ;
     OWL:sameAs <https://dbpedia.org/resource/Concordia_University> .
 
-<COURSES/COMP346/LEC/Lecture01-Introduction.pdf> a acad:slides .
+<COURSES/COMP346/LEC/Lecture01-Introduction.pdf> a acad:Slides .
 
-<COURSES/COMP346/LEC/Lecture02-OS_Sturcture.pdf> a acad:slides .
+<COURSES/COMP346/LEC/Lecture02-OS_Sturcture.pdf> a acad:Slides .
 
-<COURSES/COMP346/LEC/Lecture03-Processes.pdf> a acad:slides .
+<COURSES/COMP346/LEC/Lecture03-Processes.pdf> a acad:Slides .
 
-<COURSES/COMP346/LEC/Lecture04-Threads.pdf> a acad:slides .
+<COURSES/COMP346/LEC/Lecture04-Threads.pdf> a acad:Slides .
 
-<COURSES/COMP346/LEC/Lecture05-CPU_Scheduling.pdf> a acad:slides .
+<COURSES/COMP346/LEC/Lecture05-CPU_Scheduling.pdf> a acad:Slides .
 
-<COURSES/COMP346/LEC/Lecture06-Synchronization_Tools.pdf> a acad:slides .
+<COURSES/COMP346/LEC/Lecture06-Synchronization_Tools.pdf> a acad:Slides .
 
-<COURSES/COMP346/LEC/Lecture07-Synchronization_Examples.pdf> a acad:slides .
+<COURSES/COMP346/LEC/Lecture07-Synchronization_Examples.pdf> a acad:Slides .
 
-<COURSES/COMP346/LEC/Lecture08-Deadlocks.pdf> a acad:slides .
+<COURSES/COMP346/LEC/Lecture08-Deadlocks.pdf> a acad:Slides .
 
-<COURSES/COMP346/LEC/Lecture09-Main_Memory.pdf> a acad:slides .
+<COURSES/COMP346/LEC/Lecture09-Main_Memory.pdf> a acad:Slides .
 
-<COURSES/COMP346/LEC/Lecture10-Vitrual_Memory.pdf> a acad:slides .
+<COURSES/COMP346/LEC/Lecture10-Vitrual_Memory.pdf> a acad:Slides .
 
-<COURSES/COMP346/LEC/Lecture11-Mass_Storage_Systems.pdf> a acad:slides .
+<COURSES/COMP346/LEC/Lecture11-Mass_Storage_Systems.pdf> a acad:Slides .
 
-<COURSES/COMP346/LEC/Lecture12-IO_Systems.pdf> a acad:slides .
+<COURSES/COMP346/LEC/Lecture12-IO_Systems.pdf> a acad:Slides .
 
-<COURSES/COMP346/LEC/Lecture13-File_System.pdf> a acad:slides .
+<COURSES/COMP346/LEC/Lecture13-File_System.pdf> a acad:Slides .
 
 <COURSES/COMP346/Outline/comp346_F20_course_outline.pdf> a acad:courseOutline .
 
-<COURSES/COMP346/TUT/01-Tutorial_Processes_and_Threads.pdf> a acad:slides .
+<COURSES/COMP346/TUT/01-Tutorial_Processes_and_Threads.pdf> a acad:Slides .
 
-<COURSES/COMP346/TUT/02-Tutorial_Data_Manipulations_and_Synchronization.pdf> a acad:slides .
+<COURSES/COMP346/TUT/02-Tutorial_Data_Manipulations_and_Synchronization.pdf> a acad:Slides .
 
-<COURSES/COMP346/TUT/03-Tutorial_Synchronization.pdf> a acad:slides .
+<COURSES/COMP346/TUT/03-Tutorial_Synchronization.pdf> a acad:Slides .
 
-<COURSES/COMP346/TUT/04-Tutorial_Semaphores.pdf> a acad:slides .
+<COURSES/COMP346/TUT/04-Tutorial_Semaphores.pdf> a acad:Slides .
 
-<COURSES/COMP346/TUT/05-Tutorial_Monitors.pdf> a acad:slides .
+<COURSES/COMP346/TUT/05-Tutorial_Monitors.pdf> a acad:Slides .
 
-<COURSES/COMP346/TUT/06-Tutorial_MainMemory.pdf> a acad:slides .
+<COURSES/COMP346/TUT/06-Tutorial_MainMemory.pdf> a acad:Slides .
 
-<COURSES/COMP346/TUT/07-Tutorial_VirualMemory.pdf> a acad:slides .
+<COURSES/COMP346/TUT/07-Tutorial_VirualMemory.pdf> a acad:Slides .
 
-<COURSES/COMP346/TUT/08-Tutorial_Scheduling.pdf> a acad:slides .
+<COURSES/COMP346/TUT/08-Tutorial_Scheduling.pdf> a acad:Slides .
 
-<COURSES/COMP346/TUT/09-Tutorial_Deadlock.pdf> a acad:slides .
+<COURSES/COMP346/TUT/09-Tutorial_Deadlock.pdf> a acad:Slides .
 
-<COURSES/COMP346/TUT/10-Tutorial_File_Management.pdf> a acad:slides .
+<COURSES/COMP346/TUT/10-Tutorial_File_Management.pdf> a acad:Slides .
 
-<COURSES/COMP474/LEC/slides01.pdf> a acad:slides .
+<COURSES/COMP474/LEC/slides01.pdf> a acad:Slides .
 
-<COURSES/COMP474/LEC/slides02.pdf> a acad:slides .
+<COURSES/COMP474/LEC/slides02.pdf> a acad:Slides .
 
-<COURSES/COMP474/LEC/slides03.pdf> a acad:slides .
+<COURSES/COMP474/LEC/slides03.pdf> a acad:Slides .
 
-<COURSES/COMP474/LEC/slides04.pdf> a acad:slides .
+<COURSES/COMP474/LEC/slides04.pdf> a acad:Slides .
 
-<COURSES/COMP474/LEC/slides05.pdf> a acad:slides .
+<COURSES/COMP474/LEC/slides05.pdf> a acad:Slides .
 
-<COURSES/COMP474/LEC/slides06.pdf> a acad:slides .
+<COURSES/COMP474/LEC/slides06.pdf> a acad:Slides .
 
-<COURSES/COMP474/LEC/slides07.pdf> a acad:slides .
+<COURSES/COMP474/LEC/slides07.pdf> a acad:Slides .
 
-<COURSES/COMP474/LEC/slides08.pdf> a acad:slides .
+<COURSES/COMP474/LEC/slides08.pdf> a acad:Slides .
 
-<COURSES/COMP474/LEC/slides09.pdf> a acad:slides .
+<COURSES/COMP474/LEC/slides09.pdf> a acad:Slides .
 
 <COURSES/COMP474/Outline/course_outline_comp474_6741_w2021.pdf> a acad:courseOutline .
 

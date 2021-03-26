@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5cd33d1d-bf75-4bf5-bea5-8218e6fa84bc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GraphData.ttl" beforeDir="false" afterPath="$PROJECT_DIR$/GraphData.ttl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/courseGen.py" beforeDir="false" afterPath="$PROJECT_DIR$/courseGen.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -129,7 +127,7 @@
       <option name="presentableId" value="Default" />
       <updated>1615937772474</updated>
       <workItem from="1616718854271" duration="2309000" />
-      <workItem from="1616781358739" duration="567000" />
+      <workItem from="1616781358739" duration="647000" />
     </task>
     <task id="LOCAL-00001" summary="Converting courses data from csv file to rdf triples and adding them to graph g.">
       <created>1615940778713</created>

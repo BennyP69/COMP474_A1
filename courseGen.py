@@ -156,7 +156,7 @@ with open(url2, encoding='ISO-8859-1') as csv_file:
                                Literal(lec_num, datatype=XSD.int)))
 
                         # Add triple defining lecture slides
-                        g.add((URIRef(lectures_path + filename), RDF.type, ACAD.slides))
+                        g.add((URIRef(lectures_path + filename), RDF.type, ACAD.Slides))
 
                         # Add triple linking slide to lecture
                         g.add((URIRef(ACADDATA + "COMP346-LEC" + str(lec_num)), ACAD.hasContent,
@@ -180,7 +180,7 @@ with open(url2, encoding='ISO-8859-1') as csv_file:
                                Literal(tut_num, datatype=XSD.int)))
 
                         # Triple defining tut slides
-                        g.add((URIRef(tuts_path + filename1), RDF.type, ACAD.slides))
+                        g.add((URIRef(tuts_path + filename1), RDF.type, ACAD.Slides))
 
                         # Triple linking slide to tut
                         g.add((URIRef(ACADDATA + "COMP346-TUT" + str(tut_num)), ACAD.hasContent,
@@ -251,7 +251,7 @@ with open(url2, encoding='ISO-8859-1') as csv_file:
                                 Literal(lec_num, datatype=XSD.int)))
 
                         # Add triple defining lecture slides
-                        g.add((URIRef(lectures_path + filename), RDF.type, ACAD.slides))
+                        g.add((URIRef(lectures_path + filename), RDF.type, ACAD.Slides))
 
                         # Add triple linking slide to lecture
                         g.add((URIRef(ACADDATA + "COMP474-LEC" + str(lec_num)), ACAD.hasContent,
