@@ -243,6 +243,10 @@ with open(url2, encoding='ISO-8859-1') as csv_file:
                         # Add triple linking slide to lecture
                         g.add((URIRef(ACADDATA + "COMP474-LEC" + str(lec_num)), ACAD.hasContent,
                                 URIRef(lectures_path + filename)))
+
+                        # Triple linking lecture to course
+                        g.add((URIRef(ACADDATA + key), ACAD.courseHas, URIRef(ACADDATA + "COMP474-LEC" + str(lec_num))))
+
                         lec_num = lec_num + 1
 
                 # -----------------------------------------------------
@@ -268,10 +272,6 @@ with open(url2, encoding='ISO-8859-1') as csv_file:
                     topic_arg = topic.split("\" ")
                     label = topic_arg[0].replace("\"", "")
                     uri = topic_arg[1]
-
-                    print(topic_arg)
-                    print(label)
-                    print(uri, "\n\n")
 
                     # Adding triples for each topic of COMP 474
                     g.add((URIRef(ACADDATA + label), RDF.type, ACAD.topic))

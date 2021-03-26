@@ -6,62 +6,6 @@
 @prefix vivo: <http://vivoweb.org/ontology/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-acaddata:COMP474-LEC1 a acad:Lecture ;
-    acad:coversTopic acaddata:Intelligent_Systems ;
-    acad:hasContent <COURSES/COMP474/LEC/slides01.pdf>,
-        <COURSES/COMP474/Worksheets/worksheet01.pdf> ;
-    acad:lectureNumber "1"^^xsd:int .
-
-acaddata:COMP474-LEC2 a acad:Lecture ;
-    acad:coversTopic acaddata:Knowledge_Graph ;
-    acad:hasContent <COURSES/COMP474/LEC/slides02.pdf>,
-        <COURSES/COMP474/Worksheets/worksheet02.pdf> ;
-    acad:lectureNumber "2"^^xsd:int .
-
-acaddata:COMP474-LEC3 a acad:Lecture ;
-    acad:coversTopic acaddata:Ontologies,
-        acaddata:Vocabularies ;
-    acad:hasContent <COURSES/COMP474/LEC/slides03.pdf>,
-        <COURSES/COMP474/Worksheets/worksheet03.pdf> ;
-    acad:lectureNumber "3"^^xsd:int .
-
-acaddata:COMP474-LEC4 a acad:Lecture ;
-    acad:coversTopic acaddata:Knowledge_Base_Queries,
-        acaddata:SPARQL,
-        acaddata:Web_Ontology_Language ;
-    acad:hasContent <COURSES/COMP474/LEC/slides04.pdf>,
-        <COURSES/COMP474/Worksheets/worksheet04.pdf> ;
-    acad:lectureNumber "4"^^xsd:int .
-
-acaddata:COMP474-LEC5 a acad:Lecture ;
-    acad:coversTopic acaddata:Knowledge_Base,
-        acaddata:Linked_Open_Data ;
-    acad:hasContent <COURSES/COMP474/LEC/slides05.pdf>,
-        <COURSES/COMP474/Worksheets/worksheet05.pdf> ;
-    acad:lectureNumber "5"^^xsd:int .
-
-acaddata:COMP474-LEC6 a acad:Lecture ;
-    acad:coversTopic acaddata:Personalization_And_Recommender_Systems ;
-    acad:hasContent <COURSES/COMP474/LEC/slides06.pdf>,
-        <COURSES/COMP474/Worksheets/worksheet06.pdf> ;
-    acad:lectureNumber "6"^^xsd:int .
-
-acaddata:COMP474-LEC7 a acad:Lecture ;
-    acad:coversTopic acaddata:Machine_Learning ;
-    acad:hasContent <COURSES/COMP474/LEC/slides07.pdf>,
-        <COURSES/COMP474/Worksheets/worksheet07.pdf> ;
-    acad:lectureNumber "7"^^xsd:int .
-
-acaddata:COMP474-LEC8 a acad:Lecture ;
-    acad:coversTopic acaddata:Intelligent_Agents ;
-    acad:hasContent <COURSES/COMP474/LEC/slides08.pdf> ;
-    acad:lectureNumber "8"^^xsd:int .
-
-acaddata:COMP474-LEC9 a acad:Lecture ;
-    acad:coversTopic acaddata:Text_Mining ;
-    acad:hasContent <COURSES/COMP474/LEC/slides09.pdf> ;
-    acad:lectureNumber "9"^^xsd:int .
-
 acaddata:Concordia_University acad:offers acaddata:FAS_0173,
         acaddata:FAS_0174,
         acaddata:FAS_0175,
@@ -1860,10 +1804,6 @@ acaddata:Concordia_University acad:offers acaddata:FAS_0173,
 
 <COURSES/COMP474/Worksheets/worksheet07.pdf> a acad:Worksheet .
 
-acaddata:Artificial_Neural_Networks a acad:topic ;
-    rdfs:label "Artificial_Neural_Networks" ;
-    rdfs:seeAlso <http://dbpedia.org/resource/Artificial_neural_network> .
-
 acaddata:COMP346-LEC1 a acad:Lecture ;
     acad:coversTopic acaddata:OS_Structure ;
     acad:hasContent <COURSES/COMP346/LEC/Lecture01-Introduction.pdf> ;
@@ -1979,9 +1919,66 @@ acaddata:COMP346-TUT9 a acad:Tutorial ;
     acad:hasContent <COURSES/COMP346/TUT/09-Tutorial_Deadlock.pdf> ;
     acad:lectureNumber "9"^^xsd:int .
 
-acaddata:Deep_Learning a acad:topic ;
-    rdfs:label "Deep_Learning" ;
-    rdfs:seeAlso <http://dbpedia.org/resource/Deep_learning> .
+acaddata:COMP474-LEC1 a acad:Lecture ;
+    acad:coversTopic acaddata:Intelligent_Systems ;
+    acad:hasContent <COURSES/COMP474/LEC/slides01.pdf>,
+        <COURSES/COMP474/Worksheets/worksheet01.pdf> ;
+    acad:lectureNumber "1"^^xsd:int .
+
+acaddata:COMP474-LEC2 a acad:Lecture ;
+    acad:coversTopic acaddata:Knowledge_Graph,
+        acaddata:Resource_Description_Framework ;
+    acad:hasContent <COURSES/COMP474/LEC/slides02.pdf>,
+        <COURSES/COMP474/Worksheets/worksheet02.pdf> ;
+    acad:lectureNumber "2"^^xsd:int .
+
+acaddata:COMP474-LEC3 a acad:Lecture ;
+    acad:coversTopic acaddata:Ontologies,
+        acaddata:RDFS,
+        acaddata:Vocabularies ;
+    acad:hasContent <COURSES/COMP474/LEC/slides03.pdf>,
+        <COURSES/COMP474/Worksheets/worksheet03.pdf> ;
+    acad:lectureNumber "3"^^xsd:int .
+
+acaddata:COMP474-LEC4 a acad:Lecture ;
+    acad:coversTopic acaddata:Knowledge_Base_Queries,
+        acaddata:SPARQL,
+        acaddata:Web_Ontology_Language ;
+    acad:hasContent <COURSES/COMP474/LEC/slides04.pdf>,
+        <COURSES/COMP474/Worksheets/worksheet04.pdf> ;
+    acad:lectureNumber "4"^^xsd:int .
+
+acaddata:COMP474-LEC5 a acad:Lecture ;
+    acad:coversTopic acaddata:Knowledge_Base,
+        acaddata:Linked_Open_Data ;
+    acad:hasContent <COURSES/COMP474/LEC/slides05.pdf>,
+        <COURSES/COMP474/Worksheets/worksheet05.pdf> ;
+    acad:lectureNumber "5"^^xsd:int .
+
+acaddata:COMP474-LEC6 a acad:Lecture ;
+    acad:coversTopic acaddata:Personalization_And_Recommender_Systems ;
+    acad:hasContent <COURSES/COMP474/LEC/slides06.pdf>,
+        <COURSES/COMP474/Worksheets/worksheet06.pdf> ;
+    acad:lectureNumber "6"^^xsd:int .
+
+acaddata:COMP474-LEC7 a acad:Lecture ;
+    acad:coversTopic acaddata:Machine_Learning,
+        acaddata:Natural_Language_Processing ;
+    acad:hasContent <COURSES/COMP474/LEC/slides07.pdf>,
+        <COURSES/COMP474/Worksheets/worksheet07.pdf> ;
+    acad:lectureNumber "7"^^xsd:int .
+
+acaddata:COMP474-LEC8 a acad:Lecture ;
+    acad:coversTopic acaddata:Intelligent_Agents ;
+    acad:hasContent <COURSES/COMP474/LEC/slides08.pdf> ;
+    acad:lectureNumber "8"^^xsd:int .
+
+acaddata:COMP474-LEC9 a acad:Lecture ;
+    acad:coversTopic acaddata:Artificial_Neural_Networks,
+        acaddata:Deep_Learning,
+        acaddata:Text_Mining ;
+    acad:hasContent <COURSES/COMP474/LEC/slides09.pdf> ;
+    acad:lectureNumber "9"^^xsd:int .
 
 acaddata:FAS_0173 a vivo:Course ;
     acad:courseHas acad:Lecture ;
@@ -10881,6 +10878,15 @@ acaddata:GCS_142 a vivo:Course ;
 
 acaddata:GCS_143 a vivo:Course ;
     acad:courseHas <COURSES/COMP474/Outline/course_outline_comp474_6741_w2021.pdf>,
+        acaddata:COMP474-LEC1,
+        acaddata:COMP474-LEC2,
+        acaddata:COMP474-LEC3,
+        acaddata:COMP474-LEC4,
+        acaddata:COMP474-LEC5,
+        acaddata:COMP474-LEC6,
+        acaddata:COMP474-LEC7,
+        acaddata:COMP474-LEC8,
+        acaddata:COMP474-LEC9,
         acad:Lab,
         acad:Lecture ;
     acad:courseNumber "474"^^xsd:int ;
@@ -17886,10 +17892,6 @@ acaddata:JMSB_99 a vivo:Course ;
     vivo:departmentOrSchool "JMSB"^^xsd:string ;
     foaf:name "COMM SCOM"^^xsd:string .
 
-acaddata:Natural_Language_Processing a acad:topic ;
-    rdfs:label "Natural_Language_Processing" ;
-    rdfs:seeAlso <http://dbpedia.org/resource/Natural-language_processing> .
-
 acaddata:OTHER_1 a vivo:Course ;
     acad:courseNumber "205"^^xsd:int ;
     acad:courseSubject "ESL"^^xsd:string ;
@@ -18194,13 +18196,9 @@ acaddata:OTHER_9 a vivo:Course ;
     rdfs:seeAlso "http://d3center.ca/2017/08/13/innovation-projects-jobs/"^^xsd:string ;
     foaf:name "D3 Innovation Projects"^^xsd:string .
 
-acaddata:RDFS a acad:topic ;
-    rdfs:label "RDFS" ;
-    rdfs:seeAlso <http://dbpedia.org/resource/RDF_Schema> .
-
-acaddata:Resource_Description_Framework a acad:topic ;
-    rdfs:label "Resource_Description_Framework" ;
-    rdfs:seeAlso <http://dbpedia.org/resource/Resource_Description_Framework> .
+acaddata:Artificial_Neural_Networks a acad:topic ;
+    rdfs:label "Artificial_Neural_Networks" ;
+    rdfs:seeAlso <http://dbpedia.org/resource/Artificial_neural_network> .
 
 acaddata:CPU_Scheduling a acad:topic ;
     rdfs:label "CPU_Scheduling" ;
@@ -18209,6 +18207,10 @@ acaddata:CPU_Scheduling a acad:topic ;
 acaddata:Deadlocks a acad:topic ;
     rdfs:label "Deadlocks" ;
     rdfs:seeAlso <http://dbpedia.org/resource/Deadlock> .
+
+acaddata:Deep_Learning a acad:topic ;
+    rdfs:label "Deep_Learning" ;
+    rdfs:seeAlso <http://dbpedia.org/resource/Deep_learning> .
 
 acaddata:File_System a acad:topic ;
     rdfs:label "File_System" ;
@@ -18254,6 +18256,10 @@ acaddata:Mass_Storage_Systems a acad:topic ;
     rdfs:label "Mass_Storage_Systems" ;
     rdfs:seeAlso <http://dbpedia.org/resource/Mass_storage> .
 
+acaddata:Natural_Language_Processing a acad:topic ;
+    rdfs:label "Natural_Language_Processing" ;
+    rdfs:seeAlso <http://dbpedia.org/resource/Natural-language_processing> .
+
 acaddata:Ontologies a acad:topic ;
     rdfs:label "Ontologies" ;
     rdfs:seeAlso <http://dbpedia.org/resource/Ontology> .
@@ -18265,6 +18271,14 @@ acaddata:Personalization_And_Recommender_Systems a acad:topic ;
 acaddata:Processes a acad:topic ;
     rdfs:label "Processes" ;
     rdfs:seeAlso <http://dbpedia.org/resource/Process_(computing)> .
+
+acaddata:RDFS a acad:topic ;
+    rdfs:label "RDFS" ;
+    rdfs:seeAlso <http://dbpedia.org/resource/RDF_Schema> .
+
+acaddata:Resource_Description_Framework a acad:topic ;
+    rdfs:label "Resource_Description_Framework" ;
+    rdfs:seeAlso <http://dbpedia.org/resource/Resource_Description_Framework> .
 
 acaddata:SPARQL a acad:topic ;
     rdfs:label "SPARQL" ;
