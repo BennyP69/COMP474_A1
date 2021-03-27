@@ -1,0 +1,8 @@
+# Q10) How many topics are covered in [course]?
+
+SELECT  ?course ?courseName (COUNT(?topic) AS ?topicNum)
+WHERE {
+	?course a vivo:Course.
+ 	?course foaf:name ?courseName.
+  	?course acad:coversTopic ?topic.
+} GROUP BY ?course ?courseName

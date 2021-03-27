@@ -1,0 +1,3 @@
+ "content" , "type" , "typeLabel" ,
+ "http://localhost:3030/acad/COURSES/COMP474/Worksheets/worksheet02.pdf" , "http://acad.io/schema#Worksheet" , "Worksheet" ,
+ "http://localhost:3030/acad/COURSES/COMP474/LEC/slides02.pdf" , "http://acad.io/schema#Slides" , "Lecture slides" ,

@@ -1,0 +1,11 @@
+# Q6b) What components does the course [course] have?
+
+SELECT  ?csubject ?cnumber ?cname ?component
+WHERE{
+    ?course a vivo:Course.
+    ?course foaf:name ?cname.
+    ?course acad:courseNumber "474"^^xsd:int.
+    ?course acad:courseSubject "COMP"^^xsd:string.
+    ?course acad:courseHas ?component.
+}
+

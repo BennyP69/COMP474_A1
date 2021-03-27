@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5cd33d1d-bf75-4bf5-bea5-8218e6fa84bc" name="Default Changelist" comment="" />
+    <list default="true" id="5cd33d1d-bf75-4bf5-bea5-8218e6fa84bc" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -126,6 +128,7 @@
       <updated>1615937772474</updated>
       <workItem from="1616718854271" duration="2309000" />
       <workItem from="1616781358739" duration="839000" />
+      <workItem from="1616855110243" duration="1011000" />
     </task>
     <task id="LOCAL-00001" summary="Converting courses data from csv file to rdf triples and adding them to graph g.">
       <created>1615940778713</created>

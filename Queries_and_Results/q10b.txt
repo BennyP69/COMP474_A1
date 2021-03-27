@@ -1,0 +1,9 @@
+# Q10b) How many topics are covered in [course]?
+
+SELECT  ?courseName (COUNT(?topic) AS ?topicNum)
+WHERE {
+ 	?course acad:courseNumber "474"^^xsd:int.
+      ?course acad:courseSubject "COMP"^^xsd:string.
+  	?course foaf:name ?courseName.
+  	?course acad:coversTopic ?topic.
+} GROUP BY ?courseName

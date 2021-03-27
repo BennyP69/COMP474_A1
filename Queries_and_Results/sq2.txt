@@ -1,0 +1,7 @@
+# SQ2) number of course URIs
+
+SELECT  (COUNT(*) AS ?numberOfCourseURIs)
+WHERE {
+ 	?courseURI a vivo:Course.
+}
+

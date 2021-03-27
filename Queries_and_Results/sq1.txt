@@ -1,0 +1,7 @@
+# SQ1) total number of triples
+
+SELECT  (COUNT(*) AS ?numberOfTriples)
+WHERE {
+ 	?s ?p ?o.
+}
+
