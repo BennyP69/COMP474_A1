@@ -1,0 +1,9 @@
+# Q1b) Which [topics] are covered in [course] [lecture]?
+
+SELECT  ?courseName ?topicLabel
+WHERE{
+	?course acad:courseHas acaddata:COMP474-LEC3.
+ 	?course foaf:name ?courseName.
+  	acaddata:COMP474-LEC3 acad:coversTopic ?topic.
+ 	?topic rdfs:label ?topicLabel.
+}

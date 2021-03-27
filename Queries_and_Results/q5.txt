@@ -1,0 +1,9 @@
+# Q5) What content does [course] [lecture] consist of?
+
+SELECT * 
+WHERE {
+	acaddata:COMP474-LEC2 acad:hasContent ?content.
+	?content a ?type.
+  	?type rdfs:label ?typeLabel.
+} 
+

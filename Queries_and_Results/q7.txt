@@ -1,0 +1,9 @@
+# Q7) Does [course] have labs?
+
+ASK{
+    ?course a vivo:Course.
+    ?course acad:courseNumber "474"^^xsd:int.
+    ?course acad:courseSubject "COMP"^^xsd:string.
+    ?course acad:courseHas acad:Lab.
+}
+

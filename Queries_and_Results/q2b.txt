@@ -1,0 +1,11 @@
+# Q2b) What is course [course] about?
+
+SELECT  ?cname ?cdescription
+WHERE{
+     ?course a vivo:Course.
+     ?course foaf:name ?cname.
+     ?course acad:courseNumber "474"^^xsd:int.
+     ?course acad:courseSubject "COMP"^^xsd:string.
+     ?course DC:description ?cdescription.
+}
+

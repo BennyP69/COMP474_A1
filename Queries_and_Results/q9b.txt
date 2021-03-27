@@ -1,0 +1,7 @@
+# Q9b) How many courses does the university [university] offer?
+
+SELECT  (COUNT(?course) AS ?coursesNum)
+WHERE{
+   acaddata:Concordia_University acad:offers ?course.
+}
+

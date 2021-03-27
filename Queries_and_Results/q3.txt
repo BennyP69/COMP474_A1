@@ -1,0 +1,9 @@
+# Q3) Which courses at [university] teach [topic]?
+
+SELECT  ?courseName
+WHERE{
+  	acaddata:Concordia_University acad:offers ?course.
+  	?course foaf:name ?courseName.
+  	?course acad:coversTopic acaddata:SPARQL.
+}
+

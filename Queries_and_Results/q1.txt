@@ -1,0 +1,11 @@
+# Q1) Which [topics] are covered in [course] [lecture]?
+
+SELECT  ?csubject ?cnumber ?cname ?cdescription
+WHERE{
+     ?course a vivo:Course.
+     ?course foaf:name ?cname.
+     ?course acad:courseNumber ?cnumber.
+     ?course acad:courseSubject ?csubject.
+     ?course DC:description ?cdescription.
+}
+

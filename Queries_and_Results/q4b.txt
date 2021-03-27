@@ -1,0 +1,11 @@
+# Q4b) Which department offers the course [course]?
+
+SELECT ?cname ?cdepartment
+WHERE{
+     ?course a vivo:Course.
+     ?course foaf:name ?cname.
+     ?course acad:courseNumber "474"^^xsd:int.
+     ?course acad:courseSubject "COMP"^^xsd:string.
+     ?course vivo:AcademicDepartment ?cdepartment.
+     }
+

@@ -1,0 +1,11 @@
+# Q8) What courses does the [department] department offer?
+
+SELECT  ?csubject ?cnumber ?cname
+WHERE{
+    ?course a vivo:Course;
+            foaf:name ?cname;
+            acad:courseNumber ?cnumber;
+            acad:courseSubject ?csubject;
+            vivo:AcademicDepartment "Computer Science and Software Engineering (CSSE)"^^xsd:string.      
+}
+

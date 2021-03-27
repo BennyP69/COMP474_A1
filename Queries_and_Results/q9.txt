@@ -1,0 +1,7 @@
+# Q9) How many courses does the university [university] offer?
+
+SELECT  ?uni (COUNT(?course) AS ?coursesNum)
+WHERE{
+   ?uni a acad:University.
+   ?uni acad:offers ?course.
+} GROUP BY ?uni
