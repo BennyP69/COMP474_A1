@@ -9,6 +9,25 @@ nlu:
   examples: |
     - What is course [COMP 474](course) about?
     - What is course [GDBA 532](course) about?
+    - What is course [ACCO 420](course) about?
+    - What is course [BIOL 201](course) about?
+    - What is course [JOUR 535](course) about?
+    - What is course [COMS 684](course) about?
+    - What is course [DRAW 200](course) about?
+    - What is course [PERC 209](course) about?
+    - What is course [ECON 423](course) about?
+    - What is course [FRAA 409](course) about?
+    - What is course [GEOG 301](course) about?
+    - What is course [HIST 380](course) about?
+    - What is course [BLDG 492](course) about?
+    - What is course [LOYC 420](course) about?
+    - What is course [MAST 232](course) about?
+    - What is course [PHYS 224](course) about?
+    - What is course [RELI 410](course) about?
+    - What is course [SCPA 301](course) about?
+    - What is course [THEO 234](course) about?
+    - What is course [URBS 491](course) about?
+    - What is course [WSDB 292](course) about?
     - What is [MECH 361](course) about ?
     - What's [ENGR 208](course) about
 

@@ -4,22 +4,7 @@
     <list default="true" id="5cd33d1d-bf75-4bf5-bea5-8218e6fa84bc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rasa/actions/actions.py" beforeDir="false" afterPath="$PROJECT_DIR$/rasa/actions/actions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rasa/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/rasa/config.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rasa/data/nlu.yml" beforeDir="false" afterPath="$PROJECT_DIR$/rasa/data/nlu.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rasa/domain.yml" beforeDir="false" afterPath="$PROJECT_DIR$/rasa/domain.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rasa/models/20210419-175730.tar.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rasa/models/20210419-183017.tar.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rasa/models/20210420-184948.tar.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rasa/models/20210420-221807.tar.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rasa/models/20210420-222727.tar.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rasa/models/20210420-224143.tar.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rasa/models/20210421-105859.tar.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rasa/models/20210421-114054.tar.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rasa/models/20210421-115816.tar.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rasa/models/20210421-122100.tar.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rasa/models/20210421-124039.tar.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rasa/models/20210421-142055.tar.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rasa/models/20210421-142813.tar.gz" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,7 +152,7 @@
       <workItem from="1616855110243" duration="1011000" />
       <workItem from="1618971831307" duration="1999000" />
       <workItem from="1619015531694" duration="8199000" />
-      <workItem from="1619028733936" duration="6858000" />
+      <workItem from="1619028733936" duration="8937000" />
     </task>
     <task id="LOCAL-00001" summary="Converting courses data from csv file to rdf triples and adding them to graph g.">
       <created>1615940778713</created>

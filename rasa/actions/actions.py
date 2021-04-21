@@ -27,11 +27,12 @@ class ActionHelloWorld(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        course = tracker.slots['course'].replace(" ", "")
+        course = tracker.slots['course']
+        print(course)
 
         values = re.split(r'([^\d]*)(\d.*)', course, maxsplit=1)
 
-        csubject = values[1].upper()
+        csubject = values[1].upper().replace(" ", "")
         cnumber = values[2]
 
         print(csubject)
