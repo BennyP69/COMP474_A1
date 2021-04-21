@@ -27,10 +27,11 @@ class ActionHelloWorld(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        course = tracker.slots['course']
+        course = tracker.slots['course'].replace(" ", "")
 
         values = re.split(r'([^\d]*)(\d.*)', course, maxsplit=1)
-        csubject = values[1].upper().replace(" ", "")
+
+        csubject = values[1].upper()
         cnumber = values[2]
 
         print(csubject)
@@ -187,8 +188,10 @@ class ActionDepartmentCourses(Action):
 
         department = tracker.slots['department']
 
-        if department.upper() == "CSSE":
-            department = "Computer Science and Software Engineering (CSSE)"
+        # if department.upper() == "CSSE":
+        #     department = "Computer Science and Software Engineering (CSSE)"
+
+        print("\n\n--------------------\n", department, "\n--------------------\n\n")
 
         response = requests.post("http://localhost:3030/acad/sparql",
                                  data={'query': """
@@ -338,5 +341,3 @@ class ActionNumTopicsInCourse(Action):
         bindings = results["bindings"]
 
         print(csubject, cnumber, "covers", bindings[0]['topicNum']['value'], "topics")
-
-
