@@ -92,6 +92,10 @@ class ActionCourseComponents(Action):
         csubject = values[1].upper().replace(" ", "")
         cnumber = values[2]
 
+        if csubject != "COMP" or (cnumber != "346" and cnumber != "474"):
+            print("Sorry, we currently only support finding components of COMP 474 and COMP 346.")
+            return
+
         response = requests.post("http://localhost:3030/acad/sparql",
                                  data={'query': """
                             PREFIX vivo: <http://vivoweb.org/ontology/core#> 
