@@ -1,16 +1,73 @@
 version: "2.0"
 
 nlu:
+- regex: course
+  examples: |
+    - ^[a-zA-Z]{4}\s*\d{3,4}$
+
 - intent: about_course
   examples: |
+    - What is course [COMP 474](course) about?
+    - What is course [GDBA 532](course) about?
+    - What is course [ACCO 420](course) about?
+    - What is course [BIOL 201](course) about?
+    - What is course [JOUR 535](course) about?
+    - What is course [COMS 684](course) about?
+    - What is course [DRAW 200](course) about?
+    - What is course [PERC 209](course) about?
+    - What is course [ECON 423](course) about?
+    - What is course [FRAA 409](course) about?
+    - What is course [GEOG 301](course) about?
+    - What is course [HIST 380](course) about?
+    - What is course [BLDG 492](course) about?
+    - What is course [LOYC 420](course) about?
+    - What is course [MAST 232](course) about?
+    - What is course [PHYS 224](course) about?
+    - What is course [RELI 410](course) about?
+    - What is course [SCPA 301](course) about?
+    - What is course [THEO 234](course) about?
+    - What is course [URBS 491](course) about?
+    - What is course [WSDB 292](course) about?
     - What is course [COMP 474](course) about?
     - What is course [ENCS 474](course) about?
     - What is course [FINA 471](course) about?
     - What is course [MAST 333](course) about?
+    - What is [MECH 361](course) about ?
+    - What's [ENGR 208](course) about
+    - What's [INST 232](course) about
+    - What's [COMP 248](course) course about
 
 - intent: about_course_lecture_topics
   examples: |
     - Which topics are covered in [COMP 474](course) [LEC3](lecture)?
+    - What topics are covered in [COMP 474](course) [LEC3](lecture)?
+    - Which topics are covered in the course [COMP 474](course) [LEC3](lecture)?
+    - Which topics are covered in the course [COMP 474](course) in the lecture [LEC3](lecture)?
+    - Which topics are covered in the course [COMP 474](course) in lecture [LECTURE2](lecture)?
+    - Which topics are covered in course [COMP 474](course) in lecture [LECTURE2](lecture)?
+
+- intent: about_course_uni_topic
+  examples: |
+    - Which courses at [Concordia](university) teach [RDFS](topic)?
+    - Which courses at [Concordia](university) teach [threads](topic)
+    - Which courses at [Concordia](university) teach [main memory](topic)?
+    - Which courses at [Concordia](university) teach [Intelligent Systems](topic)?
+    - Which courses at [Concordia](university) teach [Operating Systems](topic)?
+    - Which course at [Concordia](university) teaches [RDFS](topic)?
+    - Which course at [Concordia](university) teaches [Intelligent Systems](topic)?
+    - Which course at [Concordia](university) teaches [Operating Systems](topic)
+    - Which course teaches [Operating Systems](topic)
+    - Which courses at [Concordia](university) teach [RDFS](topic)?
+    - What courses at [Concordia](university) teach [threads](topic)
+    - What courses at [Concordia](university) teach [main memory](topic)?
+    - What courses at [Concordia](university) teach [Intelligent Systems](topic)?
+    - What courses at [Concordia](university) teach [Operating Systems](topic)?
+    - What course at [Concordia](university) teaches [RDFS](topic)?
+    - What course at [Concordia](university) teaches [Intelligent Systems](topic)?
+    - What course at [Concordia](university) teaches [Operating Systems](topic)
+    - What course teaches [Operating Systems](topic)
+    - What course teaches [RDFS](topic)
+    - What course teaches [Intelligent Systems](topic)
 
 - intent: greet
   examples: |

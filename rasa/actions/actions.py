@@ -34,10 +34,9 @@ class TopicsCourseLecture(Action):
         values = re.split(r'([^\d]*)(\d.*)', lecture, maxsplit=1)
 
         lnumber = values[2]
-        
+
         # print(course)
         # print(lecture)
-        
 
         response = requests.post("http://localhost:3030/acad/sparql",
                                  data={'query': """
@@ -72,7 +71,7 @@ class TopicsCourseLecture(Action):
         for result in results["bindings"]:
             topicLabel = result["topicLabel"]
             topic = topicLabel["value"]
-            topics_offered.append(topic) 
+            topics_offered.append(topic)
 
         if not topics_offered:
             print(f"Lecture {lnumber} of the course {course} does not exist or does not cover any topic.")
@@ -94,9 +93,8 @@ class ActionHelloWorld(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-
         course = tracker.slots['course'].replace(" ", "")
-        
+
         print(course)
 
         values = re.split(r'([^\d]*)(\d.*)', course, maxsplit=1)
@@ -104,7 +102,6 @@ class ActionHelloWorld(Action):
 
         csubject = values[1].upper()
         cnumber = values[2]
-        
 
         print(csubject)
         print(cnumber)
@@ -141,5 +138,88 @@ class ActionHelloWorld(Action):
         description = bindings["cdescription"]
         vdescription = description["value"]
         print(vdescription)
+
+        return []
+
+
+# Q3) Which courses at [university] teach [topic]?
+class WhichCourseAtUniTeachTopic(Action):
+
+    def name(self) -> Text:
+        return "action_course_uni_topic"
+
+    def response_request(self, uni, topic):
+        response = requests.post("http://localhost:3030/acad/sparql",
+                                 data={'query': """
+                            PREFIX vivo: <http://vivoweb.org/ontology/core#> 
+                            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+                            PREFIX DC: <http://purl.org/dc/terms/> 
+                            PREFIX acad: <http://acad.io/schema#> 
+                            PREFIX foaf: <http://xmlns.com/foaf/0.1/> 
+                            PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+                            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
+                            PREFIX acaddata: <http://acad.io/data#>
+
+                            SELECT ?courseName
+                            WHERE{
+                            acaddata:%s acad:offers ?course.
+                            ?course foaf:name ?courseName.
+                            ?course acad:coversTopic acaddata:%s.
+                            }
+                            """ % (uni, topic)
+                                       })
+        # Use the json module to load CKAN's response into a dictionary.
+
+        y = json.loads(response.text)
+
+        # the result is a Python dictionary:
+        results = y["results"]
+
+        courses_offer_topic = []
+
+        for result in results["bindings"]:
+            courseName = result["courseName"]
+            course = courseName["value"]
+            courses_offer_topic.append(course)
+
+        return courses_offer_topic
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        uni = tracker.slots['university'].capitalize()
+
+        if uni == "Concordia":
+            uni = f"{uni}_University"
+
+        if uni == "":
+            uni = "Concordia"
+
+        topic = tracker.slots['topic'].title().replace(" ", "_")
+
+        print(topic)
+
+        courses_offer_topic = self.response_request(uni, topic)
+
+        if not courses_offer_topic:
+            topic = topic.upper()
+            courses_offer_topic = self.response_request(uni, topic)
+
+        if not courses_offer_topic:
+            topic = topic.lower()
+            courses_offer_topic = self.response_request(uni, topic)
+
+        if not courses_offer_topic:
+            uni = uni.replace("_", " ")
+            topic = topic.replace("_", " ")
+            print(f"No courses at {uni} offer the topic {topic}.")
+        else:
+            uni = uni.replace("_", " ")
+            topic = topic.replace("_", " ")
+            answer = f"The following courses at {uni} offer the topic {topic}:\n"
+            for course in courses_offer_topic:
+                answer = answer + "- " + course + "\n"
+            print(answer)
 
         return []

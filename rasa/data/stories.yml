@@ -16,6 +16,13 @@ stories:
     - intent: about_course_lecture_topics
     - action: action_course_lecture_topics
 
+- story: get courses at uni that teach topic
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: about_course_uni_topic
+    - action: action_course_uni_topic
+
 - story: happy path
   steps:
   - intent: greet
