@@ -70,3 +70,60 @@ class ActionHelloWorld(Action):
         print(vdescription)
 
         return []
+
+
+# (6) What components does the course [course] have?
+class ActionCourseComponents(Action):
+
+    def name(self) -> Text:
+        return "action_course_components"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        course = tracker.slots['course']
+
+        values = re.split(r'([^\d]*)(\d.*)', course, maxsplit=1)
+        csubject = values[1].upper().replace(" ", "")
+        cnumber = values[2]
+
+        response = requests.post("http://localhost:3030/acad/sparql",
+                                 data={'query': """
+                            PREFIX vivo: <http://vivoweb.org/ontology/core#> 
+                            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+                            PREFIX DC: <http://purl.org/dc/terms/> 
+                            PREFIX acad: <http://acad.io/schema#> 
+                            PREFIX foaf: <http://xmlns.com/foaf/0.1/> 
+                            PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+                            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
+                            PREFIX acaddata: <http://acad.io/data#>
+
+                            SELECT ?cname ?component
+                            WHERE{
+                                ?course a vivo:Course.
+                                ?course foaf:name ?cname.
+                                ?course acad:courseNumber "%s"^^xsd:int.
+                                ?course acad:courseSubject "%s"^^xsd:string.
+                                ?course acad:courseHas ?component.
+                            }
+                            """ % (cnumber, csubject)
+                                       })
+
+        y = json.loads(response.text)
+
+        # print("\n\n------------------------\n", y, "\n------------------------\n\n")
+
+        results = y["results"]
+        bindings = results["bindings"]
+        components = []
+
+        for result in bindings:
+            for key in result:
+                if key == "component":
+                    components.append(result[key])
+
+        for value in components:
+            print("COMPONENT: ", value, "\n")
+
+        return []

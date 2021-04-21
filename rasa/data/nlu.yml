@@ -5,6 +5,10 @@ nlu:
   examples: |
     - What is course [COMP 474](course) about?
 
+- intent: about_course_components
+  examples: |
+    - What components does the course [COMP 474](course) have?
+
 - intent: greet
   examples: |
     - hey

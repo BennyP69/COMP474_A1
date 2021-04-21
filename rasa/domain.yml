@@ -9,12 +9,14 @@ intents:
   - mood_unhappy
   - bot_challenge
   - about_course
+  - about_course_components
 
 entities:
   - course
 
 actions:
   - action_course_info
+  - action_course_components
 
 slots:
   course:

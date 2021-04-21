@@ -4,10 +4,13 @@ stories:
 
 - story: get course info
   steps:
-    - intent: greet
-    - action: utter_greet
     - intent: about_course
     - action: action_course_info
+
+- story: get course components
+  steps:
+    - intent: about_course_components
+    - action: action_course_components
 
 - story: happy path
   steps:
