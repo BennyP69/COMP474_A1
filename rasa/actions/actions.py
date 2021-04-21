@@ -72,7 +72,7 @@ class ActionHelloWorld(Action):
         return []
 
 
-# (6) What components does the course [course] have?
+# Q6) What components does the course [course] have?
 class ActionCourseComponents(Action):
 
     def name(self) -> Text:
@@ -176,3 +176,66 @@ class ActionCourseLabs(Action):
 
 
 # Q8) What courses does the [department] department offer?
+class ActionDepartmentCourses(Action):
+
+    def name(self) -> Text:
+        return "action_department_courses"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        department = tracker.slots['department']
+
+        if department.upper() == "CSSE":
+            department = "Computer Science and Software Engineering (CSSE)"
+
+        response = requests.post("http://localhost:3030/acad/sparql",
+                                 data={'query': """
+                                            PREFIX vivo: <http://vivoweb.org/ontology/core#> 
+                                            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+                                            PREFIX DC: <http://purl.org/dc/terms/> 
+                                            PREFIX acad: <http://acad.io/schema#> 
+                                            PREFIX foaf: <http://xmlns.com/foaf/0.1/> 
+                                            PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+                                            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
+                                            PREFIX acaddata: <http://acad.io/data#>
+
+                                            SELECT  ?csubject ?cnumber ?cname
+                                            WHERE{
+                                                ?course a vivo:Course;
+                                                foaf:name ?cname;
+                                                acad:courseNumber ?cnumber;
+                                                acad:courseSubject ?csubject;
+                                                vivo:AcademicDepartment "%s"^^xsd:string.      
+                                            }
+                                            """ % department
+                                       })
+
+        y = json.loads(response.text)
+
+        # print("\n\n--------------------\n", y, "\n--------------------\n\n")
+
+        results = y["results"]
+        bindings = results["bindings"]
+
+        course = ""
+        courses_offered = []
+
+        for result in bindings:
+            for key in result:
+                if key == "csubject":
+                    for subKey in result[key]:
+                        if subKey == "value":
+                            course = result[key][subKey]
+                if key == "cnumber":
+                    for subKey in result[key]:
+                        if subKey == "value":
+                            course = course + " " + result[key][subKey]
+            courses_offered.append(course)
+
+        print("\n", department, " Offers:\n")
+        for course in courses_offered:
+            print(course, "\n")
+
+        return []

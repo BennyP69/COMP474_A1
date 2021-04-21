@@ -17,6 +17,11 @@ stories:
     - intent: about_course_labs
     - action: action_course_labs
 
+- story: get department courses
+  steps:
+    - intent: about_department_courses
+    - action: action_department_courses
+
 - story: happy path
   steps:
   - intent: greet
