@@ -9,6 +9,10 @@ nlu:
   examples: |
     - What components does the course [COMP 474](course) have?
 
+- intent: about_course_labs
+  examples: |
+    - Does [COMP 474](course) have labs?
+
 - intent: greet
   examples: |
     - hey

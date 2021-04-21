@@ -112,10 +112,9 @@ class ActionCourseComponents(Action):
 
         y = json.loads(response.text)
 
-        # print("\n\n------------------------\n", y, "\n------------------------\n\n")
-
         results = y["results"]
         bindings = results["bindings"]
+
         components = []
 
         for result in bindings:
@@ -127,3 +126,53 @@ class ActionCourseComponents(Action):
             print("COMPONENT: ", value, "\n")
 
         return []
+
+
+# Q7) Does [course] have labs?
+class ActionCourseLabs(Action):
+
+    def name(self) -> Text:
+        return "action_course_labs"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        course = tracker.slots['course']
+
+        values = re.split(r'([^\d]*)(\d.*)', course, maxsplit=1)
+        csubject = values[1].upper().replace(" ", "")
+        cnumber = values[2]
+
+        response = requests.post("http://localhost:3030/acad/sparql",
+                                 data={'query': """
+                                    PREFIX vivo: <http://vivoweb.org/ontology/core#> 
+                                    PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+                                    PREFIX DC: <http://purl.org/dc/terms/> 
+                                    PREFIX acad: <http://acad.io/schema#> 
+                                    PREFIX foaf: <http://xmlns.com/foaf/0.1/> 
+                                    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+                                    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
+                                    PREFIX acaddata: <http://acad.io/data#>
+
+                                    ASK{
+                                    ?course a vivo:Course.
+                                    ?course acad:courseNumber "%s"^^xsd:int.
+                                    ?course acad:courseSubject "%s"^^xsd:string.
+                                    ?course acad:courseHas acad:Lab.
+                                    }
+                                    """ % (cnumber, csubject)
+                                       })
+
+        y = json.loads(response.text)
+
+        # print("\n\n--------------------\n", y, "\n--------------------\n\n")
+
+        result = y["boolean"]
+
+        print(result)
+
+        return []
+
+
+# Q8) What courses does the [department] department offer?
