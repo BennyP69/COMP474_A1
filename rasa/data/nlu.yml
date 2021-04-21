@@ -1,10 +1,16 @@
 version: "2.0"
 
 nlu:
+- regex: course
+  examples: |
+    - ^[a-zA-Z]{4}\s*\d{3,4}$
+
 - intent: about_course
   examples: |
     - What is course [COMP 474](course) about?
-    - What is course [ENCS 474](course) about?
+    - What is course [GDBA 532](course) about?
+    - What is [MECH 361](course) about ?
+    - What's [ENGR 208](course) about
 
 - intent: about_course_components
   examples: |
@@ -16,10 +22,7 @@ nlu:
 
 - intent: about_department_courses
   examples: |
-    - What courses does the [CSSE](department) department offer?
-    - What courses does the [Computer Science and Software Engineering (CSSE)](department) department offer ?
-    - What courses does the [Computer Science and Software Engineering](department) department offer
-    - What courses does the [Computer Science](department) department offer?
+    - What courses does the [Computer Science and Software Engineering (CSSE)](department) department offer?
 
 - intent: about_number_of_uni_courses
   examples: |

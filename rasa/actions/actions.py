@@ -63,6 +63,8 @@ class ActionHelloWorld(Action):
 
         y = json.loads(response.text)
 
+        print("\n\n--------------------\n", y, "\n--------------------\n\n")
+
         # the result is a Python dictionary:
         results = y["results"]
         bindings = results["bindings"][0]

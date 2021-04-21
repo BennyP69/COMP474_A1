@@ -30,13 +30,13 @@ actions:
 
 slots:
   course:
-    type: any
-    initial_value: "initial"
+    type: text
+    initial_value: ""
   department:
-    type: any
+    type: text
     initial_value: ""
   university:
-    type: any
+    type: text
     initial_value: ""
 
 responses:
