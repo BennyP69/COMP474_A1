@@ -9,6 +9,13 @@ stories:
     - intent: about_course
     - action: action_course_info
 
+- story: get course lecture topics
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: about_course_lecture_topics
+    - action: action_course_lecture_topics
+
 - story: happy path
   steps:
   - intent: greet

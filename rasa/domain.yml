@@ -9,15 +9,21 @@ intents:
   - mood_unhappy
   - bot_challenge
   - about_course
+  - about_course_lecture_topics
 
 entities:
   - course
+  - lecture
 
 actions:
   - action_course_info
+  - action_course_lecture_topics
 
 slots:
   course:
+    type: any
+    initial_value: "initial"
+  lecture:
     type: any
     initial_value: "initial"
 

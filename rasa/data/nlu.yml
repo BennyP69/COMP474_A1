@@ -4,6 +4,13 @@ nlu:
 - intent: about_course
   examples: |
     - What is course [COMP 474](course) about?
+    - What is course [ENCS 474](course) about?
+    - What is course [FINA 471](course) about?
+    - What is course [MAST 333](course) about?
+
+- intent: about_course_lecture_topics
+  examples: |
+    - Which topics are covered in [COMP 474](course) [LEC3](lecture)?
 
 - intent: greet
   examples: |

@@ -18,6 +18,74 @@ from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 
 
+# Q1) Which [topics] are covered in [course] [lecture]?
+class TopicsCourseLecture(Action):
+
+    def name(self) -> Text:
+        return "action_course_lecture_topics"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        course = tracker.slots['course'].upper().replace(" ", "")
+        lecture = tracker.slots['lecture'].replace(" ", "")
+
+        values = re.split(r'([^\d]*)(\d.*)', lecture, maxsplit=1)
+
+        lnumber = values[2]
+        
+        # print(course)
+        # print(lecture)
+        
+
+        response = requests.post("http://localhost:3030/acad/sparql",
+                                 data={'query': """
+                    PREFIX vivo: <http://vivoweb.org/ontology/core#> 
+                    PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+                    PREFIX DC: <http://purl.org/dc/terms/> 
+                    PREFIX acad: <http://acad.io/schema#> 
+                    PREFIX foaf: <http://xmlns.com/foaf/0.1/> 
+                    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+                    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
+                    PREFIX acaddata: <http://acad.io/data#>
+                    
+                    SELECT ?courseName ?topicLabel
+                    WHERE{
+                    ?course acad:courseHas acaddata:%s-%s.
+                    ?course foaf:name ?courseName.
+                    acaddata:%s-%s acad:coversTopic ?topic.
+                    ?topic rdfs:label ?topicLabel.
+                    }
+                    """ % (course, lecture, course, lecture)
+                                       })
+
+        # # Use the json module to load CKAN's response into a dictionary.
+
+        y = json.loads(response.text)
+
+        # the result is a Python dictionary:
+        results = y["results"]
+
+        topics_offered = []
+
+        for result in results["bindings"]:
+            topicLabel = result["topicLabel"]
+            topic = topicLabel["value"]
+            topics_offered.append(topic) 
+
+        if not topics_offered:
+            print(f"Lecture {lnumber} of the course {course} does not exist or does not cover any topic.")
+        else:
+            answer = "Lecture " + lnumber + " of the course " + course + " covers the following topics:\n"
+            for topic in topics_offered:
+                answer = answer + "- " + topic + "\n"
+            print(answer)
+
+        return []
+
+
+# Q2) What is course [course] about?
 class ActionHelloWorld(Action):
 
     def name(self) -> Text:
@@ -27,11 +95,16 @@ class ActionHelloWorld(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        course = tracker.slots['course']
+        course = tracker.slots['course'].replace(" ", "")
+        
+        print(course)
 
         values = re.split(r'([^\d]*)(\d.*)', course, maxsplit=1)
-        csubject = values[1].upper().replace(" ", "")
+        print(values)
+
+        csubject = values[1].upper()
         cnumber = values[2]
+        
 
         print(csubject)
         print(cnumber)
