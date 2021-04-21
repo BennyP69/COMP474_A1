@@ -22,6 +22,16 @@ stories:
     - intent: about_department_courses
     - action: action_department_courses
 
+- story: get num uni courses
+  steps:
+    - intent: about_number_of_uni_courses
+    - action: action_number_of_uni_courses
+
+- story: get num topics in course
+  steps:
+    - intent: about_num_topics_in_course
+    - action: action_num_topics_in_course
+
 - story: happy path
   steps:
   - intent: greet

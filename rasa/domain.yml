@@ -12,22 +12,30 @@ intents:
   - about_course_components
   - about_course_labs
   - about_department_courses
+  - about_number_of_uni_courses
+  - about_num_topics_in_course
 
 entities:
   - course
   - department
+  - university
 
 actions:
   - action_course_info
   - action_course_components
   - action_course_labs
   - action_department_courses
+  - action_number_of_uni_courses
+  - action_num_topics_in_course
 
 slots:
   course:
     type: any
     initial_value: "initial"
   department:
+    type: any
+    initial_value: ""
+  university:
     type: any
     initial_value: ""
 

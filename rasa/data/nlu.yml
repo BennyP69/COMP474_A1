@@ -17,6 +17,14 @@ nlu:
   examples: |
     - What courses does the [CSSE](department) department offer?
 
+- intent: about_number_of_uni_courses
+  examples: |
+    - How many courses does the university [Concordia University](university) offer?
+
+- intent: about_num_topics_in_course
+  examples: |
+    - How many topics are covered in [COMP 474](course)?
+
 - intent: greet
   examples: |
     - hey

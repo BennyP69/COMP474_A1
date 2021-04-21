@@ -239,3 +239,104 @@ class ActionDepartmentCourses(Action):
             print(course, "\n")
 
         return []
+
+
+# Q9) How many courses does the university [university] offer?
+class ActionNumberOfUniCourses(Action):
+
+    def name(self) -> Text:
+        return "action_number_of_uni_courses"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        university = tracker.slots['university']
+
+        if university.lower() == "concordia university":
+            university = "Concordia_University"
+
+        response = requests.post("http://localhost:3030/acad/sparql",
+                                 data={'query': """
+                                                    PREFIX vivo: <http://vivoweb.org/ontology/core#> 
+                                                    PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+                                                    PREFIX DC: <http://purl.org/dc/terms/> 
+                                                    PREFIX acad: <http://acad.io/schema#> 
+                                                    PREFIX foaf: <http://xmlns.com/foaf/0.1/> 
+                                                    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+                                                    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
+                                                    PREFIX acaddata: <http://acad.io/data#>
+
+                                                    SELECT  (COUNT(?course) AS ?coursesNum)
+                                                    WHERE{
+                                                       acaddata:%s a acad:University.
+                                                       acaddata:%s acad:offers ?course.
+                                                    } GROUP BY ?uni
+                                                    """ % (university, university)
+                                       })
+
+        y = json.loads(response.text)
+
+        # print("\n\n--------------------\n", y, "\n--------------------\n\n")
+
+        results = y["results"]
+        bindings = results["bindings"]
+
+        numberOfCourses = 0
+
+        for result in bindings:
+            for key in result:
+                if key == "coursesNum":
+                    for subKey in result[key]:
+                        if subKey == "value":
+                            numberOfCourses = result[key][subKey]
+
+        print("\n", university.replace("_", " "), "offers a total of", numberOfCourses, "courses.\n")
+
+
+# Q10) How many topics are covered in [course]?
+class ActionNumTopicsInCourse(Action):
+
+    def name(self) -> Text:
+        return "action_num_topics_in_course"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        course = tracker.slots['course']
+
+        values = re.split(r'([^\d]*)(\d.*)', course, maxsplit=1)
+        csubject = values[1].upper().replace(" ", "")
+        cnumber = values[2]
+
+        response = requests.post("http://localhost:3030/acad/sparql",
+                                 data={'query': """
+                                                            PREFIX vivo: <http://vivoweb.org/ontology/core#> 
+                                                            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+                                                            PREFIX DC: <http://purl.org/dc/terms/> 
+                                                            PREFIX acad: <http://acad.io/schema#> 
+                                                            PREFIX foaf: <http://xmlns.com/foaf/0.1/> 
+                                                            PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+                                                            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
+                                                            PREFIX acaddata: <http://acad.io/data#>
+
+                                                            SELECT (COUNT(?topic) AS ?topicNum)
+                                                            WHERE {
+                                                                ?course a vivo:Course.
+                                                                ?course foaf:name ?courseName.
+                                                                ?course acad:courseNumber "%s"^^xsd:int.
+                                                                ?course acad:courseSubject "%s"^^xsd:string.
+                                                                ?course acad:coversTopic ?topic.
+                                                            } GROUP BY ?course ?courseName
+                                                            """ % (cnumber, csubject)
+                                       })
+
+        y = json.loads(response.text)
+
+        results = y["results"]
+        bindings = results["bindings"]
+
+        print(csubject, cnumber, "covers", bindings[0]['topicNum']['value'], "topics")
+
+
