@@ -1,22 +1,10 @@
 version: "2.0"
 
 nlu:
-- intent: about_person
+- intent: about_course
   examples: |
-    - Who is he?
-    - Who is [Joe](person) ?
-    - Who is [Kate](person)?
-    - Who is [Harry](person)
-    - Tell me about him
-    - Tell me about
-    - Tell me about [Peter](person)
-    - Tell me about [Joe](person)
-    - Can you tell me about him?
-    - Can you tell me about [Jane](person)?
-    - Can you tell me about [Peter](person) ?
-    - Can you tell me about [Jonathan](person) ?
-    - Do you know [Alice](person) ?
-    - Tell me about [Jack](person) ?
+    - What is course [474](course) about?
+    - What is course [COMP474](course) about?
 
 - intent: greet
   examples: |

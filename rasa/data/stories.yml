@@ -2,12 +2,12 @@ version: "2.0"
 
 stories:
 
-- story: get person info
+- story: get course info
   steps:
     - intent: greet
     - action: utter_greet
-    - intent: about_person
-    - action: action_person_info
+    - intent: about_course
+    - action: action_course_info
 
 - story: happy path
   steps:

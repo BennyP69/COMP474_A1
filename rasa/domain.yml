@@ -8,16 +8,16 @@ intents:
   - mood_great
   - mood_unhappy
   - bot_challenge
-  - about_person
+  - about_course
 
 entities:
-  - person
+  - course
 
 actions:
-  - action_person_info
+  - action_course_info
 
 slots:
-  person:
+  course:
     type: any
     initial_value: "initial"
 

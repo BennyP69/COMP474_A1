@@ -9,6 +9,7 @@
 
 import requests
 import json
+import re
 from rdflib import Graph, Literal, RDF, URIRef, Namespace, Dataset  # basic RDF handling
 
 from typing import Any, Text, Dict, List
@@ -20,14 +21,21 @@ from rasa_sdk.executor import CollectingDispatcher
 class ActionHelloWorld(Action):
 
     def name(self) -> Text:
-        return "action_person_info"
+        return "action_course_info"
 
 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        cnumber = "474"
+        course = tracker.slots['course']
+
+        values = re.split(r'([^\d]*)(\d.*)', course, maxsplit = 1)
+        csubject = values[1]
+        cnumber = values[2]
+
+        print(csubject)
+        print(cnumber)
 
         response = requests.post("http://localhost:3030/acad/query",
             data = {'query':"""
@@ -45,10 +53,10 @@ class ActionHelloWorld(Action):
                     ?course a vivo:Course.
                     ?course foaf:name ?cname.
                     ?course acad:courseNumber "%s"^^xsd:int.
-                    ?course acad:courseSubject "COMP"^^xsd:string.
+                    ?course acad:courseSubject "%s"^^xsd:string.
                     ?course DC:description ?cdescription.
                     }
-                    """%(cnumber)
+                    """%(cnumber, csubject)
             })
 
         # # Use the json module to load CKAN's response into a dictionary.
