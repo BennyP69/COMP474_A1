@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="5cd33d1d-bf75-4bf5-bea5-8218e6fa84bc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rasa/actions/actions.py" beforeDir="false" afterPath="$PROJECT_DIR$/rasa/actions/actions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rasa/data/nlu.yml" beforeDir="false" afterPath="$PROJECT_DIR$/rasa/data/nlu.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,6 +16,17 @@
       <list>
         <option value="Python Script" />
       </list>
+    </option>
+  </component>
+  <component name="FlaskConsoleOptions" custom-start-script="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))">
+    <envs>
+      <env key="FLASK_APP" value="app" />
+    </envs>
+    <option name="myCustomStartScript" value="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))" />
+    <option name="myEnvs">
+      <map>
+        <entry key="FLASK_APP" value="app" />
+      </map>
     </option>
   </component>
   <component name="Git.Settings">
@@ -32,8 +45,8 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/courseGen.py" />
-    <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.project" />
   </component>
   <component name="RunManager" selected="Python.courseGen">
     <configuration name="courseGen" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -129,6 +142,7 @@
       <workItem from="1616718854271" duration="2309000" />
       <workItem from="1616781358739" duration="839000" />
       <workItem from="1616855110243" duration="1011000" />
+      <workItem from="1618971831307" duration="1243000" />
     </task>
     <task id="LOCAL-00001" summary="Converting courses data from csv file to rdf triples and adding them to graph g.">
       <created>1615940778713</created>
@@ -203,10 +217,11 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="351" y="123" width="596" height="554" key="MultipleFileMergeDialog/0.0.1280.800@0.0.1280.800" timestamp="1616375216306" />
-    <state x="141" y="39" key="SettingsEditor" timestamp="1616379303918">
-      <screen x="0" y="0" width="1280" height="800" />
+    <state x="2772" y="411" key="SettingsEditor" timestamp="1618972580842">
+      <screen x="2560" y="360" width="1920" height="1050" />
     </state>
     <state x="141" y="39" key="SettingsEditor/0.0.1280.800@0.0.1280.800" timestamp="1616379303918" />
+    <state x="2772" y="411" key="SettingsEditor/0.0.2560.1410/2560.360.1920.1050@2560.360.1920.1050" timestamp="1618972580842" />
     <state x="240" y="140" key="Vcs.Push.Dialog.v2" timestamp="1616381693626">
       <screen x="0" y="0" width="1280" height="800" />
     </state>

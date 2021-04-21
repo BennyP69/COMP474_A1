@@ -3,8 +3,7 @@ version: "2.0"
 nlu:
 - intent: about_course
   examples: |
-    - What is course [474](course) about?
-    - What is course [COMP474](course) about?
+    - What is course [COMP 474](course) about?
 
 - intent: greet
   examples: |

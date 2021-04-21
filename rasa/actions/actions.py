@@ -23,22 +23,21 @@ class ActionHelloWorld(Action):
     def name(self) -> Text:
         return "action_course_info"
 
-
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         course = tracker.slots['course']
 
-        values = re.split(r'([^\d]*)(\d.*)', course, maxsplit = 1)
-        csubject = values[1]
+        values = re.split(r'([^\d]*)(\d.*)', course, maxsplit=1)
+        csubject = values[1].upper().replace(" ", "")
         cnumber = values[2]
 
         print(csubject)
         print(cnumber)
 
-        response = requests.post("http://localhost:3030/acad/query",
-            data = {'query':"""
+        response = requests.post("http://localhost:3030/acad/sparql",
+                                 data={'query': """
                     PREFIX vivo: <http://vivoweb.org/ontology/core#> 
                     PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
                     PREFIX DC: <http://purl.org/dc/terms/> 
@@ -56,8 +55,8 @@ class ActionHelloWorld(Action):
                     ?course acad:courseSubject "%s"^^xsd:string.
                     ?course DC:description ?cdescription.
                     }
-                    """%(cnumber, csubject)
-            })
+                    """ % (cnumber, csubject)
+                                       })
 
         # # Use the json module to load CKAN's response into a dictionary.
 
