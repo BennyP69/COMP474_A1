@@ -33,7 +33,7 @@ slots:
     type: text
     initial_value: ""
   department:
-    type: text
+    type: any
     initial_value: ""
   university:
     type: text

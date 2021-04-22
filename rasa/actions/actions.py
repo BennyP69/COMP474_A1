@@ -152,6 +152,10 @@ class ActionCourseLabs(Action):
         csubject = values[1].upper().replace(" ", "")
         cnumber = values[2]
 
+        if csubject != "COMP" or (cnumber != "346" and cnumber != "474"):
+            print("Sorry, we currently only support finding whether or not COMP 474 or COMP 346 have labs.")
+            return
+
         response = requests.post("http://localhost:3030/acad/sparql",
                                  data={'query': """
                                     PREFIX vivo: <http://vivoweb.org/ontology/core#> 
@@ -193,12 +197,18 @@ class ActionDepartmentCourses(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        department = tracker.slots['department']
+        department = tracker.slots['department'].strip()
 
-        # if department.upper() == "CSSE":
-        #     department = "Computer Science and Software Engineering (CSSE)"
+        print("\n\n--------------------\n" + department + "\n--------------------\n\n")
 
-        print("\n\n--------------------\n", department, "\n--------------------\n\n")
+        if department.upper().replace(" ", "") == "CSSE":
+            department = "Computer Science and Software Engineering (CSSE)"
+        elif department.upper().replace(" ", "") == "BCCE":
+            department = "Building, Civil and Environmental Engineering (BCEE)"
+        elif department.upper().replace(" ", "") == "ECE":
+            department = "Electrical and Computer Engineering (ECE)"
+
+        print("\n\n--------------------\n" + department + "\n--------------------\n\n")
 
         response = requests.post("http://localhost:3030/acad/sparql",
                                  data={'query': """
@@ -244,7 +254,7 @@ class ActionDepartmentCourses(Action):
                             course = course + " " + result[key][subKey]
             courses_offered.append(course)
 
-        print("\n", department, " Offers:\n")
+        print("\n" + department + " Offers:\n")
         for course in courses_offered:
             print(course, "\n")
 
