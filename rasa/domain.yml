@@ -11,6 +11,8 @@ intents:
   - about_course
   - about_course_lecture_topics
   - about_course_uni_topic
+  - about_dep_offer_course
+  - about_content_course_lecture
 
 entities:
   - course
@@ -22,6 +24,8 @@ actions:
   - action_course_info
   - action_course_lecture_topics
   - action_course_uni_topic
+  - action_dep_offer_course
+  - action_content_course_lecture
 
 slots:
   course:

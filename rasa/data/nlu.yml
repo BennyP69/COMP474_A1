@@ -69,6 +69,23 @@ nlu:
     - What course teaches [RDFS](topic)
     - What course teaches [Intelligent Systems](topic)
 
+- intent: about_dep_offer_course
+  examples: |
+    - Which department offers the course [COMP 474](course)?
+
+- intent: about_content_course_lecture
+  examples: |
+    - What content does [COMP 474](course) [LEC3](lecture) consist of?
+    - What content does [COMP 346](course) [LEC 3](lecture) consist of?
+    - What content does [COMP 474](course) [lecture2](lecture) consist of?
+    - What content does [COMP 474](course) [lecture 5](lecture) consist of?
+    - What's the content of [COMP 474](course) [lecture 5](lecture)?
+    - What's the content of [COMP 474](course) [LEC5](lecture)?
+    - What's the content of [COMP 474](course) [LEC 5](lecture)
+    - What is the content of [COMP 474](course) [lecture 5](lecture)?
+    - What is the content of [COMP 474](course) [LEC 2](lecture)?
+
+
 - intent: greet
   examples: |
     - hey
