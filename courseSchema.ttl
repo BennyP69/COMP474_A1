@@ -60,7 +60,7 @@ acad:courseHas
     rdfs:comment "A component belonging to a course. Can be Outline/Lecture/Lab/Tutorial/Studio."@en .
 acad:coversTopic
     a rdf:Property ;
-    rdfs:domain vivo:Course, acad:Lecture ;
+    rdfs:domain vivo:Course, acad:Lecture, foaf:Document ;
     rdfs:range acad:Topic;
     rdfs:label "Topic covered in a course or lecture."@en ;
     rdfs:comment "Topic covered in a course or lecture"@en .

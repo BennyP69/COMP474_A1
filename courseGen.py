@@ -194,33 +194,28 @@ with open(url2, encoding='ISO-8859-1') as csv_file:
 
                 # -----------------------------------------------------
                 #           ADD TOPIC TRIPLES
-                all_topics = open("346topics.txt").readlines()
-                count = 1
+                all_topics = open("courseTopics.txt").readlines()
                 for topic in all_topics:
-                    topic = topic.replace("\n", "")
-                    topic_arg = topic.split("\" ")
-                    label = topic_arg[0].replace("\"", "")
-                    uri = topic_arg[1]
+                    if "COMP346" in topic:
+                        topic = topic.replace("\n", "")
+                        topic = topic.split()
+                        label = topic[0]
+                        uri = topic[1]
+                        pdf = topic[2]
+                        event = topic[3]
 
-                    # Adding triples for each topic of COMP 346
-                    g.add((URIRef(ACADDATA + label), RDF.type, ACAD.topic))
-                    g.add(((URIRef(ACADDATA + label)), RDFS.seeAlso, URIRef(uri)))
-                    g.add((URIRef(ACADDATA + label), RDFS.label, Literal(label)))
-                    # Triple linking course to topic
-                    g.add((URIRef(ACADDATA + key), ACAD.coversTopic, URIRef(ACADDATA + label)))
+                        # Adding triples for each topic of COMP 474
+                        g.add((URIRef(ACADDATA + label), RDF.type, ACAD.topic))
+                        g.add((URIRef(ACADDATA + label), RDFS.seeAlso, URIRef(uri)))
+                        g.add((URIRef(ACADDATA + label), RDFS.label, Literal(label)))
+                        # Triple linking course to topic
+                        g.add((URIRef(ACADDATA + key), ACAD.coversTopic, URIRef(ACADDATA + label)))
+                        # Triple linking pdf document to topic
+                        g.add((URIRef(pdf), ACAD.coversTopic, URIRef(ACADDATA + label)))
 
-                    # Triple linking topic to lecture
-                    if count == 1:
-                        g.add((URIRef(ACADDATA + "COMP346-LEC" + str(count)), ACAD.coversTopic,
-                               URIRef(ACADDATA + label)))
-                        g.add((URIRef(ACADDATA + "COMP346-LEC" + str(count + 1)), ACAD.coversTopic,
-                               URIRef(ACADDATA + label)))
-                        count = count + 1
-                    else:
-                        g.add((URIRef(ACADDATA + "COMP346-LEC" + str(count)), ACAD.coversTopic,
-                               URIRef(ACADDATA + label)))
-
-                    count = count + 1
+                        # Triple linking topic to course
+                        # Linking the topic to the proper event
+                        g.add((URIRef(ACADDATA + event), ACAD.coversTopic, URIRef(ACADDATA + label)))
 
             # -----------------------------------------------------
             #                   C O M P  4 7 4
@@ -279,44 +274,28 @@ with open(url2, encoding='ISO-8859-1') as csv_file:
 
                 # -----------------------------------------------------
                 #           ADD TOPIC TRIPLES
-                all_topics = open("474topics.txt").readlines()
+                all_topics = open("courseTopics.txt").readlines()
                 for topic in all_topics:
-                    topic = topic.replace("\n", "")
-                    topic_arg = topic.split("\" ")
-                    label = topic_arg[0].replace("\"", "")
-                    uri = topic_arg[1]
+                    if "COMP474" in topic:
+                        topic = topic.replace("\n", "")
+                        topic = topic.split()
+                        label = topic[0]
+                        uri = topic[1]
+                        pdf = topic[2]
+                        event = topic[3]
 
-                    # Adding triples for each topic of COMP 474
-                    g.add((URIRef(ACADDATA + label), RDF.type, ACAD.topic))
-                    g.add((URIRef(ACADDATA + label), RDFS.seeAlso, URIRef(uri)))
-                    g.add((URIRef(ACADDATA + label), RDFS.label, Literal(label)))
-                    # Triple linking course to topic
-                    g.add((URIRef(ACADDATA + key), ACAD.coversTopic, URIRef(ACADDATA + label)))
+                        # Adding triples for each topic of COMP 474
+                        g.add((URIRef(ACADDATA + label), RDF.type, ACAD.topic))
+                        g.add((URIRef(ACADDATA + label), RDFS.seeAlso, URIRef(uri)))
+                        g.add((URIRef(ACADDATA + label), RDFS.label, Literal(label)))
+                        # Triple linking course to topic
+                        g.add((URIRef(ACADDATA + key), ACAD.coversTopic, URIRef(ACADDATA + label)))
+                        # Triple linking pdf document to topic
+                        g.add((URIRef(pdf), ACAD.coversTopic, URIRef(ACADDATA + label)))
 
-                    # Triple linking topic to lecture
-                    # Picking the proper lecture corresponding to the correct topic in 474topics.txt
-                    if label == "Intelligent_Systems":
-                        count = 1
-                    elif label == "Knowledge_Graph":
-                        count = 2
-                    elif label == "Vocabularies" or label == "Ontologies":
-                        count = 3
-                    elif label == "Knowledge_Base_Queries" or label == "SPARQL" or \
-                            label == "Web_Ontology_Language":
-                        count = 4
-                    elif label == "Linked_Open_Data" or label == "Knowledge_Base":
-                        count = 5
-                    elif label == "Personalization_And_Recommender_Systems":
-                        count = 6
-                    elif label == "Machine_Learning":
-                        count = 7
-                    elif label == "Intelligent_Agents":
-                        count = 8
-                    elif label == "Text_Mining":
-                        count = 9
-                    # Linking the topic to the proper lecture
-                    g.add((URIRef(ACADDATA + "COMP474-LEC" + str(count)), ACAD.coversTopic,
-                           URIRef(ACADDATA + label)))
+                        # Triple linking topic to course
+                        # Linking the topic to the proper event
+                        g.add((URIRef(ACADDATA + event), ACAD.coversTopic, URIRef(ACADDATA + label)))
 
 
 # print(g.serialize(format='turtle').decode('UTF-8')) # For testing
