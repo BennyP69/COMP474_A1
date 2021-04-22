@@ -46,10 +46,13 @@ nlu:
 - intent: about_course_labs
   examples: |
     - Does [COMP 474](course) have labs?
+    - Does [COMP 474](course) have labs ?
     - Does [COMP 346](course) have labs
     - Does the course [COMP 474](course) have labs?
     - Does the course [COMP 346](course) have labs ?
+    - Does the course [COMP 346](course) have labs
     - Are there labs in [COMP 346](course)?
+    - Are there labs in [COMP 474](course) ?
     - Are there labs in [COMP 474](course)
 
 - intent: about_department_courses
@@ -94,10 +97,41 @@ nlu:
 - intent: about_number_of_uni_courses
   examples: |
     - How many courses does the university [Concordia University](university) offer?
+    - How many courses does the university [Concordia University](university) offer ?
+    - How many courses does the university [Concordia University](university) offer
+    - How many courses does [Concordia University](university) offer?
+    - How many courses does [Concordia University](university) offer ?
+    - How many courses does [Concordia University](university) offer
+    - How many courses does [Concordia University](university) have?
+    - How many courses does [Concordia University](university) have ?
+    - How many courses does [Concordia University](university) have
+    - How many courses does [Concordia University](university) give?
+    - How many courses does [Concordia University](university) give ?
+    - How many courses does [Concordia University](university) give
+    - How many courses does [Concordia University](university) teach?
+    - How many courses does [Concordia University](university) teach ?
+    - How many courses does [Concordia University](university) teach
+    - How many courses in [Concordia University](university)?
+    - How many courses in [Concordia University](university) ?
+    - How many courses in [Concordia University](university)
 
 - intent: about_num_topics_in_course
   examples: |
     - How many topics are covered in [COMP 474](course)?
+    - How many topics are covered in [COMP 346](course) ?
+    - How many topics are covered in [COMP 474](course)
+    - How many topics in [COMP 346](course)?
+    - How many topics in [COMP 474](course) ?
+    - How many topics in [COMP 346](course)
+    - How many topics are there in [COMP 474](course)?
+    - How many topics are there in [COMP 346](course) ?
+    - How many topics are there in [COMP 474](course)
+    - How many topics covered in [COMP 346](course)?
+    - How many topics covered in [COMP 474](course) ?
+    - How many topics covered in [COMP 346](course)
+    - How many topics does [COMP 474](course) cover?
+    - How many topics does [COMP 346](course) cover ?
+    - How many topics does [COMP 474](course) cover
 
 - intent: greet
   examples: |

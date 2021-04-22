@@ -131,7 +131,8 @@ class ActionCourseComponents(Action):
                     components.append(result[key])
 
         for value in components:
-            print("COMPONENT: ", value, "\n")
+            dispatcher.utter_message(text=f"COMPONENT: {value} \n")
+            # print("COMPONENT: ", value, "\n")
 
         return []
 
@@ -182,7 +183,13 @@ class ActionCourseLabs(Action):
 
         result = y["boolean"]
 
-        print(result)
+        # print(result)
+        # print(type(result))
+        # dispatcher.utter_message(text=f"{result}")
+        if result:
+            dispatcher.utter_message(text=f"YES, {csubject} {cnumber} has labs.")
+        else:
+            dispatcher.utter_message(text=f"NO, {csubject} {cnumber} does not have labs.")
 
         return []
 
@@ -254,9 +261,14 @@ class ActionDepartmentCourses(Action):
                             course = course + " " + result[key][subKey]
             courses_offered.append(course)
 
-        print("\n" + department + " Offers:\n")
+        # print("\n" + department + " offers:\n")
+        # for course in courses_offered:
+        #     print(course, "\n")
+
+        dispatcher.utter_message(text=f"\n{department} offers:\n")
+
         for course in courses_offered:
-            print(course, "\n")
+            dispatcher.utter_message(text=f" - {course}\n")
 
         return []
 
@@ -311,7 +323,11 @@ class ActionNumberOfUniCourses(Action):
                         if subKey == "value":
                             numberOfCourses = result[key][subKey]
 
-        print("\n", university.replace("_", " "), "offers a total of", numberOfCourses, "courses.\n")
+        university = university.replace("_", " ")
+
+        dispatcher.utter_message(text=f"\n {university} offers a total of {numberOfCourses} courses")
+
+        # print("\n", university.replace("_", " "), "offers a total of", numberOfCourses, "courses.\n")
 
 
 # Q10) How many topics are covered in [course]?
@@ -357,4 +373,4 @@ class ActionNumTopicsInCourse(Action):
         results = y["results"]
         bindings = results["bindings"]
 
-        print(csubject, cnumber, "covers", bindings[0]['topicNum']['value'], "topics")
+        dispatcher.utter_message(text=f"{csubject} {cnumber} covers {bindings[0]['topicNum']['value']} topics")
