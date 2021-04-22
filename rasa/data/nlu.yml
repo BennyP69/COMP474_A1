@@ -72,6 +72,8 @@ nlu:
 - intent: about_dep_offer_course
   examples: |
     - Which department offers the course [COMP 474](course)?
+    - Which dep offers the course [COMP 474](course)?
+    - What department offers the course [COMP 474](course)?
 
 - intent: about_content_course_lecture
   examples: |
@@ -80,9 +82,11 @@ nlu:
     - What content does [COMP 474](course) [lecture2](lecture) consist of?
     - What content does [COMP 474](course) [lecture 5](lecture) consist of?
     - What's the content of [COMP 474](course) [lecture 5](lecture)?
+    - What's the content of [comp 474](course) [lecture5](lecture)?
     - What's the content of [COMP 474](course) [LEC5](lecture)?
     - What's the content of [COMP 474](course) [LEC 5](lecture)
     - What is the content of [COMP 474](course) [lecture 5](lecture)?
+    - What is the content of [COMP 474](course) [lecture5](lecture)?
     - What is the content of [COMP 474](course) [LEC 2](lecture)?
 
 

@@ -74,12 +74,14 @@ class TopicsCourseLecture(Action):
             topics_offered.append(topic)
 
         if not topics_offered:
-            print(f"Lecture {lnumber} of the course {course} does not exist or does not cover any topic.")
+            # print(f"Lecture {lnumber} of the course {course} does not exist or does not cover any topic.")
+            dispatcher.utter_message(text=f"Lecture {lnumber} of the course {course} does not exist or does not cover any topic.")
         else:
             answer = "Lecture " + lnumber + " of the course " + course + " covers the following topics:\n"
             for topic in topics_offered:
                 answer = answer + "- " + topic + "\n"
-            print(answer)
+            # print(answer)
+            dispatcher.utter_message(text=f"{answer}")
 
         return []
 
@@ -95,16 +97,16 @@ class ActionHelloWorld(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         course = tracker.slots['course'].replace(" ", "")
 
-        print(course)
+        # print(course)
 
         values = re.split(r'([^\d]*)(\d.*)', course, maxsplit=1)
-        print(values)
+        # print(values)
 
         csubject = values[1].upper()
         cnumber = values[2]
 
-        print(csubject)
-        print(cnumber)
+        # print(csubject)
+        # print(cnumber)
 
         response = requests.post("http://localhost:3030/acad/sparql",
                                  data={'query': """
@@ -137,7 +139,9 @@ class ActionHelloWorld(Action):
         bindings = results["bindings"][0]
         description = bindings["cdescription"]
         vdescription = description["value"]
-        print(vdescription)
+        # print(vdescription)
+
+        dispatcher.utter_message(text=f"Description of course {course}: {vdescription}")
 
         return []
 
@@ -198,7 +202,7 @@ class WhichCourseAtUniTeachTopic(Action):
 
         topic = tracker.slots['topic'].title().replace(" ", "_")
 
-        print(topic)
+        # print(topic)
 
         courses_offer_topic = self.response_request(uni, topic)
 
@@ -213,14 +217,16 @@ class WhichCourseAtUniTeachTopic(Action):
         if not courses_offer_topic:
             uni = uni.replace("_", " ")
             topic = topic.replace("_", " ")
-            print(f"No courses at {uni} offer the topic {topic}.")
+            # print(f"No courses at {uni} offer the topic {topic}.")
+            dispatcher.utter_message(text=f"No courses at {uni} offer the topic {topic}.")
         else:
             uni = uni.replace("_", " ")
             topic = topic.replace("_", " ")
             answer = f"The following courses at {uni} offer the topic {topic}:\n"
             for course in courses_offer_topic:
                 answer = answer + "- " + course + "\n"
-            print(answer)
+            # print(answer)
+            dispatcher.utter_message(text=f"{answer}")
 
         return []
 
@@ -278,7 +284,7 @@ class WhichDepOffersCourse(Action):
         # print(course)
 
         values = re.split(r'([^\d]*)(\d.*)', course, maxsplit=1)
-        print(values)
+        # print(values)
 
         csubject = values[1].upper()
         cnumber = values[2]
@@ -286,12 +292,14 @@ class WhichDepOffersCourse(Action):
         departments = self.response_request(csubject, cnumber)
 
         if not departments:
-            print(f"The course {course} is not offered in any departments.")
+            # print(f"The course {course} is not offered in any departments.")
+            dispatcher.utter_message(text=f"The course {course} is not offered in any departments.")
         else:
             answer = f"The course {course} is offered in the department:\n"
             for dep in departments:
                 answer = answer + "- " + dep + "\n"
-            print(answer)
+            # print(answer)
+            dispatcher.utter_message(text=f"{answer}")
 
         return []
 
@@ -354,11 +362,13 @@ class ContentCourseLecture(Action):
         content = self.response_request(course, lnumber)
 
         if not content:
-            print(f"The course {course} lecture{lnumber} does not have any content.")
+            # print(f"The course {course} lecture{lnumber} does not have any content.")
+            dispatcher.utter_message(text=f"The course {course} lecture{lnumber} does not have any content.")
         else:
-            answer = f"The course {course} lecture{lnumber} consists of the following content:\n"
+            answer = f"The course {course} lecture {lnumber} consists of the following content:\n"
             for con in content:
                 answer = answer + "- " + con + "\n"
-            print(answer)
+            # print(answer)
+            dispatcher.utter_message(text=f"{answer}")
 
         return []
