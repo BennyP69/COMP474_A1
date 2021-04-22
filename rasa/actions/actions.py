@@ -93,7 +93,7 @@ class ActionCourseComponents(Action):
         cnumber = values[2]
 
         if csubject != "COMP" or (cnumber != "346" and cnumber != "474"):
-            print("Sorry, we currently only support finding components of COMP 474 and COMP 346.")
+            dispatcher.utter_message(text="Sorry, we currently only support finding components of COMP 474 and COMP 346.")
             return
 
         response = requests.post("http://localhost:3030/acad/sparql",
@@ -363,3 +363,98 @@ class ActionNumTopicsInCourse(Action):
         bindings = results["bindings"]
 
         dispatcher.utter_message(text=f"{csubject} {cnumber} covers {bindings[0]['topicNum']['value']} topics")
+
+
+# CHATBOT Q3 - Which topics are covered in <course event>?"
+class ActionTopicsCovered(Action):
+
+    def name(self) -> Text:
+        return "action_topics_covered"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        course = tracker.slots['course']
+        values = re.split(r'([^\d]*)(\d.*)', course, maxsplit=1)
+        csubject = values[1].upper().strip()
+        cnumber = values[2].strip()
+
+        courseEvent = tracker.slots['courseEvent'].strip()
+        og_courseEvent = courseEvent
+
+        eventNumber = courseEvent[courseEvent.find("#") + 1:]
+        if len(eventNumber) == 1:
+            eventNumber = "0" + eventNumber
+
+        query = ""
+
+        if "lec" in courseEvent.lower():
+            courseEvent = "acaddata:" + csubject + cnumber + "-LEC-" + eventNumber
+            query = """
+                        PREFIX vivo: <http://vivoweb.org/ontology/core#> 
+                        PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+                        PREFIX DC: <http://purl.org/dc/terms/> 
+                        PREFIX acad: <http://acad.io/schema#> 
+                        PREFIX foaf: <http://xmlns.com/foaf/0.1/> 
+                        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+                        PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
+                        PREFIX acaddata: <http://acad.io/data#>
+
+                        SELECT ?topic ?topicLabel
+                        WHERE {
+                          ?course a vivo:Course.
+                          ?course foaf:name ?courseName.
+                          ?course acad:courseNumber "%s"^^xsd:int.
+                          ?course acad:courseSubject "%s"^^xsd:string.
+                          ?course acad:courseHas %s.
+                          %s acad:hasContent ?eventDoc.
+                          ?eventDoc acad:coversTopic ?topic.
+                          ?topic a acad:topic.
+                          ?topic rdfs:label ?topicLabel
+                        }
+                        """ % (cnumber, csubject, courseEvent, courseEvent)
+
+        if "tut" in courseEvent.lower():
+            courseEvent = "acaddata:" + csubject + cnumber + "-TUT-" + eventNumber
+            query = """
+                        PREFIX vivo: <http://vivoweb.org/ontology/core#> 
+                        PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+                        PREFIX DC: <http://purl.org/dc/terms/> 
+                        PREFIX acad: <http://acad.io/schema#> 
+                        PREFIX foaf: <http://xmlns.com/foaf/0.1/> 
+                        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+                        PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
+                        PREFIX acaddata: <http://acad.io/data#>
+
+                        SELECT ?topic ?topicLabel
+                        WHERE {
+                          ?course a vivo:Course.
+                          ?course foaf:name ?courseName.
+                          ?course acad:courseNumber "%s"^^xsd:int.
+                          ?course acad:courseSubject "%s"^^xsd:string.
+                          ?course acad:courseHas ?courseLec.
+                          ?courseLec acad:lectureEvent %s.
+                          %s a acad:Tutorial.
+                          %s acad:coversTopic ?topic.
+                          ?topic a acad:topic.
+                          ?topic rdfs:label ?topicLabel
+                        }
+                        """ % (cnumber, csubject, courseEvent, courseEvent, courseEvent)
+
+        print(query)
+
+        response = requests.post("http://localhost:3030/acad/sparql",
+                                 data={'query': query})
+
+        y = json.loads(response.text)
+
+        results = y["results"]
+        bindings = results["bindings"]
+
+        # print(bindings)
+
+        dispatcher.utter_message(text=f"{og_courseEvent} of {csubject} {cnumber} covers:\n")
+
+        for result in bindings:
+            dispatcher.utter_message(text=f"\t--> {result['topicLabel']['value']} \t||\t URI: {result['topic']['value']}\n")

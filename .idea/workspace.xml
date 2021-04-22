@@ -3,6 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="5cd33d1d-bf75-4bf5-bea5-8218e6fa84bc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rasa/actions/actions.py" beforeDir="false" afterPath="$PROJECT_DIR$/rasa/actions/actions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rasa/data/nlu.yml" beforeDir="false" afterPath="$PROJECT_DIR$/rasa/data/nlu.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rasa/data/stories.yml" beforeDir="false" afterPath="$PROJECT_DIR$/rasa/data/stories.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rasa/domain.yml" beforeDir="false" afterPath="$PROJECT_DIR$/rasa/domain.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +47,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../TEST" />
     <property name="settings.editor.selected.configurable" value="PyConsoleConfigurable.Python Console" />
   </component>
   <component name="PyConsoleOptionsProvider">
@@ -198,10 +202,10 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="478" y="23" width="801" height="777" key="CommitChangelistDialog2/0.0.1280.800@0.0.1280.800" timestamp="1616381600883" />
-    <state x="3355" y="703" key="FileChooserDialogImpl" timestamp="1619029133242">
-      <screen x="2560" y="360" width="1920" height="1050" />
+    <state x="1060" y="460" key="FileChooserDialogImpl" timestamp="1619128248809">
+      <screen x="0" y="0" width="2560" height="1410" />
     </state>
-    <state x="1060" y="460" key="FileChooserDialogImpl/0.0.2560.1410/2560.360.1920.1050@0.0.2560.1410" timestamp="1619017921568" />
+    <state x="1060" y="460" key="FileChooserDialogImpl/0.0.2560.1410/2560.360.1920.1050@0.0.2560.1410" timestamp="1619128248809" />
     <state x="3355" y="703" key="FileChooserDialogImpl/0.0.2560.1410/2560.360.1920.1050@2560.360.1920.1050" timestamp="1619029133242" />
     <state width="2517" height="403" key="GridCell.Tab.0.bottom" timestamp="1619045068433">
       <screen x="0" y="0" width="2560" height="1410" />

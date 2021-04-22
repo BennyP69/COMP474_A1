@@ -32,6 +32,11 @@ stories:
     - intent: about_num_topics_in_course
     - action: action_num_topics_in_course
 
+- story: get topics covered
+  steps:
+    - intent: about_topics_covered
+    - action: action_topics_covered
+
 - story: happy path
   steps:
   - intent: greet

@@ -133,6 +133,12 @@ nlu:
     - How many topics does [COMP 346](course) cover ?
     - How many topics does [COMP 474](course) cover
 
+- intent: about_topics_covered
+  examples: |
+    - How many topics are covered in [lab #2](courseEvent) of [COMP 474](course)?
+    - How many topics are covered in [tut #10](courseEvent) of [COMP 346](course) ?
+    - How many topics are covered in [lec #12](courseEvent) of [COMP 474](course)
+
 - intent: greet
   examples: |
     - hey

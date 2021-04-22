@@ -14,11 +14,13 @@ intents:
   - about_department_courses
   - about_number_of_uni_courses
   - about_num_topics_in_course
+  - about_topics_covered
 
 entities:
   - course
   - department
   - university
+  - courseEvent
 
 actions:
   - action_course_info
@@ -27,6 +29,7 @@ actions:
   - action_department_courses
   - action_number_of_uni_courses
   - action_num_topics_in_course
+  - action_topics_covered
 
 slots:
   course:
@@ -36,6 +39,9 @@ slots:
     type: any
     initial_value: ""
   university:
+    type: text
+    initial_value: ""
+  courseEvent:
     type: text
     initial_value: ""
 
