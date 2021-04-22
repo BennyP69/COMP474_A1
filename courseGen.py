@@ -196,7 +196,7 @@ with open(url2, encoding='ISO-8859-1') as csv_file:
                                URIRef(tuts_path + filename1)))
 
                         # Triple linking tut to lecture
-                        g.add((URIRef(ACADDATA + eventName), ACAD.lectureEvent, URIRef(ACADDATA + URIRef("COMP346-LEC-" + str(tut_num).zfill(2)))))
+                        g.add((URIRef(ACADDATA + URIRef("COMP346-LEC-" + str(tut_num).zfill(2))), ACAD.lectureEvent, URIRef(ACADDATA + eventName)))
 
                         tut_num = tut_num + 1
                         
@@ -221,9 +221,8 @@ with open(url2, encoding='ISO-8859-1') as csv_file:
                         # Triple linking pdf document to topic
                         g.add((URIRef(pdf), ACAD.coversTopic, URIRef(ACADDATA + label)))
 
-                        # Triple linking topic to course
                         # Linking the topic to the proper event
-                        g.add((URIRef(ACADDATA + event), ACAD.coversTopic, URIRef(ACADDATA + label)))
+                        # g.add((URIRef(ACADDATA + event), ACAD.coversTopic, URIRef(ACADDATA + label)))
 
             # -----------------------------------------------------
             #                   C O M P  4 7 4
@@ -305,9 +304,8 @@ with open(url2, encoding='ISO-8859-1') as csv_file:
                         # Triple linking pdf document to topic
                         g.add((URIRef(pdf), ACAD.coversTopic, URIRef(ACADDATA + label)))
 
-                        # Triple linking topic to course
                         # Linking the topic to the proper event
-                        g.add((URIRef(ACADDATA + event), ACAD.coversTopic, URIRef(ACADDATA + label)))
+                        # g.add((URIRef(ACADDATA + event), ACAD.coversTopic, URIRef(ACADDATA + label)))
 
 
 # print(g.serialize(format='turtle').decode('UTF-8')) # For testing
