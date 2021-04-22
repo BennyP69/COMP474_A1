@@ -1,72 +1,47 @@
-import csv
+from tika import parser # Must have a java(7 or 7+) runtime installed as well
+import spotlight
 import os
-import io
 import re
-import PyPDF2
-from pdfminer.converter import TextConverter
-from pdfminer.pdfinterp import PDFPageInterpreter
-from pdfminer.pdfinterp import PDFResourceManager
-from pdfminer.pdfpage import PDFPage
 
-def getFileNames(path):
-	return os.listdir(path)
+# Recusively getting all PDFs for every course we have the data for within the COURSES/ folder.
+pdfs = [os.path.join(dp, f) for dp, dn, filenames in os.walk("COURSES/") for f in filenames if os.path.splitext(f)[1] == '.pdf']
 
-def searchFile(path, fileName):
-    for root, dirs, files in os.walk(path):
-        if fileName in files:
-            return os.path.join(root, fileName)
+# Creating the text file to save topics
+courseTopicsTextFile = open("courseTopics.txt", "w")
 
-def readPDF(name):
-    pdfFileObj = open(name, 'rb') #PDF name
-    pdfReader = PyPDF2.PdfFileReader(pdfFileObj)
-    print(pdfReader.numPages)
-    pageObj = pdfReader.getPage(0)
-    print(pageObj.extractText())
-    pdfFileObj.close()
+for pdf in pdfs:
+	pdf = pdf.replace("\\", "/")
 
-def extract_text_by_page(pdf_path):
-	with open(pdf_path, 'rb') as fh:
-		for page in PDFPage.get_pages(fh, caching=True, check_extractable=True):
-			resource_manager = PDFResourceManager()
-			fake_file_handle = io.StringIO()
-			converter = TextConverter(resource_manager, fake_file_handle)
-			page_interpreter = PDFPageInterpreter(resource_manager, converter)
-			page_interpreter.process_page(page)
+	# Skip Outlines
+	if "Outline" in pdf:
+		continue
 
-			text = fake_file_handle.getvalue()
-			yield text
+	# Extracting contents of the pdf file. https://www.geeksforgeeks.org/parsing-pdfs-in-python-with-tika/
 
-	# close open handles
-	converter.close()
-	fake_file_handle.close()
+	# Opening PDF file
+	parsed_pdf = parser.from_file(pdf) #sample.pdf
+	print("Processing " + pdf)
 
-def export_as_csv(pdf_path, csv_path):
-	filename = os.path.splitext(os.path.basename(pdf_path))[0]
+	# Saving content of PDF
+	# To get the text only, use parsed_pdf['text'] - parsed_pdf['content'] returns string
+	data = parsed_pdf['content']
 
-	counter = 1
-	with open(csv_path, 'w') as csv_file:
-		writer = csv.writer(csv_file)
-		for page in extract_text_by_page(pdf_path):
-			text = page[0:100]
-			words = text.split()
-			writer.writerow(words)
+	# Linking of content to dbpedia resource
+	annotations = spotlight.annotate('https://api.dbpedia-spotlight.org/en/annotate', data, confidence=0.4, support=20)
 
+	# To keep duplicates from being written to the file
+	linesSeen = set() # Holds lines already seen
 
-if __name__ == '__main__':
-	PATH = "COURSES/"
-	COURSE = "COMP346/"
-	COMPONENT = "LEC/"
-	
-	topics346 = getFileNames(PATH + COURSE + COMPONENT)
+	# Adding the topics
+	for elt in annotations:
+		# Writing the topic data in the text file - topicLabel topic_dbpedia_URI PDF_URI COURSE-COMPONENT-#
+		line = re.sub('[^A-Za-z0-9_-]+', '', elt.get("URI").replace("http://dbpedia.org/resource/", "")) + " " + elt.get("URI") + " " + pdf + " " + pdf.split("/")[1] + "-" + pdf.split("/")[2] + "-" + re.findall('[0-9]+', pdf.split("/")[-1])[0] + "\n"
+		if line not in linesSeen and not line == "": # If the line is not a duplicate and it is not empty, add it to the topics file
+			courseTopicsTextFile.write(line)
+			linesSeen.add(line)
 
-	for topic in topics346:
-		topic = re.sub(r'[0-9]+', '', topic.replace("Lecture", "").replace(".pdf", "").replace('-', "").replace("_", " "))
+# Showing where the new file can be found
+print("The Couse Topics File has been saved as " + courseTopicsTextFile.name + " in " + os.getcwd())
 
-	#COMP474 PDFs are unreadable...
-	topics474 = ["Intelligent Systems", "Knowledge Graphs", "RDF", "Vocabularies", "Ontologies", "RDFS",
-			 "OWL", "Knowledge Base Queries", "SPARQL", "Linked Open Data",
-			 "Personalization & Recommender Systems", "Machine Learning",
-			 "Natural Language Processing", "Text Mining",
-			 "Artificial Neural Networks", "Deep Learning"]
-	
-	#FOR A1, I will copy the topics into topics.txt manually. - Gab
+# Closing and saving the text file with the data
+courseTopicsTextFile.close()
