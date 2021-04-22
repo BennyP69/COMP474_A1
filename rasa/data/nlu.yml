@@ -57,20 +57,18 @@ nlu:
 
 - intent: about_department_courses
   examples: |
-    - What courses does the [Computer Science and Software Engineering (CSSE)](department) department offer?
-    - What courses does [Computer Science and Software Engineering (CSSE)](department) department offer
-    - What courses does [Building, Civil and Environmental Engineering (BCEE)](department) have?
-    - What courses does [Computer Science and Software Engineering (CSSE)](department) have ?
-    - What courses does [Electrical and Computer Engineering (ECE)](department) have
     - What courses does the [CSSE](department) department offer ?
+    - What courses does the [Computer Science and Software Engineering](department) department offer?
+    - What courses does the [Software Engineering](department) department offer?
+    - What courses does the [Computer Science](department) department offer?
+    - What courses does the [computer science](department) department offer?
+    - What courses does the [Software Engineering](department) department offer?
     - What courses does the [Applied Human Sciences](department) department offer?
     - What courses does the [Art History](department) department offer
-    - What courses does the [Building, Civil and Environmental Engineering (BCEE)](department) department offer?
     - What courses does the [BCEE](department) department offer ?
     - What courses does the [Chemistry and Biochemistry](department) department offer?
     - What courses does the [Communication Studies](department) department offer?
     - What courses does the [Design and Computation Arts](department) department offer?
-    - What courses does the [Electrical and Computer Engineering (ECE)](department) department offer?
     - What courses does the [ECE](department) department offer ?
     - What courses does the [English](department) department offer?
     - What courses does the [Finance](department) department offer?
@@ -88,8 +86,10 @@ nlu:
     - What courses does [Simone de Beauvoir Institute](department) offer
     - What courses does [Physics](department) offer
     - What courses does [Études françaises](department) offer?
+    - What courses does [BCEE](department) offer?
     - What courses does [Classics, Modern Languages and Linguistics] offer ?
     - What courses does the [CSSE](department) have ?
+    - What courses does the [civil engineering](department) have ?
     - What courses does [Management](department) have?
     - What courses does [ECE](department) have
     - What courses does [History](department) have

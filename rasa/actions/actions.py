@@ -132,7 +132,6 @@ class ActionCourseComponents(Action):
 
         for value in components:
             dispatcher.utter_message(text=f"COMPONENT: {value} \n")
-            # print("COMPONENT: ", value, "\n")
 
         return []
 
@@ -179,13 +178,8 @@ class ActionCourseLabs(Action):
 
         y = json.loads(response.text)
 
-        # print("\n\n--------------------\n", y, "\n--------------------\n\n")
-
         result = y["boolean"]
 
-        # print(result)
-        # print(type(result))
-        # dispatcher.utter_message(text=f"{result}")
         if result:
             dispatcher.utter_message(text=f"YES, {csubject} {cnumber} has labs.")
         else:
@@ -206,16 +200,21 @@ class ActionDepartmentCourses(Action):
 
         department = tracker.slots['department'].strip()
 
-        print("\n\n--------------------\n" + department + "\n--------------------\n\n")
+        # print("\n\n--------------------\n" + department + "\n--------------------\n\n")
 
-        if department.upper().replace(" ", "") == "CSSE":
+        if department == "CSSE" or department.lower() == "computer science and software engineering" or \
+                department.lower() == "computer science" or department.lower() == "software engineering":
             department = "Computer Science and Software Engineering (CSSE)"
-        elif department.upper().replace(" ", "") == "BCCE":
+        elif department == "BCCE" or \
+                department.lower() == "building, civil and environmental engineering" or \
+                department.lower() == "building engineering" or department.lower() == "civil engineering" or \
+                department.lower() == "environmental engineering":
             department = "Building, Civil and Environmental Engineering (BCEE)"
-        elif department.upper().replace(" ", "") == "ECE":
+        elif department == "ECE" or department.lower() == "electrical engineering" \
+                or department.lower() == "computer engineering":
             department = "Electrical and Computer Engineering (ECE)"
 
-        print("\n\n--------------------\n" + department + "\n--------------------\n\n")
+        # print("\n\n--------------------\n" + department + "\n--------------------\n\n")
 
         response = requests.post("http://localhost:3030/acad/sparql",
                                  data={'query': """
@@ -241,8 +240,6 @@ class ActionDepartmentCourses(Action):
 
         y = json.loads(response.text)
 
-        # print("\n\n--------------------\n", y, "\n--------------------\n\n")
-
         results = y["results"]
         bindings = results["bindings"]
 
@@ -260,10 +257,6 @@ class ActionDepartmentCourses(Action):
                         if subKey == "value":
                             course = course + " " + result[key][subKey]
             courses_offered.append(course)
-
-        # print("\n" + department + " offers:\n")
-        # for course in courses_offered:
-        #     print(course, "\n")
 
         dispatcher.utter_message(text=f"\n{department} offers:\n")
 
@@ -309,8 +302,6 @@ class ActionNumberOfUniCourses(Action):
 
         y = json.loads(response.text)
 
-        # print("\n\n--------------------\n", y, "\n--------------------\n\n")
-
         results = y["results"]
         bindings = results["bindings"]
 
@@ -326,8 +317,6 @@ class ActionNumberOfUniCourses(Action):
         university = university.replace("_", " ")
 
         dispatcher.utter_message(text=f"\n {university} offers a total of {numberOfCourses} courses")
-
-        # print("\n", university.replace("_", " "), "offers a total of", numberOfCourses, "courses.\n")
 
 
 # Q10) How many topics are covered in [course]?
