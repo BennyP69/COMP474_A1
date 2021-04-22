@@ -411,7 +411,7 @@ class ActionTopicsCovered(Action):
                           %s acad:hasContent ?eventDoc.
                           ?eventDoc acad:coversTopic ?topic.
                           ?topic a acad:topic.
-                          ?topic rdfs:label ?topicLabel
+                          ?topic rdfs:label ?topicLabel.
                         }
                         """ % (cnumber, csubject, courseEvent, courseEvent)
 
@@ -436,13 +436,17 @@ class ActionTopicsCovered(Action):
                           ?course acad:courseHas ?courseLec.
                           ?courseLec acad:lectureEvent %s.
                           %s a acad:Tutorial.
-                          %s acad:coversTopic ?topic.
+                          %s acad:hasContent ?eventDoc.
+                          ?eventDoc acad:coversTopic ?topic.
                           ?topic a acad:topic.
-                          ?topic rdfs:label ?topicLabel
+                          ?topic rdfs:label ?topicLabel.
                         }
                         """ % (cnumber, csubject, courseEvent, courseEvent, courseEvent)
 
-        print(query)
+        if "lab" in courseEvent.lower() or "stu" in courseEvent.lower():
+            dispatcher.utter_message(text=f"Sorry, {csubject} {cnumber} does not have a {courseEvent}")
+
+        # print(query)
 
         response = requests.post("http://localhost:3030/acad/sparql",
                                  data={'query': query})
@@ -457,4 +461,4 @@ class ActionTopicsCovered(Action):
         dispatcher.utter_message(text=f"{og_courseEvent} of {csubject} {cnumber} covers:\n")
 
         for result in bindings:
-            dispatcher.utter_message(text=f"\t--> {result['topicLabel']['value']} \t||\t URI: {result['topic']['value']}\n")
+            dispatcher.utter_message(text=f"\t--> {result['topicLabel']['value']} || URI: {result['topic']['value']}\n")
