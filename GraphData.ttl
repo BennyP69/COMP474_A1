@@ -179,56 +179,6 @@
         acaddata:Yandex,
         acaddata:YouTube .
 
-acaddata:COMP346-TUT-01 a acad:Tutorial ;
-    acad:hasContent <COURSES/COMP346/TUT/01-Tutorial_Processes_and_Threads.pdf> ;
-    acad:lectureEvent acaddata:COMP346-LEC-01 ;
-    acad:lectureNumber "1"^^xsd:int .
-
-acaddata:COMP346-TUT-02 a acad:Tutorial ;
-    acad:hasContent <COURSES/COMP346/TUT/02-Tutorial_Data_Manipulations_and_Synchronization.pdf> ;
-    acad:lectureEvent acaddata:COMP346-LEC-02 ;
-    acad:lectureNumber "2"^^xsd:int .
-
-acaddata:COMP346-TUT-03 a acad:Tutorial ;
-    acad:hasContent <COURSES/COMP346/TUT/03-Tutorial_Synchronization.pdf> ;
-    acad:lectureEvent acaddata:COMP346-LEC-03 ;
-    acad:lectureNumber "3"^^xsd:int .
-
-acaddata:COMP346-TUT-04 a acad:Tutorial ;
-    acad:hasContent <COURSES/COMP346/TUT/04-Tutorial_Semaphores.pdf> ;
-    acad:lectureEvent acaddata:COMP346-LEC-04 ;
-    acad:lectureNumber "4"^^xsd:int .
-
-acaddata:COMP346-TUT-05 a acad:Tutorial ;
-    acad:hasContent <COURSES/COMP346/TUT/05-Tutorial_Monitors.pdf> ;
-    acad:lectureEvent acaddata:COMP346-LEC-05 ;
-    acad:lectureNumber "5"^^xsd:int .
-
-acaddata:COMP346-TUT-06 a acad:Tutorial ;
-    acad:hasContent <COURSES/COMP346/TUT/06-Tutorial_MainMemory.pdf> ;
-    acad:lectureEvent acaddata:COMP346-LEC-06 ;
-    acad:lectureNumber "6"^^xsd:int .
-
-acaddata:COMP346-TUT-07 a acad:Tutorial ;
-    acad:hasContent <COURSES/COMP346/TUT/07-Tutorial_VirualMemory.pdf> ;
-    acad:lectureEvent acaddata:COMP346-LEC-07 ;
-    acad:lectureNumber "7"^^xsd:int .
-
-acaddata:COMP346-TUT-08 a acad:Tutorial ;
-    acad:hasContent <COURSES/COMP346/TUT/08-Tutorial_Scheduling.pdf> ;
-    acad:lectureEvent acaddata:COMP346-LEC-08 ;
-    acad:lectureNumber "8"^^xsd:int .
-
-acaddata:COMP346-TUT-09 a acad:Tutorial ;
-    acad:hasContent <COURSES/COMP346/TUT/09-Tutorial_Deadlock.pdf> ;
-    acad:lectureEvent acaddata:COMP346-LEC-09 ;
-    acad:lectureNumber "9"^^xsd:int .
-
-acaddata:COMP346-TUT-10 a acad:Tutorial ;
-    acad:hasContent <COURSES/COMP346/TUT/10-Tutorial_File_Management.pdf> ;
-    acad:lectureEvent acaddata:COMP346-LEC-10 ;
-    acad:lectureNumber "10"^^xsd:int .
-
 acaddata:COMP474-LEC-02 acad:hasContent <COURSES/COMP474/Worksheets/worksheet02.pdf> .
 
 <COURSES/COMP346/LEC/Lecture01-Introduction.pdf> a acad:Slides ;
@@ -2807,6 +2757,56 @@ acaddata:COMP474-LEC-02 acad:hasContent <COURSES/COMP474/Worksheets/worksheet02.
         acaddata:University_of_Colorado_Boulder,
         acaddata:Vector_space .
 
+acaddata:COMP346-LEC-01 a acad:Lecture ;
+    acad:hasContent <COURSES/COMP346/LEC/Lecture01-Introduction.pdf> ;
+    acad:lectureEvent acaddata:COMP346-TUT-01 ;
+    acad:lectureNumber "1"^^xsd:int .
+
+acaddata:COMP346-LEC-02 a acad:Lecture ;
+    acad:hasContent <COURSES/COMP346/LEC/Lecture02-OS_Sturcture.pdf> ;
+    acad:lectureEvent acaddata:COMP346-TUT-02 ;
+    acad:lectureNumber "2"^^xsd:int .
+
+acaddata:COMP346-LEC-03 a acad:Lecture ;
+    acad:hasContent <COURSES/COMP346/LEC/Lecture03-Processes.pdf> ;
+    acad:lectureEvent acaddata:COMP346-TUT-03 ;
+    acad:lectureNumber "3"^^xsd:int .
+
+acaddata:COMP346-LEC-04 a acad:Lecture ;
+    acad:hasContent <COURSES/COMP346/LEC/Lecture04-Threads.pdf> ;
+    acad:lectureEvent acaddata:COMP346-TUT-04 ;
+    acad:lectureNumber "4"^^xsd:int .
+
+acaddata:COMP346-LEC-05 a acad:Lecture ;
+    acad:hasContent <COURSES/COMP346/LEC/Lecture05-CPU_Scheduling.pdf> ;
+    acad:lectureEvent acaddata:COMP346-TUT-05 ;
+    acad:lectureNumber "5"^^xsd:int .
+
+acaddata:COMP346-LEC-06 a acad:Lecture ;
+    acad:hasContent <COURSES/COMP346/LEC/Lecture06-Synchronization_Tools.pdf> ;
+    acad:lectureEvent acaddata:COMP346-TUT-06 ;
+    acad:lectureNumber "6"^^xsd:int .
+
+acaddata:COMP346-LEC-07 a acad:Lecture ;
+    acad:hasContent <COURSES/COMP346/LEC/Lecture07-Synchronization_Examples.pdf> ;
+    acad:lectureEvent acaddata:COMP346-TUT-07 ;
+    acad:lectureNumber "7"^^xsd:int .
+
+acaddata:COMP346-LEC-08 a acad:Lecture ;
+    acad:hasContent <COURSES/COMP346/LEC/Lecture08-Deadlocks.pdf> ;
+    acad:lectureEvent acaddata:COMP346-TUT-08 ;
+    acad:lectureNumber "8"^^xsd:int .
+
+acaddata:COMP346-LEC-09 a acad:Lecture ;
+    acad:hasContent <COURSES/COMP346/LEC/Lecture09-Main_Memory.pdf> ;
+    acad:lectureEvent acaddata:COMP346-TUT-09 ;
+    acad:lectureNumber "9"^^xsd:int .
+
+acaddata:COMP346-LEC-10 a acad:Lecture ;
+    acad:hasContent <COURSES/COMP346/LEC/Lecture10-Vitrual_Memory.pdf> ;
+    acad:lectureEvent acaddata:COMP346-TUT-10 ;
+    acad:lectureNumber "10"^^xsd:int .
+
 acaddata:COMP346-LEC-11 a acad:Lecture ;
     acad:hasContent <COURSES/COMP346/LEC/Lecture11-Mass_Storage_Systems.pdf> ;
     acad:lectureNumber "11"^^xsd:int .
@@ -2818,6 +2818,46 @@ acaddata:COMP346-LEC-12 a acad:Lecture ;
 acaddata:COMP346-LEC-13 a acad:Lecture ;
     acad:hasContent <COURSES/COMP346/LEC/Lecture13-File_System.pdf> ;
     acad:lectureNumber "13"^^xsd:int .
+
+acaddata:COMP346-TUT-01 a acad:Tutorial ;
+    acad:hasContent <COURSES/COMP346/TUT/01-Tutorial_Processes_and_Threads.pdf> ;
+    acad:lectureNumber "1"^^xsd:int .
+
+acaddata:COMP346-TUT-02 a acad:Tutorial ;
+    acad:hasContent <COURSES/COMP346/TUT/02-Tutorial_Data_Manipulations_and_Synchronization.pdf> ;
+    acad:lectureNumber "2"^^xsd:int .
+
+acaddata:COMP346-TUT-03 a acad:Tutorial ;
+    acad:hasContent <COURSES/COMP346/TUT/03-Tutorial_Synchronization.pdf> ;
+    acad:lectureNumber "3"^^xsd:int .
+
+acaddata:COMP346-TUT-04 a acad:Tutorial ;
+    acad:hasContent <COURSES/COMP346/TUT/04-Tutorial_Semaphores.pdf> ;
+    acad:lectureNumber "4"^^xsd:int .
+
+acaddata:COMP346-TUT-05 a acad:Tutorial ;
+    acad:hasContent <COURSES/COMP346/TUT/05-Tutorial_Monitors.pdf> ;
+    acad:lectureNumber "5"^^xsd:int .
+
+acaddata:COMP346-TUT-06 a acad:Tutorial ;
+    acad:hasContent <COURSES/COMP346/TUT/06-Tutorial_MainMemory.pdf> ;
+    acad:lectureNumber "6"^^xsd:int .
+
+acaddata:COMP346-TUT-07 a acad:Tutorial ;
+    acad:hasContent <COURSES/COMP346/TUT/07-Tutorial_VirualMemory.pdf> ;
+    acad:lectureNumber "7"^^xsd:int .
+
+acaddata:COMP346-TUT-08 a acad:Tutorial ;
+    acad:hasContent <COURSES/COMP346/TUT/08-Tutorial_Scheduling.pdf> ;
+    acad:lectureNumber "8"^^xsd:int .
+
+acaddata:COMP346-TUT-09 a acad:Tutorial ;
+    acad:hasContent <COURSES/COMP346/TUT/09-Tutorial_Deadlock.pdf> ;
+    acad:lectureNumber "9"^^xsd:int .
+
+acaddata:COMP346-TUT-10 a acad:Tutorial ;
+    acad:hasContent <COURSES/COMP346/TUT/10-Tutorial_File_Management.pdf> ;
+    acad:lectureNumber "10"^^xsd:int .
 
 acaddata:COMP474-LEC-01 a acad:Lecture ;
     acad:hasContent <COURSES/COMP474/LEC/slides01.pdf>,
@@ -20999,46 +21039,6 @@ acaddata:CLOUD_experiment a acad:topic ;
 acaddata:COBOL a acad:topic ;
     rdfs:label "COBOL" ;
     rdfs:seeAlso <http://dbpedia.org/resource/COBOL> .
-
-acaddata:COMP346-LEC-01 a acad:Lecture ;
-    acad:hasContent <COURSES/COMP346/LEC/Lecture01-Introduction.pdf> ;
-    acad:lectureNumber "1"^^xsd:int .
-
-acaddata:COMP346-LEC-02 a acad:Lecture ;
-    acad:hasContent <COURSES/COMP346/LEC/Lecture02-OS_Sturcture.pdf> ;
-    acad:lectureNumber "2"^^xsd:int .
-
-acaddata:COMP346-LEC-03 a acad:Lecture ;
-    acad:hasContent <COURSES/COMP346/LEC/Lecture03-Processes.pdf> ;
-    acad:lectureNumber "3"^^xsd:int .
-
-acaddata:COMP346-LEC-04 a acad:Lecture ;
-    acad:hasContent <COURSES/COMP346/LEC/Lecture04-Threads.pdf> ;
-    acad:lectureNumber "4"^^xsd:int .
-
-acaddata:COMP346-LEC-05 a acad:Lecture ;
-    acad:hasContent <COURSES/COMP346/LEC/Lecture05-CPU_Scheduling.pdf> ;
-    acad:lectureNumber "5"^^xsd:int .
-
-acaddata:COMP346-LEC-06 a acad:Lecture ;
-    acad:hasContent <COURSES/COMP346/LEC/Lecture06-Synchronization_Tools.pdf> ;
-    acad:lectureNumber "6"^^xsd:int .
-
-acaddata:COMP346-LEC-07 a acad:Lecture ;
-    acad:hasContent <COURSES/COMP346/LEC/Lecture07-Synchronization_Examples.pdf> ;
-    acad:lectureNumber "7"^^xsd:int .
-
-acaddata:COMP346-LEC-08 a acad:Lecture ;
-    acad:hasContent <COURSES/COMP346/LEC/Lecture08-Deadlocks.pdf> ;
-    acad:lectureNumber "8"^^xsd:int .
-
-acaddata:COMP346-LEC-09 a acad:Lecture ;
-    acad:hasContent <COURSES/COMP346/LEC/Lecture09-Main_Memory.pdf> ;
-    acad:lectureNumber "9"^^xsd:int .
-
-acaddata:COMP346-LEC-10 a acad:Lecture ;
-    acad:hasContent <COURSES/COMP346/LEC/Lecture10-Vitrual_Memory.pdf> ;
-    acad:lectureNumber "10"^^xsd:int .
 
 acaddata:CPU_time a acad:topic ;
     rdfs:label "CPU_time" ;
