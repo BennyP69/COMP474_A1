@@ -5,6 +5,7 @@ import urllib.parse  # for parsing strings to URI's
 import csv
 import os.path
 from os import path
+import re
 
 
 url = 'opendata/CATALOG.csv'
@@ -148,22 +149,26 @@ with open(url2, encoding='ISO-8859-1') as csv_file:
                 lectures_path = "COURSES/COMP346/LEC/"
                 for filename in os.listdir(lectures_path):
                     if filename.endswith(".pdf"):
+
+                        pdfFileName = lectures_path + filename
+                        eventName = pdfFileName.split("/")[1] + "-" + pdfFileName.split("/")[2] + "-" + re.findall('[0-9]+', pdfFileName.split("/")[-1])[0]
+
                         # Add triple defining each lecture of a course.
-                        g.add((URIRef(ACADDATA + "COMP346-LEC" + str(lec_num)), RDF.type, ACAD.Lecture))
+                        g.add((URIRef(ACADDATA + eventName), RDF.type, ACAD.Lecture))
 
                         # Add triple for lecture number
-                        g.add((URIRef(ACADDATA + "COMP346-LEC" + str(lec_num)), ACAD.lectureNumber,
+                        g.add((URIRef(ACADDATA + eventName), ACAD.lectureNumber,
                                Literal(lec_num, datatype=XSD.int)))
 
                         # Add triple defining lecture slides
                         g.add((URIRef(lectures_path + filename), RDF.type, ACAD.Slides))
 
                         # Add triple linking slide to lecture
-                        g.add((URIRef(ACADDATA + "COMP346-LEC" + str(lec_num)), ACAD.hasContent,
+                        g.add((URIRef(ACADDATA + eventName), ACAD.hasContent,
                                URIRef(lectures_path + filename)))
 
                         # Triple linking lecture to course
-                        g.add((URIRef(ACADDATA + key), ACAD.courseHas, URIRef(ACADDATA + "COMP346-LEC" + str(lec_num))))
+                        g.add((URIRef(ACADDATA + key), ACAD.courseHas, URIRef(ACADDATA + eventName)))
 
                         lec_num = lec_num + 1
                 # -----------------------------------------------------
@@ -172,26 +177,29 @@ with open(url2, encoding='ISO-8859-1') as csv_file:
                 tuts_path = "COURSES/COMP346/TUT/"
                 for filename1 in os.listdir(tuts_path):
                     if filename1.endswith(".pdf"):
+                        
+                        pdfFileName = tuts_path + filename1
+                        eventName = pdfFileName.split("/")[1] + "-" + pdfFileName.split("/")[2] + "-" + re.findall('[0-9]+', pdfFileName.split("/")[-1])[0]
+
                         # Triple defining tut
-                        g.add((URIRef(ACADDATA + "COMP346-TUT" + str(tut_num)), RDF.type, ACAD.Tutorial))
+                        g.add((URIRef(ACADDATA + eventName), RDF.type, ACAD.Tutorial))
 
                         # Triple defining tut number
-                        g.add((URIRef(ACADDATA + "COMP346-TUT" + str(tut_num)), ACAD.lectureNumber,
+                        g.add((URIRef(ACADDATA + eventName), ACAD.lectureNumber,
                                Literal(tut_num, datatype=XSD.int)))
 
                         # Triple defining tut slides
                         g.add((URIRef(tuts_path + filename1), RDF.type, ACAD.Slides))
 
                         # Triple linking slide to tut
-                        g.add((URIRef(ACADDATA + "COMP346-TUT" + str(tut_num)), ACAD.hasContent,
+                        g.add((URIRef(ACADDATA + eventName), ACAD.hasContent,
                                URIRef(tuts_path + filename1)))
 
                         # Triple linking tut to lecture
-                        g.add((URIRef(ACADDATA + "COMP346-LEC" + str(tut_num)), ACAD.lectureEvent,
-                               URIRef(ACADDATA + "COMP346-TUT" + str(tut_num))))
+                        g.add((URIRef(ACADDATA + eventName), ACAD.lectureEvent, URIRef(ACADDATA + URIRef("COMP346-LEC-" + str(tut_num).zfill(2)))))
 
                         tut_num = tut_num + 1
-
+                        
                 # -----------------------------------------------------
                 #           ADD TOPIC TRIPLES
                 all_topics = open("courseTopics.txt").readlines()
@@ -238,22 +246,26 @@ with open(url2, encoding='ISO-8859-1') as csv_file:
                 lectures_path = "COURSES/COMP474/LEC/"
                 for filename in os.listdir(lectures_path):
                     if filename.endswith(".pdf"):
+
+                        pdfFileName = lectures_path + filename
+                        eventName = pdfFileName.split("/")[1] + "-" + pdfFileName.split("/")[2] + "-" + re.findall('[0-9]+', pdfFileName.split("/")[-1])[0]
+
                         # Add triple defining each lecture of a course.
-                        g.add((URIRef(ACADDATA + "COMP474-LEC" + str(lec_num)), RDF.type, ACAD.Lecture))
+                        g.add((URIRef(ACADDATA + eventName), RDF.type, ACAD.Lecture))
 
                         # Add triple for lecture number
-                        g.add((URIRef(ACADDATA + "COMP474-LEC" + str(lec_num)), ACAD.lectureNumber,
+                        g.add((URIRef(ACADDATA + eventName), ACAD.lectureNumber,
                                 Literal(lec_num, datatype=XSD.int)))
 
                         # Add triple defining lecture slides
                         g.add((URIRef(lectures_path + filename), RDF.type, ACAD.Slides))
 
                         # Add triple linking slide to lecture
-                        g.add((URIRef(ACADDATA + "COMP474-LEC" + str(lec_num)), ACAD.hasContent,
+                        g.add((URIRef(ACADDATA + eventName), ACAD.hasContent,
                                 URIRef(lectures_path + filename)))
 
                         # Triple linking lecture to course
-                        g.add((URIRef(ACADDATA + key), ACAD.courseHas, URIRef(ACADDATA + "COMP474-LEC" + str(lec_num))))
+                        g.add((URIRef(ACADDATA + key), ACAD.courseHas, URIRef(ACADDATA + eventName)))
 
                         lec_num = lec_num + 1
 
@@ -267,7 +279,7 @@ with open(url2, encoding='ISO-8859-1') as csv_file:
                         g.add((URIRef(worksheet_path + filename2), RDF.type, ACAD.Worksheet))
 
                         # Triple linking worksheet to lecture
-                        g.add((URIRef(ACADDATA + "COMP474-LEC" + str(worksheet_num)), ACAD.hasContent,
+                        g.add((URIRef(ACADDATA + "COMP474-LEC-" + str(worksheet_num).zfill(2)), ACAD.hasContent,
                                URIRef(worksheet_path + filename2)))
 
                         worksheet_num = worksheet_num + 1
