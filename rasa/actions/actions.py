@@ -445,6 +445,7 @@ class ActionTopicsCovered(Action):
 
         if "lab" in courseEvent.lower() or "stu" in courseEvent.lower():
             dispatcher.utter_message(text=f"Sorry, {csubject} {cnumber} does not have a {courseEvent}")
+            return
 
         # print(query)
 
@@ -458,7 +459,13 @@ class ActionTopicsCovered(Action):
 
         # print(bindings)
 
+        if not bindings:
+            dispatcher.utter_message(text=f"Sorry, {csubject} {cnumber} doesn't have a {courseEvent}\n")
+            return
+
         dispatcher.utter_message(text=f"{og_courseEvent} of {csubject} {cnumber} covers:\n")
 
         for result in bindings:
             dispatcher.utter_message(text=f"\t--> {result['topicLabel']['value']} || URI: {result['topic']['value']}\n")
+
+        return []
