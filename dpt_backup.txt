@@ -1,7 +1,0 @@
-#    - What courses does the [Computer Science and Software Engineering (CSSE)](department) department offer?
-    #    - What courses does [Computer Science and Software Engineering (CSSE)](department) department offer
-    #    - What courses does [Building, Civil and Environmental Engineering (BCEE)](department) have?
-    #    - What courses does [Computer Science and Software Engineering (CSSE)](department) have ?
-    #    - What courses does [Electrical and Computer Engineering (ECE)](department) have
-    #    - What courses does the [Building, Civil and Environmental Engineering (BCEE)](department) department offer?
-    #    - What courses does the [Electrical and Computer Engineering (ECE)](department) department offer?
