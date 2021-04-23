@@ -60,7 +60,7 @@ acad:courseHas
     rdfs:comment "A component belonging to a course. Can be Outline/Lecture/Lab/Tutorial/Studio."@en .
 acad:coversTopic
     a rdf:Property ;
-    rdfs:domain vivo:Course, acad:Lecture ;
+    rdfs:domain vivo:Course, acad:Lecture, foaf:Document ;
     rdfs:range acad:Topic;
     rdfs:label "Topic covered in a course or lecture."@en ;
     rdfs:comment "Topic covered in a course or lecture"@en .
@@ -115,7 +115,7 @@ acad:otherLectureContent
 acad:Lab
     a rdfs:Class;
     rdfs:subClassOf acad:Lecture ;
-    rdfs:label "Lecture Lab"@en ;
+    rdfs:label "Lab"@en ;
     rdfs:comment "Laboratory associated with specific lecture."@en .
 
 
@@ -125,7 +125,7 @@ acad:Lab
 acad:Tutorial
     a rdfs:Class ;
     rdfs:subClassOf acad:Lecture ;
-    rdfs:label "Lecture Tutorial"@en ;
+    rdfs:label "Tutorial"@en ;
     rdfs:comment "Tutorial associated with specific lecture."@en .
 
 
@@ -135,7 +135,7 @@ acad:Tutorial
 acad:Studio
     a rdfs:Class ;
     rdfs:subClassOf acad:Lecture ;
-    rdfs:label "Lecture Studio"@en ;
+    rdfs:label "Studio"@en ;
     rdfs:comment "Studio associated with specific lecture."@en .
 
 
@@ -144,5 +144,5 @@ acad:Studio
 # ---------------------------------------------------------------------------
 acad:Topic
 	a rdfs:Class;
-    rdfs:label "Lecture Topic"@en ;
+    rdfs:label "Topic"@en ;
     rdfs:comment "Topic discussed in a given course."@en .

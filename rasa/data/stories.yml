@@ -32,6 +32,39 @@ stories:
     - intent: about_num_topics_in_course
     - action: action_num_topics_in_course
 
+- story: get topics covered
+  steps:
+    - intent: about_topics_covered
+    - action: action_topics_covered
+
+- story: get course lecture topics
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: about_course_lecture_topics
+    - action: action_course_lecture_topics
+
+- story: get courses at uni that teach topic
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: about_course_uni_topic
+    - action: action_course_uni_topic
+
+- story: get department that offers course
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: about_dep_offer_course
+    - action: action_dep_offer_course
+
+- story: get content of course lecture
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: about_content_course_lecture
+    - action: action_content_course_lecture
+
 - story: happy path
   steps:
   - intent: greet

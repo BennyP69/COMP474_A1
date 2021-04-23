@@ -9,16 +9,24 @@ intents:
   - mood_unhappy
   - bot_challenge
   - about_course
+  - about_course_lecture_topics
+  - about_course_uni_topic
+  - about_dep_offer_course
+  - about_content_course_lecture
   - about_course_components
   - about_course_labs
   - about_department_courses
   - about_number_of_uni_courses
   - about_num_topics_in_course
+  - about_topics_covered
 
 entities:
   - course
-  - department
+  - lecture
+  - topic
   - university
+  - department
+  - courseEvent
 
 actions:
   - action_course_info
@@ -27,17 +35,31 @@ actions:
   - action_department_courses
   - action_number_of_uni_courses
   - action_num_topics_in_course
+  - action_topics_covered
+  - action_course_lecture_topics
+  - action_course_uni_topic
+  - action_dep_offer_course
+  - action_content_course_lecture
 
 slots:
   course:
     type: any
-    initial_value: "initial"
+    initial_value: ""
   department:
     type: any
     initial_value: ""
   university:
     type: any
     initial_value: ""
+  courseEvent:
+    type: text
+    initial_value: ""
+  lecture:
+    type: any
+    initial_value: "initial"
+  topic:
+    type: any
+    initial_value: "initial"
 
 responses:
   utter_greet:
