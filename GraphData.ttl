@@ -7,180 +7,6 @@
 @prefix vivo: <http://vivoweb.org/ontology/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<COURSES/COMP474/LEC/slides02.pdf> acad:coversTopic acaddata:AI_winter,
-        acaddata:Abstract_and_concrete,
-        acaddata:Abstraction,
-        acaddata:Adenosine_A1_receptor,
-        acaddata:Adhesive,
-        acaddata:Alfred_Lennon,
-        acaddata:Alice_and_Bob,
-        acaddata:Anja_Eline_Skybakmoen,
-        acaddata:Apple_A12,
-        acaddata:Apple_Inc,
-        acaddata:Application_programming_interface,
-        acaddata:Artificial_intelligence,
-        acaddata:Auteur,
-        acaddata:Automation,
-        acaddata:BASE_jumping,
-        acaddata:Belarus,
-        acaddata:Berlin,
-        acaddata:Bracket,
-        acaddata:Bundesautobahn_2,
-        acaddata:CLOUD_experiment,
-        acaddata:Chronic_condition,
-        acaddata:City,
-        acaddata:College_of_Osteopathic_Medicine_of_the_Pacific,
-        acaddata:Common_sense,
-        acaddata:Compact_disc,
-        acaddata:Computer_science,
-        acaddata:Conscription,
-        acaddata:Cyc,
-        acaddata:DBpedia,
-        acaddata:Data_integration,
-        acaddata:Data_model,
-        acaddata:Data_type,
-        acaddata:David_Rumelhart,
-        acaddata:Description_logic,
-        acaddata:Discovery_Channel,
-        acaddata:Disease_management_health,
-        acaddata:E-carrier,
-        acaddata:Ecosystem,
-        acaddata:Edward_S_Herman,
-        acaddata:Egg,
-        acaddata:Euclidean_space,
-        acaddata:Everything2,
-        acaddata:FOAF_ontology,
-        acaddata:Facebook,
-        acaddata:Food_web,
-        acaddata:Formula_One,
-        acaddata:French_language,
-        acaddata:Frog,
-        acaddata:General_officer,
-        acaddata:GeoNames,
-        acaddata:Google,
-        acaddata:Google_Assistant,
-        acaddata:Graph_database,
-        acaddata:HTML,
-        acaddata:Hanover,
-        acaddata:HarperCollins,
-        acaddata:Health_care,
-        acaddata:Heidelberg,
-        acaddata:Herbert_A_Simon,
-        acaddata:Human-readable_medium,
-        acaddata:Hypertext_Transfer_Protocol,
-        acaddata:IBM,
-        acaddata:Identifier,
-        acaddata:India,
-        acaddata:Information_system,
-        acaddata:International_Standard_Book_Number,
-        acaddata:Internationalized_Resource_Identifier,
-        acaddata:JSON-LD,
-        acaddata:James_Watson,
-        acaddata:Java_virtual_machine,
-        acaddata:John_Lennon,
-        acaddata:Joseph_McCarthy,
-        acaddata:Julia_the_Elder,
-        acaddata:Kindergarten,
-        acaddata:Knowledge_Graph,
-        acaddata:Knowledge_Navigator,
-        acaddata:Knowledge_representation_and_reasoning,
-        acaddata:Kolkata,
-        acaddata:Layer_cake,
-        acaddata:Le_Palais,
-        acaddata:Leonardo_da_Vinci,
-        acaddata:LinkedIn,
-        acaddata:Linked_data,
-        acaddata:Linuxconfau,
-        acaddata:Lio,
-        acaddata:Literal_mathematical_logic,
-        acaddata:Liverpool,
-        acaddata:Liyang,
-        acaddata:Logic,
-        acaddata:London,
-        acaddata:MAX_Light_Rail,
-        acaddata:Machine_learning,
-        acaddata:Main_Page,
-        acaddata:Metamorphosis,
-        acaddata:Microsoft,
-        acaddata:Miroirs,
-        acaddata:Mona_Lisa,
-        acaddata:Monty_Python,
-        acaddata:Motivation,
-        acaddata:Multiple_choice,
-        acaddata:N-Triples,
-        acaddata:Natural_language_processing,
-        acaddata:Nell_Mangel,
-        acaddata:Neo4j,
-        acaddata:New_National_Party_South_Africa,
-        acaddata:News,
-        acaddata:Notation3,
-        acaddata:Nothing_Serious_short_story_collection,
-        acaddata:Ontology,
-        acaddata:Ontology_information_science,
-        acaddata:Open_Mind_Common_Sense,
-        acaddata:Open_access,
-        acaddata:Open_standard,
-        acaddata:Outfielder,
-        acaddata:PDF,
-        acaddata:PHP,
-        acaddata:Perceptron,
-        acaddata:Personalized_medicine,
-        acaddata:Peter_Norvig,
-        acaddata:Poems_by_Edgar_Allan_Poe,
-        acaddata:Prefix,
-        acaddata:Prentice_Hall,
-        acaddata:Prime_Video,
-        acaddata:Programming_language,
-        acaddata:Project_management,
-        acaddata:Proprietary_software,
-        acaddata:Quality_assurance,
-        acaddata:RDF_Schema,
-        acaddata:RDFa,
-        acaddata:Reading,
-        acaddata:Resource_Description_Framework,
-        acaddata:Route_nationale_10,
-        acaddata:SHRDLU,
-        acaddata:SPARQL,
-        acaddata:SQL,
-        acaddata:Sameer_lyricist,
-        acaddata:Satori,
-        acaddata:Schemaorg,
-        acaddata:Semantic_Web,
-        acaddata:Semantic_network,
-        acaddata:Serialization,
-        acaddata:Simple_Knowledge_Organization_System,
-        acaddata:Singh,
-        acaddata:Skolem_normal_form,
-        acaddata:Software_engineering,
-        acaddata:South_Korea,
-        acaddata:String_instrument,
-        acaddata:String_literal,
-        acaddata:String_theory,
-        acaddata:Stuart_J_Russell,
-        acaddata:Substring,
-        acaddata:TAG_Heuer,
-        acaddata:Taylorcraft_Auster,
-        acaddata:Tbox,
-        acaddata:Terry_Winograd,
-        acaddata:Textbook,
-        acaddata:Textus_Receptus,
-        acaddata:Toyota_K_engine,
-        acaddata:Transformers,
-        acaddata:Uniform_Resource_Identifier,
-        acaddata:Warren_Sturgis_McCulloch,
-        acaddata:Web_Ontology_Language,
-        acaddata:Web_server,
-        acaddata:Wikidata,
-        acaddata:Wikipedia,
-        acaddata:WordNet,
-        acaddata:World_Wide_Web,
-        acaddata:World_Wide_Web_Consortium,
-        acaddata:XML,
-        acaddata:Yandex,
-        acaddata:YouTube .
-
-acaddata:COMP474-LEC-02 acad:hasContent <COURSES/COMP474/Worksheets/worksheet02.pdf> .
-
 <COURSES/COMP346/LEC/Lecture01-Introduction.pdf> a acad:Slides ;
     acad:coversTopic acaddata:Access_control,
         acaddata:Access_method,
@@ -1603,6 +1429,179 @@ acaddata:COMP474-LEC-02 acad:hasContent <COURSES/COMP474/Worksheets/worksheet02.
         acaddata:World_Wide_Web_Consortium,
         acaddata:Zo_people .
 
+<COURSES/COMP474/LEC/slides02.pdf> a acad:Slides ;
+    acad:coversTopic acaddata:AI_winter,
+        acaddata:Abstract_and_concrete,
+        acaddata:Abstraction,
+        acaddata:Adenosine_A1_receptor,
+        acaddata:Adhesive,
+        acaddata:Alfred_Lennon,
+        acaddata:Alice_and_Bob,
+        acaddata:Anja_Eline_Skybakmoen,
+        acaddata:Apple_A12,
+        acaddata:Apple_Inc,
+        acaddata:Application_programming_interface,
+        acaddata:Artificial_intelligence,
+        acaddata:Auteur,
+        acaddata:Automation,
+        acaddata:BASE_jumping,
+        acaddata:Belarus,
+        acaddata:Berlin,
+        acaddata:Bracket,
+        acaddata:Bundesautobahn_2,
+        acaddata:CLOUD_experiment,
+        acaddata:Chronic_condition,
+        acaddata:City,
+        acaddata:College_of_Osteopathic_Medicine_of_the_Pacific,
+        acaddata:Common_sense,
+        acaddata:Compact_disc,
+        acaddata:Computer_science,
+        acaddata:Conscription,
+        acaddata:Cyc,
+        acaddata:DBpedia,
+        acaddata:Data_integration,
+        acaddata:Data_model,
+        acaddata:Data_type,
+        acaddata:David_Rumelhart,
+        acaddata:Description_logic,
+        acaddata:Discovery_Channel,
+        acaddata:Disease_management_health,
+        acaddata:E-carrier,
+        acaddata:Ecosystem,
+        acaddata:Edward_S_Herman,
+        acaddata:Egg,
+        acaddata:Euclidean_space,
+        acaddata:Everything2,
+        acaddata:FOAF_ontology,
+        acaddata:Facebook,
+        acaddata:Food_web,
+        acaddata:Formula_One,
+        acaddata:French_language,
+        acaddata:Frog,
+        acaddata:General_officer,
+        acaddata:GeoNames,
+        acaddata:Google,
+        acaddata:Google_Assistant,
+        acaddata:Graph_database,
+        acaddata:HTML,
+        acaddata:Hanover,
+        acaddata:HarperCollins,
+        acaddata:Health_care,
+        acaddata:Heidelberg,
+        acaddata:Herbert_A_Simon,
+        acaddata:Human-readable_medium,
+        acaddata:Hypertext_Transfer_Protocol,
+        acaddata:IBM,
+        acaddata:Identifier,
+        acaddata:India,
+        acaddata:Information_system,
+        acaddata:International_Standard_Book_Number,
+        acaddata:Internationalized_Resource_Identifier,
+        acaddata:JSON-LD,
+        acaddata:James_Watson,
+        acaddata:Java_virtual_machine,
+        acaddata:John_Lennon,
+        acaddata:Joseph_McCarthy,
+        acaddata:Julia_the_Elder,
+        acaddata:Kindergarten,
+        acaddata:Knowledge_Graph,
+        acaddata:Knowledge_Navigator,
+        acaddata:Knowledge_representation_and_reasoning,
+        acaddata:Kolkata,
+        acaddata:Layer_cake,
+        acaddata:Le_Palais,
+        acaddata:Leonardo_da_Vinci,
+        acaddata:LinkedIn,
+        acaddata:Linked_data,
+        acaddata:Linuxconfau,
+        acaddata:Lio,
+        acaddata:Literal_mathematical_logic,
+        acaddata:Liverpool,
+        acaddata:Liyang,
+        acaddata:Logic,
+        acaddata:London,
+        acaddata:MAX_Light_Rail,
+        acaddata:Machine_learning,
+        acaddata:Main_Page,
+        acaddata:Metamorphosis,
+        acaddata:Microsoft,
+        acaddata:Miroirs,
+        acaddata:Mona_Lisa,
+        acaddata:Monty_Python,
+        acaddata:Motivation,
+        acaddata:Multiple_choice,
+        acaddata:N-Triples,
+        acaddata:Natural_language_processing,
+        acaddata:Nell_Mangel,
+        acaddata:Neo4j,
+        acaddata:New_National_Party_South_Africa,
+        acaddata:News,
+        acaddata:Notation3,
+        acaddata:Nothing_Serious_short_story_collection,
+        acaddata:Ontology,
+        acaddata:Ontology_information_science,
+        acaddata:Open_Mind_Common_Sense,
+        acaddata:Open_access,
+        acaddata:Open_standard,
+        acaddata:Outfielder,
+        acaddata:PDF,
+        acaddata:PHP,
+        acaddata:Perceptron,
+        acaddata:Personalized_medicine,
+        acaddata:Peter_Norvig,
+        acaddata:Poems_by_Edgar_Allan_Poe,
+        acaddata:Prefix,
+        acaddata:Prentice_Hall,
+        acaddata:Prime_Video,
+        acaddata:Programming_language,
+        acaddata:Project_management,
+        acaddata:Proprietary_software,
+        acaddata:Quality_assurance,
+        acaddata:RDF_Schema,
+        acaddata:RDFa,
+        acaddata:Reading,
+        acaddata:Resource_Description_Framework,
+        acaddata:Route_nationale_10,
+        acaddata:SHRDLU,
+        acaddata:SPARQL,
+        acaddata:SQL,
+        acaddata:Sameer_lyricist,
+        acaddata:Satori,
+        acaddata:Schemaorg,
+        acaddata:Semantic_Web,
+        acaddata:Semantic_network,
+        acaddata:Serialization,
+        acaddata:Simple_Knowledge_Organization_System,
+        acaddata:Singh,
+        acaddata:Skolem_normal_form,
+        acaddata:Software_engineering,
+        acaddata:South_Korea,
+        acaddata:String_instrument,
+        acaddata:String_literal,
+        acaddata:String_theory,
+        acaddata:Stuart_J_Russell,
+        acaddata:Substring,
+        acaddata:TAG_Heuer,
+        acaddata:Taylorcraft_Auster,
+        acaddata:Tbox,
+        acaddata:Terry_Winograd,
+        acaddata:Textbook,
+        acaddata:Textus_Receptus,
+        acaddata:Toyota_K_engine,
+        acaddata:Transformers,
+        acaddata:Uniform_Resource_Identifier,
+        acaddata:Warren_Sturgis_McCulloch,
+        acaddata:Web_Ontology_Language,
+        acaddata:Web_server,
+        acaddata:Wikidata,
+        acaddata:Wikipedia,
+        acaddata:WordNet,
+        acaddata:World_Wide_Web,
+        acaddata:World_Wide_Web_Consortium,
+        acaddata:XML,
+        acaddata:Yandex,
+        acaddata:YouTube .
+
 <COURSES/COMP474/LEC/slides03.pdf> a acad:Slides ;
     acad:coversTopic acaddata:Academy_Awards,
         acaddata:Artificial_intelligence,
@@ -2864,38 +2863,43 @@ acaddata:COMP474-LEC-01 a acad:Lecture ;
         <COURSES/COMP474/Worksheets/worksheet01.pdf> ;
     acad:lectureNumber "1"^^xsd:int .
 
+acaddata:COMP474-LEC-02 a acad:Lecture ;
+    acad:hasContent <COURSES/COMP474/LEC/slides02.pdf>,
+        <COURSES/COMP474/Worksheets/worksheet02.pdf> ;
+    acad:lectureNumber "2"^^xsd:int .
+
 acaddata:COMP474-LEC-03 a acad:Lecture ;
     acad:hasContent <COURSES/COMP474/LEC/slides03.pdf>,
         <COURSES/COMP474/Worksheets/worksheet03.pdf> ;
-    acad:lectureNumber "2"^^xsd:int .
+    acad:lectureNumber "3"^^xsd:int .
 
 acaddata:COMP474-LEC-04 a acad:Lecture ;
     acad:hasContent <COURSES/COMP474/LEC/slides04.pdf>,
         <COURSES/COMP474/Worksheets/worksheet04.pdf> ;
-    acad:lectureNumber "3"^^xsd:int .
+    acad:lectureNumber "4"^^xsd:int .
 
 acaddata:COMP474-LEC-05 a acad:Lecture ;
     acad:hasContent <COURSES/COMP474/LEC/slides05.pdf>,
         <COURSES/COMP474/Worksheets/worksheet05.pdf> ;
-    acad:lectureNumber "4"^^xsd:int .
+    acad:lectureNumber "5"^^xsd:int .
 
 acaddata:COMP474-LEC-06 a acad:Lecture ;
     acad:hasContent <COURSES/COMP474/LEC/slides06.pdf>,
         <COURSES/COMP474/Worksheets/worksheet06.pdf> ;
-    acad:lectureNumber "5"^^xsd:int .
+    acad:lectureNumber "6"^^xsd:int .
 
 acaddata:COMP474-LEC-07 a acad:Lecture ;
     acad:hasContent <COURSES/COMP474/LEC/slides07.pdf>,
         <COURSES/COMP474/Worksheets/worksheet07.pdf> ;
-    acad:lectureNumber "6"^^xsd:int .
+    acad:lectureNumber "7"^^xsd:int .
 
 acaddata:COMP474-LEC-08 a acad:Lecture ;
     acad:hasContent <COURSES/COMP474/LEC/slides08.pdf> ;
-    acad:lectureNumber "7"^^xsd:int .
+    acad:lectureNumber "8"^^xsd:int .
 
 acaddata:COMP474-LEC-09 a acad:Lecture ;
     acad:hasContent <COURSES/COMP474/LEC/slides09.pdf> ;
-    acad:lectureNumber "8"^^xsd:int .
+    acad:lectureNumber "9"^^xsd:int .
 
 acaddata:FAS_0173 a vivo:Course ;
     acad:courseHas acad:Lecture ;
@@ -2922,7 +2926,7 @@ acaddata:FAS_0175 a vivo:Course ;
     acad:courseSubject "FTRA"^^xsd:string ;
     DC:description "travaux pratiques "^^xsd:string ;
     vivo:AcademicDepartment "Études françaises"^^xsd:string ;
-    vivo:Program """Traduction
+    vivo:Program """Traduction\r
 """^^xsd:string ;
     vivo:departmentOrSchool "FAS"^^xsd:string ;
     foaf:name "Traduction littéraire avancée : du français à l’anglais"^^xsd:string .
@@ -3509,7 +3513,7 @@ acaddata:FAS_175 a vivo:Course ;
     acad:courseSubject "FTRA"^^xsd:string ;
     DC:description "exercices, initiation aux outils informatisés"^^xsd:string ;
     vivo:AcademicDepartment "Études françaises"^^xsd:string ;
-    vivo:Program """Traduction
+    vivo:Program """Traduction\r
 """^^xsd:string ;
     vivo:departmentOrSchool "FAS"^^xsd:string ;
     foaf:name "Informatique et traduction"^^xsd:string .
@@ -3540,7 +3544,7 @@ acaddata:FAS_178 a vivo:Course ;
     acad:courseSubject "FTRA"^^xsd:string ;
     DC:description "exercises, appliquent des outils"^^xsd:string ;
     vivo:AcademicDepartment "Études françaises"^^xsd:string ;
-    vivo:Program """Traduction
+    vivo:Program """Traduction\r
 """^^xsd:string ;
     vivo:departmentOrSchool "FAS"^^xsd:string ;
     foaf:name "Traduction automatique (TA) et traduction assistée par ordinateur (TAO)"^^xsd:string .
@@ -3581,7 +3585,7 @@ acaddata:FAS_181 a vivo:Course ;
     acad:courseSubject "FTRA"^^xsd:string ;
     DC:description "sujet particulier"^^xsd:string ;
     vivo:AcademicDepartment "Études françaises"^^xsd:string ;
-    vivo:Program """Traduction
+    vivo:Program """Traduction\r
 """^^xsd:string ;
     vivo:departmentOrSchool "FAS"^^xsd:string ;
     foaf:name "Étude avancée d’un sujet particulier"^^xsd:string .
@@ -3592,7 +3596,7 @@ acaddata:FAS_182 a vivo:Course ;
     acad:courseSubject "FTRA"^^xsd:string ;
     DC:description "sujets particuliers"^^xsd:string ;
     vivo:AcademicDepartment "Études françaises"^^xsd:string ;
-    vivo:Program """Traduction
+    vivo:Program """Traduction\r
 """^^xsd:string ;
     vivo:departmentOrSchool "FAS"^^xsd:string ;
     foaf:name "Étude avancée d’un sujet particulier"^^xsd:string .
@@ -3710,7 +3714,7 @@ acaddata:FAS_193 a vivo:Course ;
     vivo:AcademicDepartment "Études françaises"^^xsd:string ;
     vivo:Program "Traductologie"^^xsd:string ;
     vivo:departmentOrSchool "FAS"^^xsd:string ;
-    foaf:name """Traduction littéraire avancée 
+    foaf:name """Traduction littéraire avancée \r
 Co-listé : FTRA 544 ou 545"""^^xsd:string .
 
 acaddata:FAS_194 a vivo:Course ;
@@ -3786,7 +3790,7 @@ acaddata:FAS_20 a vivo:Course ;
     acad:courseHas acad:Lecture ;
     acad:courseNumber "610"^^xsd:int ;
     acad:courseSubject "AHSC"^^xsd:string ;
-    DC:description """Residential Laboratory; Course-integrated
+    DC:description """Residential Laboratory; Course-integrated\r
 projects"""^^xsd:string ;
     vivo:AcademicDepartment "Applied Human Sciences"^^xsd:string ;
     vivo:Program "Human Systems Intervention"^^xsd:string ;
@@ -3810,7 +3814,7 @@ acaddata:FAS_201 a vivo:Course ;
     vivo:AcademicDepartment "Études françaises"^^xsd:string ;
     vivo:Program "Traductologie"^^xsd:string ;
     vivo:departmentOrSchool "FAS"^^xsd:string ;
-    foaf:name """Initiation au sous-titrage 
+    foaf:name """Initiation au sous-titrage \r
 Co-listé : FTRA 538"""^^xsd:string .
 
 acaddata:FAS_202 a vivo:Course ;
@@ -4239,7 +4243,7 @@ acaddata:FAS_24 a vivo:Course ;
     acad:courseHas acad:Lecture ;
     acad:courseNumber "660"^^xsd:int ;
     acad:courseSubject "AHSC"^^xsd:string ;
-    DC:description """Course-integrated project; Case studies; Hands-on
+    DC:description """Course-integrated project; Case studies; Hands-on\r
 workshops"""^^xsd:string ;
     vivo:AcademicDepartment "Applied Human Sciences"^^xsd:string ;
     vivo:Program "Human Systems Intervention"^^xsd:string ;
@@ -5080,7 +5084,7 @@ acaddata:FAS_318 a vivo:Course ;
     acad:courseSubject "ACTU"^^xsd:string ;
     DC:description "Lab"^^xsd:string ;
     vivo:AcademicDepartment "Mathematics and Statistics"^^xsd:string ;
-    vivo:Program """Actuarial Mathematics / 
+    vivo:Program """Actuarial Mathematics / \r
 Actuarial Mathematics and Finance"""^^xsd:string ;
     vivo:departmentOrSchool "FAS"^^xsd:string ;
     foaf:name "Actuarial Mathematics Lab I"^^xsd:string .
@@ -5091,7 +5095,7 @@ acaddata:FAS_319 a vivo:Course ;
     acad:courseSubject "ACTU"^^xsd:string ;
     DC:description "Lab"^^xsd:string ;
     vivo:AcademicDepartment "Mathematics and Statistics"^^xsd:string ;
-    vivo:Program """Actuarial Mathematics / 
+    vivo:Program """Actuarial Mathematics / \r
 Actuarial Mathematics and Finance"""^^xsd:string ;
     vivo:departmentOrSchool "FAS"^^xsd:string ;
     foaf:name "Actuarial Mathematics Lab II"^^xsd:string .
@@ -5113,7 +5117,7 @@ acaddata:FAS_320 a vivo:Course ;
     acad:courseSubject "ACTU"^^xsd:string ;
     DC:description "Lab, workshop"^^xsd:string ;
     vivo:AcademicDepartment "Mathematics and Statistics"^^xsd:string ;
-    vivo:Program """Actuarial Mathematics / 
+    vivo:Program """Actuarial Mathematics / \r
 Actuarial Mathematics and Finance"""^^xsd:string ;
     vivo:departmentOrSchool "FAS"^^xsd:string ;
     foaf:name "Actuarial Mathematics Lab III"^^xsd:string .
@@ -5565,7 +5569,7 @@ acaddata:FAS_362 a vivo:Course ;
     vivo:AcademicDepartment "Psychology"^^xsd:string ;
     vivo:Program "Clinical Psychology"^^xsd:string ;
     vivo:departmentOrSchool "FAS"^^xsd:string ;
-    foaf:name """Extramural Practicum I: General
+    foaf:name """Extramural Practicum I: General\r
 """^^xsd:string .
 
 acaddata:FAS_363 a vivo:Course ;
@@ -7548,7 +7552,7 @@ acaddata:FAS_575 a vivo:Course ;
     acad:courseSubject "POLI"^^xsd:string ;
     DC:description "Research essay"^^xsd:string ;
     vivo:AcademicDepartment "Political Science"^^xsd:string ;
-    vivo:Program """Political Science / 
+    vivo:Program """Political Science / \r
 Public Policy and Public Administration"""^^xsd:string ;
     vivo:departmentOrSchool "FAS"^^xsd:string ;
     foaf:name "Extended Research Essay"^^xsd:string .
@@ -7757,7 +7761,7 @@ acaddata:FAS_595 a vivo:Course ;
     acad:courseSubject "ANTH"^^xsd:string ;
     DC:description "Essay"^^xsd:string ;
     vivo:AcademicDepartment "Sociology and Anthropology"^^xsd:string ;
-    vivo:Program """Social and Cultural Anthropology / 
+    vivo:Program """Social and Cultural Anthropology / \r
 Sociology"""^^xsd:string ;
     vivo:departmentOrSchool "FAS"^^xsd:string ;
     foaf:name "Essay"^^xsd:string .
@@ -8419,7 +8423,7 @@ acaddata:FAS_660 a vivo:Course ;
     acad:courseSubject "LOYC"^^xsd:string ;
     DC:description "Along with LOYC 398B: Orientation to International Community Engagement, this course provides the academic context to prepare students to go to Uganda with the CEED program (LOYC 398B) and to follow through with the learning when they come back (LOYC 420)"^^xsd:string ;
     vivo:AcademicDepartment "Loyola College for Diversity and Sustainability"^^xsd:string ;
-    vivo:Program """Diversity and the Contemporary World / 
+    vivo:Program """Diversity and the Contemporary World / \r
 Sustainability Studies"""^^xsd:string ;
     vivo:departmentOrSchool "FAS"^^xsd:string ;
     rdfs:seeAlso "https://www.concordia.ca/artsci/loyola-college-diversity-sustainability/programs/courses.html and https:/ceedconcordia.org/en/"^^xsd:string ;
@@ -9138,9 +9142,9 @@ acaddata:FAS_739 a vivo:Course ;
     vivo:AcademicDepartment "Applied Human Sciences"^^xsd:string ;
     vivo:Program "Any program"^^xsd:string ;
     vivo:departmentOrSchool "FAS"^^xsd:string ;
-    foaf:name """Leadership,
- Change &
- Social
+    foaf:name """Leadership,\r
+ Change &\r
+ Social\r
  Innovation"""^^xsd:string .
 
 acaddata:FAS_74 a vivo:Course ;
@@ -12420,6 +12424,7 @@ acaddata:GCS_142 a vivo:Course ;
 acaddata:GCS_143 a vivo:Course ;
     acad:courseHas <COURSES/COMP474/Outline/course_outline_comp474_6741_w2021.pdf>,
         acaddata:COMP474-LEC-01,
+        acaddata:COMP474-LEC-02,
         acaddata:COMP474-LEC-03,
         acaddata:COMP474-LEC-04,
         acaddata:COMP474-LEC-05,
@@ -14586,7 +14591,7 @@ acaddata:GCS_254 a vivo:Course ;
         acad:Tutorial ;
     acad:courseNumber "311"^^xsd:int ;
     acad:courseSubject "ELEC"^^xsd:string ;
-    DC:description """Laboratory: 15 hours total
+    DC:description """Laboratory: 15 hours total\r
 Laboratory pre-labs, extensive simulation exercises"""^^xsd:string ;
     vivo:AcademicDepartment "Electrical and Computer Engineering (ECE)"^^xsd:string ;
     vivo:Program "Electrical Engineering"^^xsd:string ;
@@ -14599,7 +14604,7 @@ acaddata:GCS_255 a vivo:Course ;
         acad:Tutorial ;
     acad:courseNumber "312"^^xsd:int ;
     acad:courseSubject "ELEC"^^xsd:string ;
-    DC:description """Laboratory: 15 hours total
+    DC:description """Laboratory: 15 hours total\r
 Laboratory pre-labs, extensive simulation exercises"""^^xsd:string ;
     vivo:AcademicDepartment "Electrical and Computer Engineering (ECE)"^^xsd:string ;
     vivo:Program "Electrical Engineering"^^xsd:string ;
@@ -14693,7 +14698,7 @@ acaddata:GCS_262 a vivo:Course ;
         acad:Lecture ;
     acad:courseNumber "421"^^xsd:int ;
     acad:courseSubject "ELEC"^^xsd:string ;
-    DC:description """Design, fabricate
+    DC:description """Design, fabricate\r
 Laboratory: 15 hours total"""^^xsd:string ;
     vivo:AcademicDepartment "Electrical and Computer Engineering (ECE)"^^xsd:string ;
     vivo:Program "Electrical Engineering"^^xsd:string ;
@@ -14705,7 +14710,7 @@ acaddata:GCS_263 a vivo:Course ;
         acad:Lecture ;
     acad:courseNumber "422"^^xsd:int ;
     acad:courseSubject "ELEC"^^xsd:string ;
-    DC:description """Design, fabricate
+    DC:description """Design, fabricate\r
 Laboratory: 15 hours total"""^^xsd:string ;
     vivo:AcademicDepartment "Electrical and Computer Engineering (ECE)"^^xsd:string ;
     vivo:Program "Electrical Engineering"^^xsd:string ;
@@ -16054,7 +16059,7 @@ acaddata:GCS_379 a vivo:Course ;
         acad:Tutorial ;
     acad:courseNumber "215"^^xsd:int ;
     acad:courseSubject "MECH"^^xsd:string ;
-    DC:description """Laboratory: 1 hour per week
+    DC:description """Laboratory: 1 hour per week\r
 Using Arduino - a type of microcontroller board used for mechatronics and robotics"""^^xsd:string ;
     vivo:AcademicDepartment "Mechanical, Industrial and Aerospace Engineering (MIAE)"^^xsd:string ;
     vivo:Program "Mechanical Engineering"^^xsd:string ;
@@ -16114,7 +16119,7 @@ acaddata:GCS_383 a vivo:Course ;
         acad:Tutorial ;
     acad:courseNumber "351"^^xsd:int ;
     acad:courseSubject "MECH"^^xsd:string ;
-    DC:description """Laboratory: 2 hours per week, alternate weeks
+    DC:description """Laboratory: 2 hours per week, alternate weeks\r
 Micro Steam Car Competition: students design & build a car powered by a soda-can water boiler, a pin-sized nozzle and a turbine which drives the front wheels"""^^xsd:string ;
     vivo:AcademicDepartment "Mechanical, Industrial and Aerospace Engineering (MIAE)"^^xsd:string ;
     vivo:Program "Mechanical Engineering"^^xsd:string ;
@@ -17595,8 +17600,8 @@ acaddata:GCS_524 a vivo:Course ;
     foaf:name "Geotechnical & Systems Computations Laboratory"^^xsd:string .
 
 acaddata:GCS_525 a vivo:Course ;
-    DC:description """Traffic Operations, Control, Simulation
-Intelligent Transportation Systems
+    DC:description """Traffic Operations, Control, Simulation\r
+Intelligent Transportation Systems\r
 Artificial Intelligence Applications"""^^xsd:string ;
     vivo:AcademicDepartment "Building, Civil and Environmental Engineering (BCEE)"^^xsd:string ;
     vivo:Program "Civil Engineering"^^xsd:string ;
@@ -19131,7 +19136,7 @@ acaddata:JMSB_12 a vivo:Course ;
     foaf:name "Accounting"^^xsd:string .
 
 acaddata:JMSB_120 a vivo:Course ;
-    DC:description """The CN Centre for Studies in Sustainable Supply Chain Management provides an effective and mutually beneficial applied teaching and research platform where JMSB and CN will collaborate on designing, executing and bringing to fruition sustainable supply chain management based projects that have academic and business merit.
+    DC:description """The CN Centre for Studies in Sustainable Supply Chain Management provides an effective and mutually beneficial applied teaching and research platform where JMSB and CN will collaborate on designing, executing and bringing to fruition sustainable supply chain management based projects that have academic and business merit.\r
 """^^xsd:string ;
     vivo:AcademicDepartment "Supply Chain and Business Technology Management"^^xsd:string ;
     vivo:Program "Any program"^^xsd:string ;
