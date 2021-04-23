@@ -9,10 +9,6 @@ nlu:
   examples: |
     - ^(([A-Z][a-z]+(\s|,\s)?(and\s)?)+(\s\([a-zA-z]+\))?|[A-Z]+)$
 
-- regex: topic
-  examples: |
-    - [a-zA-Z]*\s[a-zA-Z]*
-
 - intent: about_course
   examples: |
     - What is course [COMP 474](course) about?
@@ -53,41 +49,49 @@ nlu:
     - Which topics are covered in the course [COMP 474](course) in the [LEC3](lecture)?
     - Which topics are covered in the course [COMP 474](course) in [LECTURE2](lecture)?
     - Which topics are covered in course [COMP 474](course) in [LECTURE2](lecture)?
+    - Which topics are covered in [COMP474](course) [LEC3](lecture)?
+    - Which topics are covered in [comp474](course) [LEC3](lecture)?
+    - Which topics are covered in [COMP474](course) [lec03](lecture)?
+    - Which topics are covered in [comp 474](course) [lecture 03](lecture)?
+    - Which topics are covered in course [COMP 474](course) in [LECTURE 2](lecture)?
+    - Which topics are covered in course [COMP 346](course) in [lecture 2](lecture)?
 
 - intent: about_course_uni_topic
   examples: |
-    - Which courses at [Concordia](university) teach [RDFS](topic)?
-    - Which courses at [Concordia](university) teach [threads](topic)
-    - Which courses at [Concordia](university) teach [main memory](topic)?
-    - Which courses at [Concordia](university) teach [Intelligent Systems](topic)?
-    - Which courses at [Concordia](university) teach [Operating Systems](topic)?
-    - Which course at [Concordia](university) teaches [RDFS](topic)?
-    - Which course at [Concordia](university) teaches [Intelligent Systems](topic)?
+    - Which courses at [Concordia](university) teach [Computer science](topic)?
+    - Which courses teach [Computer science](topic)?
+    - Which courses at [Concordia](university) teach [parsing](topic)
+    - Which courses at [Concordia](university) teach [Ontology](topic)?
+    - Which courses at [Concordia](university) teach [JSON](topic)?
+    - Which courses at [Concordia](university) teach [Machine learning](topic)?
+    - Which course at [Concordia](university) teaches [Virtual memory](topic)?
+    - Which course at [Concordia](university) teaches [Artificial Intelligence](topic)?
     - Which course at [Concordia](university) teaches [Operating systems](topic)
     - Which course teaches [Operating Systems](topic)
     - Which course teaches [Interrupt](topic) ?
-    - Which courses at [Concordia](university) teach [RDFS](topic)?
-    - What courses at [Concordia](university) teach [threads](topic)
-    - What courses at [Concordia](university) teach [main memory](topic)?
-    - What courses at [Concordia](university) teach [Intelligent Systems](topic)?
-    - What courses at [Concordia](university) teach [Operating Systems](topic)?
-    - What course at [Concordia](university) teaches [RDFS](topic)?
-    - What course at [Concordia](university) teaches [Intelligent Systems](topic)?
+    - Which courses at [Concordia](university) teach [DBpedia](topic)?
+    - What courses at [Concordia](university) teach about [compiler](topic)
+    - What courses at [Concordia](university) teach [Intelligent agent](topic)?
+    - What courses at [Concordia](university) teach [XML](topic)?
+    - What courses at [Concordia](university) teach [Operating System](topic)?
+    - What course at [Concordia](university) teaches [knowledge graph](topic)?
+    - What course at [Concordia](university) teaches [Database](topic)?
     - What course at [Concordia](university) teaches [Shared memory](topic)?
-    - What course at [Concordia](university) teaches [Operating Systems](topic)
+    - What course at [Concordia](university) teaches [Memory management](topic)
     - What course at [Concordia](university) teaches [Computer science](topic)
     - What course teaches [Operating Systems](topic)
     - What course teaches [RDF Schema](topic)
-    - What course teaches [Intelligent Systems](topic)
-    - What course teaches [OS Structure](topic)
-    - What course teaches [OS Structure](topic) ?
-    - Which courses cover [OS Structure](topic)?
+    - What course teaches [ELIZA](topic)
+    - What course teaches [Deadlock](topic)
+    - What course teaches [Direct memory access](topic) ?
+    - Which courses cover [google](topic)?
     - Which course covers [Paging](topic)?
-    - Which courses cover [RDFS](topic)?
+    - Which courses cover [linux](topic)?
     - Which courses cover [SPARQL](topic)?
     - Which courses cover [Montreal](topic)?
     - Which courses cover [Context switch](topic)?
-    - Which courses cover [Context Switch](topic)?
+    - Which courses cover [fuseki](topic)?
+    - Which courses cover [computer science](topic)?
 
 - intent: about_dep_offer_course
   examples: |

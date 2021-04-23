@@ -10,6 +10,8 @@
 import requests
 import json
 import re
+import inflect
+
 from rdflib import Graph, Literal, RDF, URIRef, Namespace, Dataset  # basic RDF handling
 
 from typing import Any, Text, Dict, List
@@ -33,12 +35,12 @@ class TopicsCourseLecture(Action):
 
         values = re.split(r'([^\d]*)(\d.*)', lecture, maxsplit=1)
 
-        print(values)
 
         lnumber = values[2]
 
-        print(course)
-        print(lnumber)
+        if len(lnumber) == 1:
+            lnumber = "0" + lnumber
+
 
         response = requests.post("http://localhost:3030/acad/sparql",
                                  data={'query': """
@@ -78,21 +80,19 @@ class TopicsCourseLecture(Action):
             topics_offered.append(topic)
 
         if not topics_offered:
-            # print(f"Lecture {lnumber} of the course {course} does not exist or does not cover any topic.")
             dispatcher.utter_message(text=f"Lecture {lnumber} of the course {course} does not exist or does not cover any topic.")
         else:
             answer = "Lecture " + lnumber + " of the course " + course + " covers the following topics:\n"
             for topic in topics_offered:
                 topic = topic.replace("_", " ")
                 answer = answer + "- " + topic + "\n"
-            # print(answer)
             dispatcher.utter_message(text=f"{answer}")
 
         return []
 
 
 # Q2) What is course [course] about?
-class ActionHelloWorld(Action):
+class CourseDescription(Action):
 
     def name(self) -> Text:
         return "action_course_info"
@@ -102,16 +102,10 @@ class ActionHelloWorld(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         course = tracker.slots['course'].replace(" ", "")
 
-        # print(course)
-
         values = re.split(r'([^\d]*)(\d.*)', course, maxsplit=1)
-        # print(values)
 
         csubject = values[1].upper()
         cnumber = values[2]
-
-        # print(csubject)
-        # print(cnumber)
 
         response = requests.post("http://localhost:3030/acad/sparql",
                                  data={'query': """
@@ -144,9 +138,8 @@ class ActionHelloWorld(Action):
         bindings = results["bindings"][0]
         description = bindings["cdescription"]
         vdescription = description["value"]
-        # print(vdescription)
 
-        dispatcher.utter_message(text=f"Description of course {course}: {vdescription}")
+        dispatcher.utter_message(text=f"Description of course {csubject} {cnumber}: {vdescription}")
 
         return []
 
@@ -158,7 +151,6 @@ class WhichCourseAtUniTeachTopic(Action):
         return "action_course_uni_topic"
 
     def response_request(self, topic):
-        # print(topic)
         response = requests.post("http://localhost:3030/acad/sparql",
                                  data={'query': """
                             PREFIX vivo: <http://vivoweb.org/ontology/core#> 
@@ -213,9 +205,16 @@ class WhichCourseAtUniTeachTopic(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        otopic = tracker.slots['topic'].replace(" ", "_")
+        p = inflect.engine()
 
-        # print(otopic)
+        t = tracker.slots['topic'].strip()
+
+        t_sing = p.singular_noun(t)
+
+        if t_sing is False:
+            t_sing = t
+
+        otopic = t_sing.replace(" ", "_")
 
         courses_offer_topic = self.response_request(otopic)
 
@@ -237,7 +236,6 @@ class WhichCourseAtUniTeachTopic(Action):
 
         if not courses_offer_topic:
             topic = topic.replace("_", " ")
-            # print(f"No courses at {uni} offer the topic {topic}.")
             dispatcher.utter_message(text=f"No courses at Concordia University cover the topic {topic}.")
         else:
             topic = otopic.replace("_", " ")
@@ -247,7 +245,6 @@ class WhichCourseAtUniTeachTopic(Action):
                 name = course['courseName']
                 count = course['topicCount']
                 answer = answer + "- " + code + " " + name + "\tFrequency of Topic: " + count + "\n"
-            # print(answer)
             dispatcher.utter_message(text=f"{answer}")
 
         return []
@@ -303,10 +300,7 @@ class WhichDepOffersCourse(Action):
 
         course = tracker.slots['course'].replace(" ", "")
 
-        # print(course)
-
         values = re.split(r'([^\d]*)(\d.*)', course, maxsplit=1)
-        # print(values)
 
         csubject = values[1].upper()
         cnumber = values[2]
@@ -314,13 +308,11 @@ class WhichDepOffersCourse(Action):
         departments = self.response_request(csubject, cnumber)
 
         if not departments:
-            # print(f"The course {course} is not offered in any departments.")
             dispatcher.utter_message(text=f"The course {course} is not offered in any departments.")
         else:
             answer = f"The course {course} is offered in the department:\n"
             for dep in departments:
                 answer = answer + "- " + dep + "\n"
-            # print(answer)
             dispatcher.utter_message(text=f"{answer}")
 
         return []
@@ -333,8 +325,6 @@ class ContentCourseLecture(Action):
         return "action_content_course_lecture"
 
     def response_request(self, course, lnumber):
-        # print(course)
-        # print(lnumber)
         response = requests.post("http://localhost:3030/acad/sparql",
                                  data={'query': """
                             PREFIX vivo: <http://vivoweb.org/ontology/core#> 
@@ -381,16 +371,17 @@ class ContentCourseLecture(Action):
 
         lnumber = values[2]
 
+        if len(lnumber) == 1:
+            lnumber = "0" + lnumber
+
         content = self.response_request(course, lnumber)
 
         if not content:
-            # print(f"The course {course} lecture{lnumber} does not have any content.")
-            dispatcher.utter_message(text=f"The course {course} lecture{lnumber} does not have any content.")
+            dispatcher.utter_message(text=f"The course {course} lecture {lnumber} does not have any content.")
         else:
             answer = f"The course {course} lecture {lnumber} consists of the following content:\n"
             for con in content:
                 answer = answer + "- " + con + "\n"
-            # print(answer)
             dispatcher.utter_message(text=f"{answer}")
 
         return []
