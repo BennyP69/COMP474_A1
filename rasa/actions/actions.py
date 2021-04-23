@@ -135,11 +135,17 @@ class CourseDescription(Action):
 
         # the result is a Python dictionary:
         results = y["results"]
-        bindings = results["bindings"][0]
-        description = bindings["cdescription"]
-        vdescription = description["value"]
 
-        dispatcher.utter_message(text=f"Description of course {csubject} {cnumber}: {vdescription}")
+        print(results)
+        print(results["bindings"])
+
+        if not results or not results["bindings"]:
+            dispatcher.utter_message(text="Course is not found or does not have a description.")
+        else:
+            bindings = results["bindings"][0]
+            description = bindings["cdescription"]
+            vdescription = description["value"]
+            dispatcher.utter_message(text=f"Description of course {csubject} {cnumber}: {vdescription}")
 
         return []
 
