@@ -216,11 +216,11 @@ nlu:
 
 - intent: about_topics_covered
   examples: |
-    - How many topics are covered in [lab 2](courseEvent) of [COMP 474](course)?
-    - How many topics are covered in [tut #10](courseEvent) of [COMP 346](course) ?
-    - How many topics are covered in [lec #12](courseEvent) of [COMP 474](course)
-    - How many topics are covered in [lecture 2](courseEvent) of [COMP 474](course)?
-    - How many topics are covered in [tutorial 5](courseEvent) of [COMP 474](course)?
+    - Which topics are covered in [lab 2](courseEvent) of [COMP 474](course)?
+    - Which topics are covered in [tut #10](courseEvent) of [COMP 346](course) ?
+    - Which topics are covered in [lec #12](courseEvent) of [COMP 474](course)
+    - Which topics are covered in [lecture 2](courseEvent) of [COMP 474](course)?
+    - Which topics are covered in [tutorial 5](courseEvent) of [COMP 474](course)?
 
 - intent: greet
   examples: |
