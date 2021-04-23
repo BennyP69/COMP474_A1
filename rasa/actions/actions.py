@@ -33,10 +33,12 @@ class TopicsCourseLecture(Action):
 
         values = re.split(r'([^\d]*)(\d.*)', lecture, maxsplit=1)
 
+        print(values)
+
         lnumber = values[2]
 
-        # print(course)
-        # print(lecture)
+        print(course)
+        print(lnumber)
 
         response = requests.post("http://localhost:3030/acad/sparql",
                                  data={'query': """
@@ -51,12 +53,14 @@ class TopicsCourseLecture(Action):
                     
                     SELECT ?courseName ?topicLabel
                     WHERE{
-                    ?course acad:courseHas acaddata:%s-%s.
+                    ?course acad:courseHas acaddata:%s-LEC-%s.
                     ?course foaf:name ?courseName.
-                    acaddata:%s-%s acad:coversTopic ?topic.
+                    acaddata:%s-LEC-%s a acad:Lecture.
+                    acaddata:%s-LEC-%s acad:hasContent ?content.
+                    ?content acad:coversTopic ?topic.
                     ?topic rdfs:label ?topicLabel.
                     }
-                    """ % (course, lecture, course, lecture)
+                    """ % (course, lnumber, course, lnumber, course, lnumber)
                                        })
 
         # # Use the json module to load CKAN's response into a dictionary.
@@ -79,6 +83,7 @@ class TopicsCourseLecture(Action):
         else:
             answer = "Lecture " + lnumber + " of the course " + course + " covers the following topics:\n"
             for topic in topics_offered:
+                topic = topic.replace("_", " ")
                 answer = answer + "- " + topic + "\n"
             # print(answer)
             dispatcher.utter_message(text=f"{answer}")
@@ -152,7 +157,52 @@ class WhichCourseAtUniTeachTopic(Action):
     def name(self) -> Text:
         return "action_course_uni_topic"
 
-    def response_request(self, uni, topic):
+    # def response_request2(self, topic):
+    #     response = requests.post("http://localhost:3030/acad/sparql",
+    #                              data={'query': """
+    #                                 PREFIX vivo: <http://vivoweb.org/ontology/core#>
+    #                                 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    #                                 PREFIX DC: <http://purl.org/dc/terms/>
+    #                                 PREFIX acad: <http://acad.io/schema#>
+    #                                 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+    #                                 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    #                                 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+    #                                 PREFIX acaddata: <http://acad.io/data#>
+    #
+    #                     SELECT  ?c1 ?cname
+    #                     WHERE{
+    #                     ?course a vivo:Course.
+    #                     ?course foaf:name ?cname.
+    #                     ?course acad:courseSubject ?csubject.
+    #                     ?course acad:courseNumber ?cnumber.
+    #                     ?course acad:coversTopic acaddata:%s.
+    #                     BIND(CONCAT(?csubject, " ", STR(?cnumber)) AS ?c1)
+    #                     }
+    #                     """ % topic
+    #                                    })
+    #     # Use the json module to load CKAN's response into a dictionary.
+    #
+    #     y = json.loads(response.text)
+    #
+    #     # the result is a Python dictionary:
+    #     results = y["results"]
+    #
+    #     courses = []
+    #
+    #     for result in results["bindings"]:
+    #         courseCode = result["c1"]
+    #         courseName = result["cname"]
+    #         # topicCount = result["topicCount"]
+    #         code = courseCode["value"]
+    #         name = courseName["value"]
+    #         count = "X"
+    #         course = {"courseCode": code, "courseName": name, "topicCount": count}
+    #         courses.append(course)
+    #
+    #     return courses
+
+    def response_request(self, topic):
+        # print(topic)
         response = requests.post("http://localhost:3030/acad/sparql",
                                  data={'query': """
                             PREFIX vivo: <http://vivoweb.org/ontology/core#> 
@@ -164,13 +214,21 @@ class WhichCourseAtUniTeachTopic(Action):
                             PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
                             PREFIX acaddata: <http://acad.io/data#>
 
-                            SELECT ?courseName
-                            WHERE{
-                            acaddata:%s acad:offers ?course.
-                            ?course foaf:name ?courseName.
-                            ?course acad:coversTopic acaddata:%s.
-                            }
-                            """ % (uni, topic)
+                            SELECT  ?c1 ?cname (COUNT( ?content) AS ?topicCount)
+                            WHERE {
+                                ?course a vivo:Course.
+                                ?course foaf:name ?cname.
+                                ?course acad:courseSubject ?csubject.
+                                ?course acad:courseNumber ?cnumber.
+                                ?course acad:courseHas ?component.
+                                ?component acad:hasContent ?content.
+                                ?content acad:coversTopic acaddata:%s.
+
+                                BIND(CONCAT(?csubject, " ", STR(?cnumber)) AS ?c1)
+                            } 
+                            GROUP BY ?cname ?c1
+                            ORDER BY DESC(?topicCount)
+                            """ % topic
                                        })
         # Use the json module to load CKAN's response into a dictionary.
 
@@ -179,52 +237,72 @@ class WhichCourseAtUniTeachTopic(Action):
         # the result is a Python dictionary:
         results = y["results"]
 
-        courses_offer_topic = []
+        # print(results)
+
+        courses = []
 
         for result in results["bindings"]:
-            courseName = result["courseName"]
-            course = courseName["value"]
-            courses_offer_topic.append(course)
+            courseCode = result["c1"]
+            courseName = result["cname"]
+            topicCount = result["topicCount"]
+            code = courseCode["value"]
+            name = courseName["value"]
+            count = topicCount["value"]
+            course = {"courseCode": code, "courseName": name, "topicCount": count}
+            courses.append(course)
 
-        return courses_offer_topic
+        return courses
 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        uni = tracker.slots['university'].capitalize()
+        otopic = tracker.slots['topic'].replace(" ", "_")
 
-        if uni == "Concordia":
-            uni = f"{uni}_University"
+        # print(otopic)
 
-        if uni == "":
-            uni = "Concordia"
-
-        topic = tracker.slots['topic'].title().replace(" ", "_")
-
-        # print(topic)
-
-        courses_offer_topic = self.response_request(uni, topic)
+        courses_offer_topic = self.response_request(otopic)
 
         if not courses_offer_topic:
-            topic = topic.upper()
-            courses_offer_topic = self.response_request(uni, topic)
+            topic = otopic[0].upper() + otopic[1:]
+            courses_offer_topic = self.response_request(topic)
 
         if not courses_offer_topic:
-            topic = topic.lower()
-            courses_offer_topic = self.response_request(uni, topic)
+            topic = otopic.title()
+            courses_offer_topic = self.response_request(topic)
 
         if not courses_offer_topic:
-            uni = uni.replace("_", " ")
+            topic = otopic.upper()
+            courses_offer_topic = self.response_request(topic)
+
+        if not courses_offer_topic:
+            topic = otopic.lower()
+            courses_offer_topic = self.response_request(topic)
+
+        # if not courses_offer_topic:
+        #     courses_offer_topic = self.response_request2(otopic)
+        #     if not courses_offer_topic:
+        #         topic = otopic.title()
+        #         courses_offer_topic = self.response_request2(topic)
+        #     if not courses_offer_topic:
+        #         topic = otopic.upper()
+        #         courses_offer_topic = self.response_request2(topic)
+        #     if not courses_offer_topic:
+        #         topic = otopic.lower()
+        #         courses_offer_topic = self.response_request2(topic)
+
+        if not courses_offer_topic:
             topic = topic.replace("_", " ")
             # print(f"No courses at {uni} offer the topic {topic}.")
-            dispatcher.utter_message(text=f"No courses at {uni} offer the topic {topic}.")
+            dispatcher.utter_message(text=f"No courses at Concordia University cover the topic {topic}.")
         else:
-            uni = uni.replace("_", " ")
-            topic = topic.replace("_", " ")
-            answer = f"The following courses at {uni} offer the topic {topic}:\n"
+            topic = otopic.replace("_", " ")
+            answer = f"The following courses at Concordia University cover the topic {topic}:\n"
             for course in courses_offer_topic:
-                answer = answer + "- " + course + "\n"
+                code = course['courseCode']
+                name = course['courseName']
+                count = course['topicCount']
+                answer = answer + "- " + code + " " + name + "\tFrequency of Topic: " + count + "\n"
             # print(answer)
             dispatcher.utter_message(text=f"{answer}")
 
@@ -326,7 +404,7 @@ class ContentCourseLecture(Action):
 
                             SELECT ?typeLabel
                             WHERE{
-                            acaddata:%s-LEC%s acad:hasContent ?content.
+                            acaddata:%s-LEC-%s acad:hasContent ?content.
                             ?content a ?type.
                             ?type rdfs:label ?typeLabel.
                             }
