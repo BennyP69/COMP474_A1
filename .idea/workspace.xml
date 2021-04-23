@@ -36,7 +36,6 @@
     <list default="true" id="5cd33d1d-bf75-4bf5-bea5-8218e6fa84bc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rasa/actions/actions.py" beforeDir="false" afterPath="$PROJECT_DIR$/rasa/actions/actions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rasa/data/nlu.yml" beforeDir="false" afterPath="$PROJECT_DIR$/rasa/data/nlu.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,10 +177,10 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Python.contentExtractor" />
       <item itemvalue="Python.courseGen" />
       <item itemvalue="Python.csvHandlerTEMP" />
       <item itemvalue="Python.queries" />
-      <item itemvalue="Python.contentExtractor" />
     </list>
     <recent_temporary>
       <list>

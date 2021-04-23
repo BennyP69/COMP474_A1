@@ -515,15 +515,15 @@ class ActionDepartmentCourses(Action):
 
         # print("\n\n--------------------\n" + department + "\n--------------------\n\n")
 
-        if department.lower() == "CSSE" or department.lower() == "computer science and software engineering" or \
+        if department.lower() == "csse" or department.lower() == "computer science and software engineering" or \
                 department.lower() == "computer science" or department.lower() == "software engineering":
             department = "Computer Science and Software Engineering (CSSE)"
-        elif department.lower() == "BCCE" or \
+        elif department.lower() == "bcce" or \
                 department.lower() == "building, civil and environmental engineering" or \
                 department.lower() == "building engineering" or department.lower() == "civil engineering" or \
                 department.lower() == "environmental engineering":
             department = "Building, Civil and Environmental Engineering (BCEE)"
-        elif department.lower() == "ECE" or department.lower() == "electrical engineering" \
+        elif department.lower() == "ece" or department.lower() == "electrical engineering" \
                 or department.lower() == "computer engineering":
             department = "Electrical and Computer Engineering (ECE)"
 
