@@ -5,10 +5,6 @@ nlu:
   examples: |
     - ^[a-zA-Z]{4}\s*\d{3,4}$
 
-- regex: department
-  examples: |
-    - ^(([A-Z][a-z]+(\s|,\s)?(and\s)?)+(\s\([a-zA-z]+\))?|[A-Z]+)$
-
 - intent: about_course
   examples: |
     - What is course [COMP 474](course) about?
@@ -139,24 +135,24 @@ nlu:
     - What courses does the [Computer Science and Software Engineering](department) department offer?
     - What courses does the [Software Engineering](department) department offer?
     - What courses does the [Computer Science](department) department offer?
-    - What courses does the [computer science](department) department offer?
+    - What courses does [computer science](department) department offer?
     - What courses does the [Software Engineering](department) department offer?
     - What courses does the [Applied Human Sciences](department) department offer?
     - What courses does the [Art History](department) department offer
-    - What courses does the [BCEE](department) department offer ?
-    - What courses does the [Chemistry and Biochemistry](department) department offer?
+    - What courses does [BCEE](department) department offer ?
+    - What courses does [Chemistry and Biochemistry](department) department offer?
     - What courses does the [Communication Studies](department) department offer?
     - What courses does the [Design and Computation Arts](department) department offer?
     - What courses does the [ECE](department) department offer ?
     - What courses does the [English](department) department offer?
-    - What courses does the [Finance](department) department offer?
-    - What courses does the [Geography, Planning and Environment](department) department offer?
-    - What courses does the [Health, Kinesiology and Applied Physiology](department) department offer?
+    - What courses does [Finance](department) department offer?
+    - What courses does [Geography, Planning and Environment](department) department offer?
+    - What courses does [Health, Kinesiology and Applied Physiology](department) department offer?
     - What courses does the [Journalism](department) department offer?
     - What courses does the [Loyola College for Diversity and Sustainability](department) department offer?
     - What courses does the [Mathematics and Statistics](department) department offer?
     - What courses does the [Physics](department) department offer?
-    - What courses does the [Religions and Cultures](department) department offer?
+    - What courses does [Religions and Cultures](department) department offer?
     - What courses does the [Simone de Beauvoir Institute](department) department offer?
     - What courses does the [Theological Studies](department) department offer?
     - What courses does [Marketing](department) offer
@@ -171,6 +167,15 @@ nlu:
     - What courses does [Management](department) have?
     - What courses does [ECE](department) have
     - What courses does [History](department) have
+    - What courses does [Mathematics and Statistics](department) have?
+    - What courses does [Marketing](department) have
+    - What courses does [Classics, Modern Languages and Linguistics](department) have
+    - What courses does [Physics](department) have?
+    - What courses does [Health, Kinesiology and Applied Physiology](department) have
+    - What courses does [Geography, Planning and Environment](department) have
+    - What courses does [Theological Studies](department) have?
+    - What courses does [Chemistry and Biochemistry](department) have
+    - What courses does [English](department) have
 
 - intent: about_number_of_uni_courses
   examples: |

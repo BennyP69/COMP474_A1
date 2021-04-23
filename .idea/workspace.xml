@@ -35,7 +35,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5cd33d1d-bf75-4bf5-bea5-8218e6fa84bc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rasa/actions/actions.py" beforeDir="false" afterPath="$PROJECT_DIR$/rasa/actions/actions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rasa/data/nlu.yml" beforeDir="false" afterPath="$PROJECT_DIR$/rasa/data/nlu.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,6 +211,7 @@
       <workItem from="1619106628984" duration="3384000" />
       <workItem from="1619187827539" duration="6336000" />
       <workItem from="1619211012547" duration="1472000" />
+      <workItem from="1619221058574" duration="688000" />
     </task>
     <task id="LOCAL-00001" summary="Converting courses data from csv file to rdf triples and adding them to graph g.">
       <created>1615940778713</created>
