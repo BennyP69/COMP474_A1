@@ -92,8 +92,42 @@ nlu:
 - intent: about_dep_offer_course
   examples: |
     - Which department offers the course [COMP 474](course)?
+    - Which department offers the course [MAST 333](course)?
     - Which dep offers the course [COMP 474](course)?
+    - Which dep offers the course [mast 333](course)?
+    - Which dep offers course [mast 333](course)?
     - What department offers the course [COMP 474](course)?
+    - What department offers [ENCS 393](course) course?
+    - What department offers [GDBA 532](course)?
+    - What department offers [ACCO 420](course) ?
+    - What department offers [BIOL 201](course) ?
+    - What department offers [JOUR 535](course) course?
+    - What department offers [COMS 684](course) course?
+    - What department offers [DRAW 200](course) course ?
+    - What department offers [PERC 209](course) course?
+    - What department offers [ECON 423](course)?
+    - What department offers [FRAA 409](course)?
+    - What department offers [GEOG 301](course) ?
+    - What department offers [HIST 380](course)?
+    - What department offers [BLDG 492](course)?
+    - What department offers [LOYC 420](course)?
+    - What department offers [MAST 232](course)?
+    - What department offers [PHYS 224](course)
+    - What department offers [RELI 410](course)
+    - What department offers [SCPA 301](course)
+    - What department offers [THEO 234](course)
+    - What department offers [URBS 491](course)
+    - What department offers [WSDB 292](course)
+    - what department offers [COMP 474](course)
+    - What department offers [ENCS 474](course)
+    - What department offers [FINA 471](course)
+    - What department offers [MAST 333](course)
+    - What department offers [MECH 361](course)
+    - What department offers [ENGR 208](course)
+    - What department offers [INST 232](course)
+    - Who offers [COMP 248](course) course
+    - Who offers the course [COMP 474](course)?
+    - Who offers course [MAST 474](course)?
 
 - intent: about_content_course_lecture
   examples: |

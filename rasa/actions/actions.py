@@ -136,9 +136,6 @@ class CourseDescription(Action):
         # the result is a Python dictionary:
         results = y["results"]
 
-        print(results)
-        print(results["bindings"])
-
         if not results or not results["bindings"]:
             dispatcher.utter_message(text="Course is not found or does not have a description.")
         else:
@@ -190,8 +187,6 @@ class WhichCourseAtUniTeachTopic(Action):
 
         # the result is a Python dictionary:
         results = y["results"]
-
-        # print(results)
 
         courses = []
 
@@ -466,7 +461,7 @@ class ActionCourseLabs(Action):
         cnumber = values[2]
 
         if csubject != "COMP" or (cnumber != "346" and cnumber != "474"):
-            print("Sorry, we currently only support finding whether or not COMP 474 or COMP 346 have labs.")
+            dispatcher.utter_message(text="Sorry, we currently only support finding whether or not COMP 474 or COMP 346 have labs.")
             return
 
         response = requests.post("http://localhost:3030/acad/sparql",
@@ -513,8 +508,6 @@ class ActionDepartmentCourses(Action):
 
         department = tracker.slots['department'].strip()
 
-        # print("\n\n--------------------\n" + department + "\n--------------------\n\n")
-
         if department.lower() == "csse" or department.lower() == "computer science and software engineering" or \
                 department.lower() == "computer science" or department.lower() == "software engineering":
             department = "Computer Science and Software Engineering (CSSE)"
@@ -526,8 +519,6 @@ class ActionDepartmentCourses(Action):
         elif department.lower() == "ece" or department.lower() == "electrical engineering" \
                 or department.lower() == "computer engineering":
             department = "Electrical and Computer Engineering (ECE)"
-
-        # print("\n\n--------------------\n" + department + "\n--------------------\n\n")
 
         response = requests.post("http://localhost:3030/acad/sparql",
                                  data={'query': """
@@ -762,8 +753,6 @@ class ActionTopicsCovered(Action):
             dispatcher.utter_message(text=f"Sorry, {csubject} {cnumber} does not have a {courseEvent}")
             return
 
-        # print(query)
-
         response = requests.post("http://localhost:3030/acad/sparql",
                                  data={'query': query})
 
@@ -771,8 +760,6 @@ class ActionTopicsCovered(Action):
 
         results = y["results"]
         bindings = results["bindings"]
-
-        # print(bindings)
 
         if not bindings:
             dispatcher.utter_message(text=f"Sorry, {csubject} {cnumber} doesn't have a {courseEvent}\n")
